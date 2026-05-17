@@ -692,17 +692,38 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="nav">
-        <a href="index.html" class="nav-logo">MARIELLE <span>BOUSS</span></a>
-        <div class="nav-links">
-            <a href="index.html#services">Formules</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="apropos.html" class="active">À propos</a>
-            <a href="index.html#process">Comment ça marche</a>
-            <a href="index.html#contact">Contact</a>
+     <nav class="nav">
+            <div class="nav-logo">MARIELLE <span>BOUSS</span></div>
+            <div class="nav-links" id="navLinks">
+                <a href="#services">Formules</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="apropos.html">À propos</a>
+                <a href="#process">Comment ça marche</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="nav-hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="#contact" class="nav-cta">Démarrer un projet</a>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobileMenu">
+            <button class="mobile-menu-close" id="closeMenuBtn" aria-label="Fermer">
+                <span></span>
+                <span></span>
+            </button>
+            <div class="mobile-menu-links">
+                <a href="#services" class="mobile-link">Formules</a>
+                <a href="portfolio.html" class="mobile-link">Portfolio</a>
+                <a href="apropos.html" class="mobile-link">À propos</a>
+                <a href="#process" class="mobile-link">Comment ça marche</a>
+                <a href="#contact" class="mobile-link">Contact</a>
+                <a href="#contact" class="mobile-menu-cta">Démarrer un projet</a>
+            </div>
         </div>
-        <a href="index.html#contact" class="nav-cta">Démarrer un projet</a>
-    </nav>
 
     <!-- HERO : UNIQUEMENT LA PHOTO AU CENTRE -->
     <section class="hero-apropos">
