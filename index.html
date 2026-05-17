@@ -112,7 +112,7 @@
         .nav-cta:hover {
             background: var(--blue-dark);
         }
-        .nav-hamburger {
+       .nav-hamburger {
     display: none;
     flex-direction: column;
     gap: 5px;
@@ -131,7 +131,6 @@
     transition: all 0.3s;
 }
 
-/* Croix quand ouvert */
 .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; }
 .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -141,10 +140,14 @@
         display: flex;
     }
 
+    .nav-cta {
+        display: none;
+    }
+
     .nav-links {
         display: none;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 60px;
         left: 0;
         right: 0;
         background: rgba(250,247,242,0.98);
@@ -153,21 +156,11 @@
         padding: 1.5rem;
         gap: 1.2rem;
         border-bottom: 1px solid var(--border-warm);
-        z-index: 100;
+        z-index: 999;
     }
 
-@media (max-width: 768px) {
     .nav-links.open {
         display: flex;
-        position: fixed;
-        top: 60px;
-        left: 0;
-        right: 0;
-    }
-}
-
-    .nav-cta {
-        display: none;
     }
 }
         
