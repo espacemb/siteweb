@@ -494,7 +494,7 @@
         }
 
         /* Mobile menu overlay */
-        .-overlay {
+        .mobile-menu-overlay {
             position: fixed;
             top: 0;
             right: 0;
@@ -513,13 +513,13 @@
             transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
         }
 
-        .-overlay.open {
+        .mobile-menu-overlay.open {
             transform: translateX(0);
             opacity: 1;
             visibility: visible;
         }
 
-        .-close {
+        .mobile-menu-close {
             position: absolute;
             top: 1.5rem;
             right: 1.5rem;
@@ -534,7 +534,7 @@
             z-index: 2001;
         }
 
-        .-close span {
+        .mobile-menu-close span {
             position: relative;
             width: 24px;
             height: 2px;
@@ -542,11 +542,11 @@
             display: block;
         }
 
-        .-close span:first-child {
+        .mobile-menu-close span:first-child {
             transform: rotate(45deg);
         }
 
-        .-close span:last-child {
+        .mobile-menu-close span:last-child {
             transform: rotate(-45deg);
             position: absolute;
         }
@@ -556,7 +556,7 @@
             flex-direction: column;
             gap: 1.2rem;
             text-align: right;
-            padding: 1rem;
+            padding: 2rem;
         }
 
         .mobile-menu-links a {
@@ -655,7 +655,6 @@
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenu">
         <button class="mobile-menu-close" id="closeMenuBtn" aria-label="Fermer">
-            <span></span>
             <span></span>
         </button>
         <div class="mobile-menu-links">
