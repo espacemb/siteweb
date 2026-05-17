@@ -494,7 +494,7 @@
         }
 
         /* Mobile menu overlay */
-        .mobile-menu-overlay {
+        .-overlay {
             position: fixed;
             top: 0;
             right: 0;
@@ -513,13 +513,13 @@
             transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
         }
 
-        .mobile-menu-overlay.open {
+        .-overlay.open {
             transform: translateX(0);
             opacity: 1;
             visibility: visible;
         }
 
-        .mobile-menu-close {
+        .-close {
             position: absolute;
             top: 1.5rem;
             right: 1.5rem;
@@ -534,7 +534,7 @@
             z-index: 2001;
         }
 
-        .mobile-menu-close span {
+        .-close span {
             position: relative;
             width: 24px;
             height: 2px;
@@ -542,11 +542,11 @@
             display: block;
         }
 
-        .mobile-menu-close span:first-child {
+        .-close span:first-child {
             transform: rotate(45deg);
         }
 
-        .mobile-menu-close span:last-child {
+        .-close span:last-child {
             transform: rotate(-45deg);
             position: absolute;
         }
@@ -556,7 +556,7 @@
             flex-direction: column;
             gap: 1.2rem;
             text-align: right;
-            padding: 2rem;
+            padding: 0.5rem 2rem 2rem;
         }
 
         .mobile-menu-links a {
