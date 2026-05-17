@@ -478,29 +478,29 @@
         }
         
         /* Portfolio */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .portfolio-item {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--border-warm);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .portfolio-preview {
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.portfolio-item {
+    background: var(--white);
+    border-radius: 20px;
+    border: 1px solid var(--border-warm);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.portfolio-preview {
     height: 200px;
     overflow: hidden;
+    border-radius: 20px 20px 0 0;
     background: none;
 }
 
@@ -519,40 +519,38 @@
 .portfolio-item:hover .portfolio-preview img {
     transform: translateY(calc(-100% + 200px));
 }
-        
-    
-        
-        .portfolio-info {
-            padding: 1.5rem;
-        }
-        
-        .portfolio-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--ink);
-        }
-        
-        .portfolio-info p {
-            font-size: 0.8rem;
-            color: var(--muted);
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-        
-        .portfolio-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .portfolio-tag {
-            background: var(--cream2);
-            padding: 0.2rem 0.7rem;
-            border-radius: 99px;
-            font-size: 0.7rem;
-            color: var(--blue-dark);
-        }
+
+.portfolio-info {
+    padding: 1.5rem;
+}
+
+.portfolio-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+}
+
+.portfolio-info p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.portfolio-tag {
+    background: var(--cream2);
+    padding: 0.2rem 0.7rem;
+    border-radius: 99px;
+    font-size: 0.7rem;
+    color: var(--blue-dark);
+}
         
         /* Compare */
         .compare {
