@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions légales — Marielle Bouss</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --blue: #2E86C1;
+            --cream: #FAF7F2;
+            --sand: #C9A97A;
+            --ink: #1E2A32;
+            --muted: #5A6A72;
+            --soft: #96AEBB;
+            --border-warm: rgba(180,155,115,0.2);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-warm);
+            background: rgba(250,247,242,0.97);
+            backdrop-filter: blur(10px);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-logo { font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 1px; color: var(--ink); text-decoration: none; }
+        .nav-logo span { color: var(--blue); }
+        .nav-back { font-size: 0.85rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+        .nav-back:hover { color: var(--blue); }
+        .nav-back::before { content: '←'; }
+
+        .page-wrap {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 6rem;
+        }
+
+        .page-header {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-warm);
+        }
+
+        .page-tag {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--sand);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.15;
+        }
+
+        .intro {
+            font-size: 0.93rem;
+            color: var(--muted);
+            line-height: 1.85;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+        }
+
+        .section { margin-bottom: 2rem; }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.55rem;
+        }
+
+        .section p {
+            font-size: 0.93rem;
+            color: var(--muted);
+            line-height: 1.85;
+            font-weight: 300;
+        }
+
+        .section p + p { margin-top: 0.65rem; }
+        .section a { color: var(--blue); text-decoration: none; }
+        .section a:hover { text-decoration: underline; }
+
+        .footer {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            border-top: 1px solid var(--border-warm);
+        }
+
+        .footer-logo { font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 1px; color: var(--ink); margin-bottom: 0.5rem; }
+        .footer-logo span { color: var(--blue); }
+        .footer-links { display: flex; justify-content: center; gap: 0.6rem; align-items: center; font-size: 0.8rem; margin-bottom: 0.4rem; }
+        .footer-links a { color: var(--soft); text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--blue); }
+        .footer-copy { font-size: 0.78rem; color: var(--soft); }
+
+        @media (max-width: 600px) { .page-wrap { padding: 2.5rem 1.2rem 4rem; } }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">MARIELLE <span>BOUSS</span></a>
+        <a href="index.html" class="nav-back">Retour au site</a>
+    </nav>
+
+    <main class="page-wrap">
+
+        <header class="page-header">
+            <span class="page-tag">Informations légales</span>
+            <h1 class="page-title">Mentions légales</h1>
+        </header>
+
+        <p class="intro">En application de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site web l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi.</p>
+
+        <div class="section">
+            <h2>Éditeur du site</h2>
+            <p>
+                Nom et prénom : Marielle Boussalmi<br>
+                Statut : Auto-entrepreneuse (micro-entreprise)<br>
+                Numéro SIRET : 879 631 737 00019<br>
+                E-mail : <a href="mailto:marielle.bouss@outlook.fr">marielle.bouss@outlook.fr</a><br>
+                Site web : <a href="https://www.mariellebouss.fr" target="_blank">www.mariellebouss.fr</a>
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Directrice de la publication</h2>
+            <p>Marielle Boussalmi — <a href="mailto:marielle.bouss@outlook.fr">marielle.bouss@outlook.fr</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Hébergement</h2>
+            <p>
+                Hébergeur : Vercel Inc<br>
+                Adresse : San Francisco, États-Unis
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Propriété intellectuelle</h2>
+            <p>L'ensemble du contenu de ce site (textes, images, graphismes, logo, icônes, sons, logiciels…) est la propriété exclusive de Marielle Boussalmi, à l'exception des marques, logos ou contenus appartenant à d'autres sociétés partenaires ou auteurs.</p>
+            <p>Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de Marielle Bouss.</p>
+        </div>
+
+        <div class="section">
+            <h2>Limitation de responsabilité</h2>
+            <p>Marielle Boussalmi ne pourra être tenue responsable des dommages directs et indirects causés au matériel de l'utilisateur, lors de l'accès au site, et résultant soit de l'utilisation d'un matériel ne répondant pas aux spécifications indiquées, soit de l'apparition d'un bug ou d'une incompatibilité.</p>
+            <p>Des espaces interactifs (espace contact) sont à la disposition des utilisateurs. Marielle Boussalmi se réserve le droit de supprimer, sans mise en demeure préalable, tout contenu déposé dans cet espace qui contreviendrait à la législation applicable en France.</p>
+        </div>
+
+        <div class="section">
+            <h2>Droit applicable et juridiction</h2>
+            <p>Tout litige en relation avec l'utilisation du site est soumis au droit français. Il est fait attribution exclusive de juridiction aux tribunaux compétents.</p>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-logo">MARIELLE <span>BOUSS</span></div>
+        <div class="footer-links">
+            <a href="mentions-legales.html">Mentions légales</a>
+            <span style="color:var(--soft);">·</span>
+            <a href="politique-confidentialite.html">Politique de confidentialité</a>
+        </div>
+        <div class="footer-copy">© 2026 · Création de sites vitrine bien-être</div>
+    </footer>
+
+</body>
+</html>
