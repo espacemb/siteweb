@@ -15,14 +15,74 @@
             --border-warm: rgba(180,155,115,0.2);
         }
         body { font-family: "Poppins", sans-serif; background: var(--cream); color: var(--ink); line-height: 1.6; }
-        .nav { display:flex; justify-content:space-between; align-items:center; padding:1rem 1.5rem; border-bottom:1px solid var(--border-warm); background:rgba(250,247,242,0.97); backdrop-filter:blur(10px); position:sticky; top:0; z-index:100; }
-        .nav-logo { font-family:"Poppins",sans-serif; font-size:1.2rem; font-weight:700; letter-spacing:1px; color:var(--ink); text-decoration:none; }
-        .nav-logo span { color:var(--blue); }
-        .nav-links { display:flex; gap:2rem; font-size:0.9rem; }
-        .nav-links a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
-        .nav-links a:hover { color:var(--blue); }
-        .nav-cta { background:var(--blue); color:#fff; font-size:0.85rem; font-weight:500; padding:0.5rem 1.25rem; border-radius:99px; text-decoration:none; transition:background 0.2s; }
-        .nav-cta:hover { background:var(--blue-dark); }
+                /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-warm);
+            background: rgba(250,247,242,0.97);
+            backdrop-filter: blur(10px);
+            max-width: 1400px;
+            margin: 0 auto;
+            position: sticky;
+        }
+        
+        .nav-logo {
+            font-family: 'Poppins', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--ink);
+            text-decoration: none;
+        }
+        
+        .nav-logo span {
+            color: var(--blue);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-weight: 400;
+        }
+        
+        .nav-links a {
+            cursor: pointer;
+            transition: color 0.2s;
+            text-decoration: none;
+            color: var(--muted);
+        }
+
+        .nav-links a.active {
+            color: var(--blue);
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+        
+        .nav-cta {
+            background: var(--blue);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.5rem 1.25rem;
+            border-radius: 99px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+        }
+        
+        .nav-cta:hover {
+            background: var(--blue-dark);
+        }
 
         .hero { padding:4rem 1.5rem 3rem; text-align:center; }
         .back-link { display:inline-flex; align-items:center; gap:6px; font-size:0.82rem; color:var(--muted); text-decoration:none; margin-bottom:2rem; transition:color 0.2s; }
@@ -116,7 +176,7 @@
         .card-meta { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; gap:0.5rem; flex-wrap:wrap; }
         .card-name { font-family:"Playfair Display",serif; font-size:1.15rem; font-weight:700; color:var(--ink); }
         .card-formule { font-size:0.68rem; font-weight:600; color:var(--blue); background:var(--blue-pale); padding:0.2rem 0.65rem; border-radius:99px; text-transform:uppercase; letter-spacing:0.06em; white-space:nowrap; }
-        .card-desc { font-size:0.82rem; color:var(--muted); line-height:1.65; font-weight:300; margin-bottom:1rem; }
+        .card-desc { font-size:0.95rem; color:var(--muted); line-height:1.65; font-weight:300; margin-bottom:1rem; }
         .card-tags { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem; }
         .card-tag { background:var(--cream2); padding:0.2rem 0.65rem; border-radius:99px; font-size:0.68rem; color:var(--muted); }
         .card-btn { display:inline-flex; align-items:center; gap:6px; font-family:"Poppins",sans-serif; font-size:0.78rem; font-weight:500; color:var(--blue); background:none; border:none; cursor:pointer; padding:0; transition:gap 0.2s; }
@@ -168,34 +228,27 @@
     </style>
 </head>
 <body>
+        <!-- Navigation -->
     <nav class="nav">
         <a href="index.html" class="nav-logo">MARIELLE <span>BOUSS</span></a>
         <div class="nav-links">
             <a href="index.html#services">Services</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="apropos.html">A propos</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+            <a href="apropos.html">À propos</a>
+            <a href="index.html#process">Comment ça marche</a>
             <a href="index.html#contact">Contact</a>
         </div>
-        <a href="index.html#contact" class="nav-cta">Demarrer un projet</a>
+        <a href="index.html#contact" class="nav-cta">Démarrer un projet</a>
     </nav>
 
     <section class="hero">
         <div>
-            <a href="index.html" class="back-link">← Retour a l'accueil</a>
+            
             <div class="section-eyebrow">Realisations</div>
             <h1>Quelques sites que j'ai <em>crees</em></h1>
-            <p class="hero-sub">Chaque site est concu sur mesure, a l'image de la therapeute qui l'habite. Cliquez sur un projet pour le decouvrir de l'interieur.</p>
+            
         </div>
     </section>
-
-    <div class="filters">
-        <button class="filter-btn active" data-filter="all">Tous</button>
-        <button class="filter-btn" data-filter="psychologie">Psychologie</button>
-        <button class="filter-btn" data-filter="naturopathie">Naturopathie</button>
-        <button class="filter-btn" data-filter="hypnose">Hypnose</button>
-        <button class="filter-btn" data-filter="coaching">Coaching</button>
-        <button class="filter-btn" data-filter="sophrologie">Sophrologie</button>
-    </div>
 
     <section class="portfolio-section">
         <div class="portfolio-grid" id="portfolioGrid">
@@ -217,11 +270,7 @@
                         <div class="card-formule">Complete</div>
                     </div>
                     <div class="card-desc">Un site chaleureux pour une psychologue specialisee TSA & TDAH, avec prise de RDV Doctolib integree.</div>
-                    <div class="card-tags">
-                        <span class="card-tag">Psychologie</span>
-                        <span class="card-tag">TSA & TDAH</span>
-                        <span class="card-tag">Doctolib</span>
-                    </div>
+                    <div class="card-tags"><span class="card-tag">Psychologie</span></div>
                     <button class="card-btn">Voir le projet →</button>
                 </div>
             </div>
@@ -246,7 +295,7 @@
                 <div class="card-info">
                     <div class="card-meta"><div class="card-name">Lucie M.</div><div class="card-formule">Complete</div></div>
                     <div class="card-desc">Site complet de 5 pages avec blog, presentation des soins et espace de conseils bien-etre.</div>
-                    <div class="card-tags"><span class="card-tag">Naturopathie</span><span class="card-tag">5 pages</span><span class="card-tag">Blog</span></div>
+                    <div class="card-tags"><span class="card-tag">Naturopathie</span></div>
                     <button class="card-btn">Voir le projet →</button>
                 </div>
             </div>
@@ -271,7 +320,7 @@
                 <div class="card-info">
                     <div class="card-meta"><div class="card-name">Claire D.</div><div class="card-formule">Essentielle</div></div>
                     <div class="card-desc">Design epure et rassurant, avec espace confidentiel et formulaire de contact discret.</div>
-                    <div class="card-tags"><span class="card-tag">Psychologie</span><span class="card-tag">Sombre</span><span class="card-tag">Contact discret</span></div>
+                    <div class="card-tags"><span class="card-tag">Psychologie</span></div>
                     <button class="card-btn">Voir le projet →</button>
                 </div>
             </div>
@@ -296,7 +345,7 @@
                 <div class="card-info">
                     <div class="card-meta"><div class="card-name">Amelia T.</div><div class="card-formule">Complete</div></div>
                     <div class="card-desc">Univers doux en rose poudre, avec temoignages et parcours de soin detaille.</div>
-                    <div class="card-tags"><span class="card-tag">Hypnotherapie</span><span class="card-tag">5 pages</span><span class="card-tag">Temoignages</span></div>
+                    <div class="card-tags"><span class="card-tag">Hypnotherapie</span></div>
                     <button class="card-btn">Voir le projet →</button>
                 </div>
             </div>
@@ -321,7 +370,7 @@
                 <div class="card-info">
                     <div class="card-meta"><div class="card-name">Nadia V.</div><div class="card-formule">Essentielle</div></div>
                     <div class="card-desc">Tons naturels pour une coach bien-etre axee sur la pleine conscience et le retour a soi.</div>
-                    <div class="card-tags"><span class="card-tag">Coaching</span><span class="card-tag">Minimaliste</span><span class="card-tag">SEO local</span></div>
+                    <div class="card-tags"><span class="card-tag">Coaching</span></div>
                     <button class="card-btn">Voir le projet →</button>
                 </div>
             </div>
@@ -346,7 +395,7 @@
                 <div class="card-info">
                     <div class="card-meta"><div class="card-name">Flora B.</div><div class="card-formule">Complete</div></div>
                     <div class="card-desc">Chaleureux et artisanal pour une herboriste-naturopathe passionnee par les plantes medicinales.</div>
-                    <div class="card-tags"><span class="card-tag">Naturopathie</span><span class="card-tag">Herboristerie</span><span class="card-tag">5 pages</span></div>
+                    <div class="card-tags"><span class="card-tag">Naturopathie</span></div>
                     <button class="card-btn">Voir le projet →</button>
                 </div>
             </div>
@@ -375,7 +424,8 @@
                 </div>
                 <div class="modal-desc" id="modalDesc"></div>
                 <div class="modal-details" id="modalDetails"></div>
-                <div class="modal-tags" id="modalTags"></div>
+                
+                
             </div>
         </div>
     </div>
@@ -487,6 +537,14 @@ function openModal(idx) {
     document.getElementById("modalTitle").textContent = p.name;
     document.getElementById("modalFormule").textContent = p.formule;
     document.getElementById("modalDesc").textContent = p.desc;
+    
+    var details = "";
+for (var i = 0; i < p.details.length; i++) {
+    if (p.details[i].label === "Pages" || p.details[i].label === "Fonctionnalites") {
+        details += "<div class=\"modal-detail\"><div class=\"modal-detail-label\">" + p.details[i].label + "</div><div class=\"modal-detail-value\">" + p.details[i].value + "</div></div>";
+    }
+}
+document.getElementById("modalDetails").innerHTML = details;
 
     var screen = document.getElementById("modalScreen");
     if (p.isReal && idx === 0) {
@@ -499,18 +557,6 @@ function openModal(idx) {
     } else {
         screen.innerHTML = "<div style=\"padding:2rem;text-align:center;color:#ccc;font-size:0.9rem;\">Apercu confidentiel</div>";
     }
-
-    var details = "";
-    for (var i = 0; i < p.details.length; i++) {
-        details += "<div class=\"modal-detail\"><div class=\"modal-detail-label\">" + p.details[i].label + "</div><div class=\"modal-detail-value\">" + p.details[i].value + "</div></div>";
-    }
-    document.getElementById("modalDetails").innerHTML = details;
-
-    var tags = "";
-    for (var j = 0; j < p.tags.length; j++) {
-        tags += "<span class=\"modal-tag\">" + p.tags[j] + "</span>";
-    }
-    document.getElementById("modalTags").innerHTML = tags;
 
     document.getElementById("modalOverlay").classList.add("open");
     document.body.style.overflow = "hidden";
