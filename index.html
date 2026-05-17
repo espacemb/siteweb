@@ -144,8 +144,8 @@
         .mobile-menu-overlay {
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
+            right: 0;
+            width: 60%;
             height: 100%;
             background: rgba(250,247,242,0.98);
             backdrop-filter: blur(12px);
@@ -155,18 +155,17 @@
             justify-content: center;
             align-items: center;
             transform: translateX(100%);
-            transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             opacity: 0;
             visibility: hidden;
             transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
         }
-        
+
         .mobile-menu-overlay.open {
             transform: translateX(0);
             opacity: 1;
             visibility: visible;
         }
-        
+
         .mobile-menu-close {
             position: absolute;
             top: 1.5rem;
@@ -181,7 +180,7 @@
             justify-content: center;
             z-index: 2001;
         }
-        
+
         .mobile-menu-close span {
             position: relative;
             width: 24px;
@@ -189,28 +188,28 @@
             background: var(--ink);
             display: block;
         }
-        
+
         .mobile-menu-close span:first-child {
             transform: rotate(45deg);
         }
-        
+
         .mobile-menu-close span:last-child {
             transform: rotate(-45deg);
             position: absolute;
         }
-        
+
         .mobile-menu-links {
             display: flex;
             flex-direction: column;
-            gap: 1.8rem;
-            text-align: center;
+            gap: 1.2rem;
+            text-align: right;
             padding: 2rem;
         }
-        
+
         .mobile-menu-links a {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 500;
+            font-size: 1.2rem;
+            font-weight: 400;
             color: var(--ink);
             text-decoration: none;
             transition: color 0.2s;
