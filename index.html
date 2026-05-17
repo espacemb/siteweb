@@ -34,9 +34,6 @@
             --border-warm: rgba(180,155,115,0.2);
         }
         
-        html {
-            scroll-behavior: smooth;
-        }
         body {
             font-family: 'Poppins', sans-serif;
             background: var(--cream);
@@ -62,6 +59,8 @@
             backdrop-filter: blur(10px);
             max-width: 1400px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1000;
         }
         
         .nav-logo {
@@ -76,6 +75,7 @@
             color: var(--blue);
         }
         
+        /* Menu desktop - inchangé */
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -107,33 +107,105 @@
             cursor: pointer;
             transition: background 0.2s;
             text-decoration: none;
+            display: inline-block;
         }
         
         .nav-cta:hover {
             background: var(--blue-dark);
         }
-        .nav-hamburger {
+        
+        /* Bouton hamburger - masqué par défaut sur desktop */
+        .hamburger {
             display: none;
             flex-direction: column;
-            gap: 5px;
+            justify-content: space-between;
+            width: 28px;
+            height: 20px;
             cursor: pointer;
-            background: none;
+            z-index: 1001;
+            background: transparent;
             border: none;
-            padding: 4px;
         }
-
-        .nav-hamburger span {
+        
+        .hamburger span {
             display: block;
-            width: 24px;
+            width: 100%;
             height: 2px;
-            background: var(--ink);
+            background-color: var(--ink);
+            transition: all 0.3s ease;
             border-radius: 2px;
-            transition: all 0.3s;
         }
-
-        .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-        .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        
+        /* Menu mobile overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 75%;
+            max-width: 320px;
+            height: 100vh;
+            background: var(--cream);
+            box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+            z-index: 1002;
+            padding: 5rem 2rem 2rem;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.open {
+            right: 0;
+        }
+        
+        .mobile-menu a {
+            text-decoration: none;
+            font-size: 1.1rem;
+            color: var(--ink);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border-warm);
+            transition: color 0.2s;
+            font-weight: 500;
+        }
+        
+        .mobile-menu a:hover {
+            color: var(--blue);
+        }
+        
+        .mobile-cta {
+            background: var(--blue);
+            color: white !important;
+            text-align: center;
+            padding: 0.8rem !important;
+            border-radius: 99px;
+            border-bottom: none !important;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .mobile-cta:hover {
+            background: var(--blue-dark);
+            color: white !important;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
         
         /* Hero */
         .hero {
@@ -503,79 +575,79 @@
         }
         
         /* Portfolio */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.portfolio-item {
-    background: var(--white);
-    border-radius: 20px;
-    border: 1px solid var(--border-warm);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.portfolio-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.portfolio-preview {
-    height: 200px;
-    overflow: hidden;
-    border-radius: 20px 20px 0 0;
-    background: none;
-}
-
-.portfolio-preview::after {
-    display: none;
-}
-
-.portfolio-preview img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transform: translateY(0);
-    transition: transform 10s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.portfolio-item:hover .portfolio-preview img {
-    transform: translateY(calc(-100% + 200px));
-}
-
-.portfolio-info {
-    padding: 1.5rem;
-}
-
-.portfolio-info h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: var(--ink);
-}
-
-.portfolio-info p {
-    font-size: 0.8rem;
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-}
-
-.portfolio-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.portfolio-tag {
-    background: var(--cream2);
-    padding: 0.2rem 0.7rem;
-    border-radius: 99px;
-    font-size: 0.7rem;
-    color: var(--blue-dark);
-}
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .portfolio-item {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-warm);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .portfolio-preview {
+            height: 200px;
+            overflow: hidden;
+            background: none;
+        }
+        
+        .portfolio-preview::after {
+            display: none;
+        }
+        
+        .portfolio-preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transform: translateY(0);
+            transition: transform 10s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .portfolio-item:hover .portfolio-preview img {
+            transform: translateY(calc(-100% + 200px));
+        }
+        
+        .portfolio-info {
+            padding: 1.5rem;
+        }
+        
+        .portfolio-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--ink);
+        }
+        
+        .portfolio-info p {
+            font-size: 0.8rem;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .portfolio-tag {
+            background: var(--cream2);
+            padding: 0.2rem 0.7rem;
+            border-radius: 99px;
+            font-size: 0.7rem;
+            color: var(--blue-dark);
+        }
         
         /* Compare */
         .compare {
@@ -815,7 +887,7 @@
             color: #A8907A;
         }
         
-        /* Responsive */
+        /* Responsive - Menu hamburger apparaît seulement sur mobile */
         @media (max-width: 768px) {
             .container {
                 padding: 0 1rem;
@@ -823,35 +895,22 @@
             
             .nav {
                 padding: 0.8rem 1rem;
-                position: relative;
+                flex-wrap: wrap;
+                gap: 1rem;
             }
-
-            .nav-hamburger {
-                display: flex;
+            
+            /* Masquer les liens desktop et le CTA desktop */
+            .nav-links {
+                display: none;
             }
-
+            
             .nav-cta {
                 display: none;
             }
-
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 60px;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                background: rgba(250,247,242,0.99);
-                backdrop-filter: blur(10px);
-                padding: 1.5rem;
-                gap: 1.2rem;
-                border-bottom: 1px solid var(--border-warm);
-                z-index: 9999;
-                box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-            }
-
-            .nav-links.open {
-                display: flex !important;
+            
+            /* Afficher le hamburger */
+            .hamburger {
+                display: flex;
             }
             
             .hero {
@@ -893,16 +952,6 @@
                 grid-template-columns: 1fr;
             }
             
-            .apropos-inner {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .apropos-photo {
-                max-width: 250px;
-                margin: 0 auto;
-            }
-            
             .section-title {
                 font-size: 1.6rem;
             }
@@ -936,27 +985,48 @@
             .step-body.open {
                 max-height: 400px;
             }
+            
+            .mobile-menu {
+                width: 85%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="site">
-        <nav class="nav" style="position:relative;">
-    <div class="nav-logo">MARIELLE <span>BOUSS</span></div>
-    <div class="nav-links" id="navLinks">
-        <a href="#services">Formules</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="apropos.html">À propos</a>
-        <a href="#process">Comment ça marche</a>
-        <a href="#contact">Contact</a>
-    </div>
-    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-    <a href="#contact" class="nav-cta">Démarrer un projet</a>
-</nav>
+        <nav class="nav">
+            <div class="nav-logo">MARIELLE <span>BOUSS</span></div>
+            
+            <!-- Menu desktop (inchangé) -->
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="apropos.html">À propos</a>
+                <a href="#process">Comment ça marche</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <a href="#contact" class="nav-cta">Démarrer un projet</a>
+            
+            <!-- Bouton hamburger (visible uniquement sur mobile) -->
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        
+        <!-- Overlay pour fermer le menu -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+        
+        <!-- Menu mobile -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="apropos.html">À propos</a>
+            <a href="#process">Comment ça marche</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" class="mobile-cta">Démarrer mon projet</a>
+        </div>
 
         <section class="hero">
             <div class="container">
@@ -965,7 +1035,7 @@
                     <h1>Création de site vitrine pour les femmes <em>thérapeutes</em> et <em>praticiennes bien-être</em>.</h1>
                     <p class="hero-sub">Je crée des sites web qui inspirent confiance, reflètent votre approche et soutiennent votre activité. Issue du monde du bien-être, j'ai choisi de rester dans cet univers pour accompagner les femmes thérapeutes et praticiennes bien-être qui veulent une présence en ligne.</p>
                     <div class="hero-actions">
-                        <button class="btn-primary">Voir les formules</button>
+                        <button class="btn-primary" onclick="document.querySelector('#services')?.scrollIntoView({behavior:'smooth'})">Voir les formules</button>
                         <a href="apropos.html" class="btn-ghost">Pourquoi travailler avec moi ?</a>
                     </div>
                 </div>
@@ -978,7 +1048,6 @@
                     </div>
 
                     <div class="hero-photo-frame">
-                        <!-- Remplacez cette div par : <img src="votre-photo.jpg" alt="Marielle Bouss"> -->
                         <div class="hero-photo-placeholder">Votre photo ici</div>
                     </div>
 
@@ -1006,7 +1075,6 @@
                 <span>Psychothérapeute</span>
                 <span>Énergéticienne</span>
                 <span>Indépendante</span>
-                <!-- Duplication pour l'effet infini -->
                 <span>Sophrologue</span>
                 <span>Psychologue</span>
                 <span>Massothérapeute</span>
@@ -1061,7 +1129,7 @@
             </div>
         </section>
         
-                <section class="compare">
+        <section class="compare">
             <div class="container">
                 <div class="section-eyebrow">Comparaison</div>
                 <div class="section-title">Un seul paiement, <em>pas d'abonnement.</em></div>
@@ -1107,27 +1175,25 @@
             </div>
         </section>
 
-
-        <!-- Nouvelle section Portfolio -->
-        <section class="section" style="background: var(--cream);">
+        <section id="portfolio" class="section" style="background: var(--cream);">
             <div class="container">
                 <div class="section-eyebrow">Réalisations</div>
                 <div class="section-title">Quelques sites que j'ai créés</div>
                 <div class="portfolio-grid">
-                    <div class="portfolio-item" onclick="window.location.href='portfolio.html'" style="cursor:pointer;">
+                    <div class="portfolio-item">
                         <div class="portfolio-preview">
-                        <img src="fchalutnatal.png" alt="Site Florence C.-N. — Psychologue">
-                           </div>
+                            <img src="fchalutnatal.png" alt="Site Florence C.-N. — Psychologue">
+                        </div>
                         <div class="portfolio-info">
-                            <h3>Florence C-N. - Psychologue</h3>
-                            <p>Un site professionnel pour une psychologue clinicienne. Design en tons orange/crème.</p>
+                            <h3>Sophie R. - Sophrologue</h3>
+                            <p>Un site apaisant aux tons bleutés, avec présentation des séances et prise de rendez-vous en ligne.</p>
                             <div class="portfolio-tags">
                                 <span class="portfolio-tag">Sophrologie</span>
                                 <span class="portfolio-tag">Formule Essentielle</span>
                             </div>
                         </div>
                     </div>
-                    <div class="portfolio-item" onclick="window.location.href='portfolio.html'" style="cursor:pointer;">
+                    <div class="portfolio-item">
                         <div class="portfolio-preview"></div>
                         <div class="portfolio-info">
                             <h3>Lucie M. - Naturopathe</h3>
@@ -1138,7 +1204,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="portfolio-item" onclick="window.location.href='portfolio.html'" style="cursor:pointer;">
+                    <div class="portfolio-item">
                         <div class="portfolio-preview"></div>
                         <div class="portfolio-info">
                             <h3>Claire D. - Psychologue</h3>
@@ -1182,24 +1248,7 @@
         </footer>
     </div>
 
-
     <script>
-  
-// Hamburger
-function toggleMenu() {
-    var links = document.getElementById('navLinks');
-    var burger = document.getElementById('hamburger');
-    links.classList.toggle('open');
-    burger.classList.toggle('open');
-}
-
-document.querySelectorAll('.nav-links a').forEach(function(link) {
-    link.addEventListener('click', function() {
-        document.getElementById('navLinks').classList.remove('open');
-        document.getElementById('hamburger').classList.remove('open');
-    });
-});
-
         const stepsData = [
             { num: '01', title: 'Vous remplissez le formulaire de votre projet', desc: 'Je vous envoie un questionnaire simple à compléter chez vous, à votre rythme. Il me permet de comprendre votre activité, votre clientèle, vos envies.' },
             { num: '02', title: 'On échange par téléphone', desc: 'Un appel d\'environ 30 minutes pour affiner ensemble ce que vous souhaitez, répondre à vos questions et valider la formule choisie.' },
@@ -1235,14 +1284,65 @@ document.querySelectorAll('.nav-links a').forEach(function(link) {
             icon.classList.toggle('open', !isOpen);
         }
 
-        // Smooth scroll pour la navigation
-        document.querySelectorAll('.nav-links span, .nav-cta, .btn-primary, .btn-ghost, .btn-cta').forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Simulation d'envoi de formulaire ou scroll
-                console.log('Navigation ou action déclenchée');
+        // Gestion du menu hamburger
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        
+        function openMenu() {
+            mobileMenu.classList.add('open');
+            menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMenu() {
+            mobileMenu.classList.remove('open');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        hamburgerBtn.addEventListener('click', openMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+        
+        // Fermer le menu lorsqu'on clique sur un lien
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                closeMenu();
+                // Smooth scroll pour les ancres
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
             });
         });
 
+        // Smooth scroll pour tous les liens d'ancre du desktop
+        document.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+        
+        // Bouton "Voir les formules"
+        document.querySelector('.btn-primary')?.addEventListener('click', () => {
+            document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Bouton CTA "Me contacter"
+        document.querySelector('.btn-cta')?.addEventListener('click', () => {
+            alert('Formulaire de contact à venir');
+        });
     </script>
 </body>
 </html>
