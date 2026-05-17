@@ -7,12 +7,12 @@
     <nav class="nav">
         <div class="nav-logo">MARIELLE <span>BOUSS</span></div>
         <div class="nav-links" id="navLinks">
-            <a href="${basePath}index5.html">Accueil</a>
-            <a href="${basePath}index5.html#services">Formules</a>
+            <a href="${basePath}index.html">Accueil</a>
+            <a href="${basePath}index.html#services">Formules</a>
             <a href="${basePath}portfolio.html">Portfolio</a>
             <a href="${basePath}apropos.html">À propos</a>
-            <a href="${basePath}index5.html#process">Comment ça marche</a>
-            <a href="${basePath}index5.html#contact">Contact</a>
+            <a href="${basePath}index.html#process">Comment ça marche</a>
+            <a href="${basePath}index.html#contact">Contact</a>
         </div>
         <button class="nav-hamburger" id="hamburgerBtn" aria-label="Menu">
             <span></span>
@@ -27,13 +27,13 @@
             <span></span>
         </button>
         <div class="mobile-menu-links">
-            <a href="${basePath}index5.html" class="mobile-link">Accueil</a>
-            <a href="${basePath}index5.html#services" class="mobile-link">Formules</a>
+            <a href="${basePath}index.html" class="mobile-link">Accueil</a>
+            <a href="${basePath}index.html#services" class="mobile-link">Formules</a>
             <a href="${basePath}portfolio.html" class="mobile-link">Portfolio</a>
             <a href="${basePath}apropos.html" class="mobile-link">À propos</a>
-            <a href="${basePath}index5.html#process" class="mobile-link">Comment ça marche</a>
-            <a href="${basePath}index5.html#contact" class="mobile-link">Contact</a>
-            <a href="${basePath}index5.html#contact" class="mobile-menu-cta">Démarrer un projet</a>
+            <a href="${basePath}index.html#process" class="mobile-link">Comment ça marche</a>
+            <a href="${basePath}index.html#contact" class="mobile-link">Contact</a>
+            <a href="${basePath}index.html#contact" class="mobile-menu-cta">Démarrer un projet</a>
         </div>
     </div>
     `;
