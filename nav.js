@@ -19,7 +19,7 @@
             <span></span>
             <span></span>
         </button>
-        <a href="${basePath}index5.html#contact" class="nav-cta">Démarrer un projet</a>
+        <a href="${basePath}index.html#contact" class="nav-cta">Démarrer un projet</a>
     </nav>
     <div class="mobile-menu-overlay" id="mobileMenu">
         <button class="mobile-menu-close" id="closeMenuBtn" aria-label="Fermer">
