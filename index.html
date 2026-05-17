@@ -930,9 +930,9 @@
         }
         
         @media (max-width: 480px) {
-            .nav-links {
-                display: none;
-            }
+              .nav-links:not(.open) {
+        display: none;
+    }
             
             .hero-actions {
                 flex-direction: column;
