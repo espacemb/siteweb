@@ -1308,11 +1308,7 @@
         <h2>On commence<br>quand vous voulez.</h2>
         <p>Parlez-moi de votre activité en quelques mots.</p>
         
-        <!-- Formulaire Formspree avec message de confirmation -->
-        <form class="contact-form" action="https://formspree.io/f/xnjrqrbd" method="POST" id="contactForm">
-            <!-- Empêche la redirection vers la page de remerciement -->
-            <input type="hidden" name="_redirect" value="https://marielle-bouss.fr/index.html">
-            
+        <form class="contact-form" id="contactForm">
             <div class="form-group">
                 <input type="text" name="name" placeholder="Votre prénom et nom" required>
             </div>
@@ -1341,7 +1337,6 @@
         </footer>
     </div>
 
-javascript
 <script>
     // Mobile menu logic
     const hamburgerBtn = document.getElementById('hamburgerBtn');
@@ -1453,26 +1448,45 @@ javascript
     });
 </script>
  <script>
-        // Gestion du message de confirmation pour le formulaire
+        // Gestion du formulaire via fetch (sans redirection)
         const contactForm = document.getElementById('contactForm');
         const formMessage = document.getElementById('formMessage');
         const submitBtn = document.getElementById('submitBtn');
 
-        if (contactForm && formMessage) {
-            // Vérifier si on revient après un envoi réussi
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('success') === 'true') {
-                formMessage.innerHTML = '✅ Message envoyé avec succès ! Je vous répondrai rapidement.';
-                formMessage.style.color = '#F0DCB8';
-            }
-            
-            contactForm.addEventListener('submit', function() {
-                // Afficher un message pendant l'envoi
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
                 formMessage.innerHTML = '⏳ Envoi en cours...';
                 formMessage.style.color = '#F0DCB8';
-                if (submitBtn) {
-                    submitBtn.disabled = true;
-                    submitBtn.style.opacity = '0.7';
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.7';
+
+                const data = new FormData(contactForm);
+
+                try {
+                    const response = await fetch('https://formspree.io/f/xnjrqrbd', {
+                        method: 'POST',
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        contactForm.reset();
+                        submitBtn.style.display = 'none';
+                        formMessage.innerHTML = '✅ Message envoyé ! Je vous recontacte rapidement.';
+                        formMessage.style.color = '#F0DCB8';
+                    } else {
+                        formMessage.innerHTML = "❌ Une erreur s'est produite. Veuillez réessayer.";
+                        formMessage.style.color = '#e07070';
+                        submitBtn.disabled = false;
+                        submitBtn.style.opacity = '1';
+                    }
+                } catch (err) {
+                    formMessage.innerHTML = "❌ Impossible d'envoyer le message. Vérifiez votre connexion.";
+                    formMessage.style.color = '#e07070';
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
                 }
             });
         }
