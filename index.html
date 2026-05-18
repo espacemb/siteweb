@@ -1452,5 +1452,30 @@ javascript
         });
     });
 </script>
+ <script>
+        // Gestion du message de confirmation pour le formulaire
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+        const submitBtn = document.getElementById('submitBtn');
+
+        if (contactForm && formMessage) {
+            // Vérifier si on revient après un envoi réussi
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                formMessage.innerHTML = '✅ Message envoyé avec succès ! Je vous répondrai rapidement.';
+                formMessage.style.color = '#F0DCB8';
+            }
+            
+            contactForm.addEventListener('submit', function() {
+                // Afficher un message pendant l'envoi
+                formMessage.innerHTML = '⏳ Envoi en cours...';
+                formMessage.style.color = '#F0DCB8';
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.style.opacity = '0.7';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
