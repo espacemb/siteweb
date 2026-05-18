@@ -1302,27 +1302,31 @@
             </div>
         </section>
 
-        <!-- Section Contact avec formulaire Formspree -->
-        <section id="contact" class="cta">
-            <div class="container">
-                <h2>On commence<br>quand vous voulez.</h2>
-                <p>Parlez-moi de votre activité en quelques mots.</p>
-                
-                <!-- Formulaire Formspree - version la plus simple -->
-                <form class="contact-form" action="https://formspree.io/f/xnjrqrbd" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Votre prénom et nom" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Votre email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" rows="4" placeholder="Votre demande..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn-cta" style="background: var(--sand); color: var(--ink); cursor: pointer;">Envoyer le message</button>
-                </form>
+        <!-- Section Contact avec formulaire Formspree et message de confirmation -->
+<section id="contact" class="cta">
+    <div class="container">
+        <h2>On commence<br>quand vous voulez.</h2>
+        <p>Parlez-moi de votre activité en quelques mots.</p>
+        
+        <!-- Formulaire Formspree avec message de confirmation -->
+        <form class="contact-form" action="https://formspree.io/f/xnjrqrbd" method="POST" id="contactForm">
+            <!-- Empêche la redirection vers la page de remerciement -->
+            <input type="hidden" name="_redirect" value="https://marielle-bouss.fr/index.html">
+            
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Votre prénom et nom" required>
             </div>
-        </section>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Votre email" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" rows="4" placeholder="Décrivez votre projet..." required></textarea>
+            </div>
+            <button type="submit" id="submitBtn" class="btn-cta" style="background: var(--sand); color: var(--ink); cursor: pointer;">Envoyer le message</button>
+            <div id="formMessage" style="margin-top: 1rem; text-align: center; font-size: 0.9rem;"></div>
+        </form>
+    </div>
+</section>
 
         <footer class="footer">
             <div class="footer-logo">MARIELLE <span>BOUSS</span></div>
@@ -1337,13 +1341,16 @@
         </footer>
     </div>
 
-    <script>
-        // Mobile menu logic
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const closeMenuBtn = document.getElementById('closeMenuBtn');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+javascript
+<script>
+    // Mobile menu logic
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
 
+    // Vérifier que les éléments existent avant d'ajouter les événements
+    if (hamburgerBtn && mobileMenu) {
         function openMobileMenu() {
             mobileMenu.classList.add('open');
             document.body.style.overflow = 'hidden';
@@ -1355,7 +1362,10 @@
         }
 
         hamburgerBtn.addEventListener('click', openMobileMenu);
-        closeMenuBtn.addEventListener('click', closeMobileMenu);
+        
+        if (closeMenuBtn) {
+            closeMenuBtn.addEventListener('click', closeMobileMenu);
+        }
 
         mobileLinks.forEach(link => {
             link.addEventListener('click', (e) => {
@@ -1377,19 +1387,23 @@
                 closeMobileMenu();
             }
         });
+    } else {
+        console.log('Menu elements not found');
+    }
 
-        // Steps data
-        const stepsData = [
-            { num: '01', title: 'Vous remplissez le formulaire de votre projet', desc: 'Après m'avoir contacté, je vous envoie un questionnaire simple à compléter chez vous, à votre rythme. Il me permet de comprendre votre activité, votre clientèle, vos envies.' },
-            { num: '02', title: 'On échange par téléphone', desc: 'Un appel d\'environ 30 minutes pour affiner ensemble ce que vous souhaitez, répondre à vos questions et valider la formule choisie.' },
-            { num: '03', title: 'Vous signez le contrat', desc: 'Je vous envoie le contrat par mail. Vous me le retournez signé : C\'est ce qui lance officiellement la création.' },
-            { num: '04', title: 'Vous m\'envoyez vos contenus', desc: 'Textes, photos, logo : vous m\'envoyez tout ce dont j\'ai besoin. Je vous guide si besoin.' },
-            { num: '05', title: 'Je construis votre site', desc: 'Je crée votre site sur mesure en 10 jours ouvrés. Design, intégration, SEO... je m\'occupe de tout.' },
-            { num: '06', title: 'Vous relisez et on affine', desc: 'Deux tours de révisions sont inclus pour que le résultat vous ressemble vraiment.' },
-            { num: '07', title: 'Mise en ligne : votre site est prêt !', desc: 'Après règlement du solde, je mets votre site en ligne. Il est visible, opérationnel, et hébergé par mes soins.' }
-        ];
+    // Steps data
+    const stepsData = [
+        { num: '01', title: 'Vous remplissez le formulaire de votre projet', desc: 'Après m\'avoir contacté, je vous envoie un questionnaire simple à compléter chez vous, à votre rythme. Il me permet de comprendre votre activité, votre clientèle, vos envies.' },
+        { num: '02', title: 'On échange par téléphone', desc: 'Un appel d\'environ 30 minutes pour affiner ensemble ce que vous souhaitez, répondre à vos questions et valider la formule choisie.' },
+        { num: '03', title: 'Vous signez le contrat', desc: 'Je vous envoie le contrat par mail. Vous me le retournez signé : C\'est ce qui lance officiellement la création.' },
+        { num: '04', title: 'Vous m\'envoyez vos contenus', desc: 'Textes, photos, logo : vous m\'envoyez tout ce dont j\'ai besoin. Je vous guide si besoin.' },
+        { num: '05', title: 'Je construis votre site', desc: 'Je crée votre site sur mesure en 10 jours ouvrés. Design, intégration, SEO... je m\'occupe de tout.' },
+        { num: '06', title: 'Vous relisez et on affine', desc: 'Deux tours de révisions sont inclus pour que le résultat vous ressemble vraiment.' },
+        { num: '07', title: 'Mise en ligne : votre site est prêt !', desc: 'Après règlement du solde, je mets votre site en ligne. Il est visible, opérationnel, et hébergé par mes soins.' }
+    ];
 
-        const container = document.getElementById('steps');
+    const container = document.getElementById('steps');
+    if (container) {
         stepsData.forEach((s, i) => {
             const step = document.createElement('div');
             step.className = 'step';
@@ -1405,32 +1419,38 @@
             `;
             container.appendChild(step);
         });
+    }
 
-        function toggleStep(i) {
-            const body = document.getElementById('body-' + i);
-            const icon = document.getElementById('icon-' + i);
+    window.toggleStep = function(i) {
+        const body = document.getElementById('body-' + i);
+        const icon = document.getElementById('icon-' + i);
+        if (body && icon) {
             const isOpen = body.classList.contains('open');
             body.classList.toggle('open', !isOpen);
             icon.classList.toggle('open', !isOpen);
         }
+    }
 
-        // Smooth scroll for buttons
-        document.querySelectorAll('.nav-cta, .btn-primary, .mobile-menu-cta').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                if (btn.classList.contains('mobile-menu-cta')) {
-                    e.preventDefault();
-                    closeMobileMenu();
-                    setTimeout(() => {
-                        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-                    }, 300);
-                } else if (btn.classList.contains('btn-primary')) {
-                    document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
-                } else if (btn.classList.contains('nav-cta')) {
-                    e.preventDefault();
-                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-                }
-            });
+    // Smooth scroll for buttons
+    document.querySelectorAll('.nav-cta, .btn-primary, .mobile-menu-cta').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            if (btn.classList.contains('mobile-menu-cta')) {
+                e.preventDefault();
+                if (typeof closeMobileMenu === 'function') closeMobileMenu();
+                setTimeout(() => {
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+                }, 300);
+            } else if (btn.classList.contains('btn-primary')) {
+                const servicesSection = document.getElementById('services');
+                if (servicesSection) servicesSection.scrollIntoView({ behavior: 'smooth' });
+            } else if (btn.classList.contains('nav-cta')) {
+                e.preventDefault();
+                const contactSection = document.getElementById('contact');
+                if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
         });
-    </script>
+    });
+</script>
 </body>
 </html>
