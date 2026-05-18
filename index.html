@@ -937,92 +937,135 @@
             color: #A8907A;
         }
         
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
-            
-            .nav {
-                padding: 0.8rem 1rem;
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-            
-            .hero {
-                padding: 2rem 1rem;
-            }
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .nav {
+        padding: 0.8rem 1rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .hero {
+        padding: 2rem 1rem;
+    }
 
-            .hero .container {
-                flex-direction: column;
-                gap: 2.5rem;
-            }
+    .hero .container {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
 
-            .hero-photo-col {
-                flex: unset;
-                width: 100%;
-                justify-content: center;
-                padding: 0 2rem;
-            }
+    .hero-photo-col {
+        flex: unset;
+        width: 100%;
+        justify-content: center;
+        padding: 0 2rem;
+    }
 
-            .hero-badge-left {
-                left: 0;
-                top: 30px;
-            }
+    .hero-badge-left {
+        left: 0;
+        top: 30px;
+    }
 
-            .hero-badge-right {
-                right: 0;
-                bottom: 40px;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .cards {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-            }
-            
-            .step-body.open {
-                max-height: 300px;
-            }
-            
-            .step-desc {
-                padding-left: 2rem;
-            }
-            
-            .compare-table th,
-            .compare-table td {
-                padding: 0.5rem;
-                font-size: 0.7rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-actions {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .btn-primary,
-            .btn-ghost {
-                text-align: center;
-                 justify-content: center;
-            }
-            
-            .step-body.open {
-                max-height: 400px;
-            }
-        }
+    .hero-badge-right {
+        right: 0;
+        bottom: 40px;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .step-body.open {
+        max-height: 300px;
+    }
+    
+    .step-desc {
+        padding-left: 2rem;
+    }
+    
+    /* === MODIFICATIONS TABLEAU COMPARAISON === */
+    .compare-table th,
+    .compare-table td {
+        padding: 0.5rem;
+    }
+    
+    /* Labels de gauche (Coût, Hébergement, Design...) - PLUS PETIT */
+    .compare-table td.row-label {
+        font-size: 0.6rem;
+        font-weight: 500;
+    }
+    
+    /* Colonnes Wix et Marielle Bouss - PLUS GRAND */
+    .compare-table td.other-val,
+    .compare-table td.me-val {
+        font-size: 0.8rem;
+    }
+    
+    /* En-têtes du tableau */
+    .compare-table th {
+        font-size: 0.7rem;
+    }
+    
+    /* Texte "En clair : avec Wix..." - PLUS PETIT */
+    .compare-note {
+        font-size: 0.7rem;
+        padding: 0.8rem 1rem;
+        line-height: 1.5;
+    }
+    
+    .compare-note strong {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn-primary,
+    .btn-ghost {
+        text-align: center;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .step-body.open {
+        max-height: 400px;
+    }
+    
+    /* Ajustements supplémentaires pour très petits écrans */
+    .compare-table td.row-label {
+        font-size: 0.55rem;
+    }
+    
+    .compare-table td.other-val,
+    .compare-table td.me-val {
+        font-size: 0.75rem;
+    }
+    
+    .compare-note {
+        font-size: 0.65rem;
+    }
+}
     </style>
 </head>
 <body>
