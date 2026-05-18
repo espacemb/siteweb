@@ -1308,33 +1308,25 @@
         <h2>On commence<br>quand vous voulez.</h2>
         <p>Parlez-moi de votre activité en quelques mots.</p>
         
-        <!-- Section Contact avec formulaire AJAX (sans redirection) -->
-<section id="contact" class="cta">
-    <div class="container">
-        <h2>On commence<br>quand vous voulez.</h2>
-        <p>Parlez-moi de votre activité en quelques mots.</p>
-        
-        <form class="contact-form" id="contactForm" novalidate>
+        <!-- Formulaire Formspree avec message de confirmation -->
+        <form class="contact-form" action="https://formspree.io/f/xnjrqrbd" method="POST" id="contactForm">
+            <!-- Empêche la redirection vers la page de remerciement -->
+            <input type="hidden" name="_redirect" value="https://marielle-bouss.fr/index.html">
+            
             <div class="form-group">
-                <input type="text" id="contactName" placeholder="Votre nom">
-                <span class="error-msg" id="error-name" style="display:none; color:#F0DCB8; font-size:0.7rem;">Champ obligatoire</span>
+                <input type="text" name="name" placeholder="Votre prénom et nom" required>
             </div>
             <div class="form-group">
-                <input type="email" id="contactEmail" placeholder="Votre email">
-                <span class="error-msg" id="error-email" style="display:none; color:#F0DCB8; font-size:0.7rem;">Email invalide</span>
+                <input type="email" name="email" placeholder="Votre email" required>
             </div>
             <div class="form-group">
-                <textarea id="contactMessage" rows="4" placeholder="Décrivez votre projet..."></textarea>
-                <span class="error-msg" id="error-message" style="display:none; color:#F0DCB8; font-size:0.7rem;">Champ obligatoire</span>
+                <textarea name="message" rows="4" placeholder="Décrivez votre projet..." required></textarea>
             </div>
             <button type="submit" id="submitBtn" class="btn-cta" style="background: var(--sand); color: var(--ink); cursor: pointer;">Envoyer le message</button>
-            <div id="formConfirmation" style="margin-top: 1rem; text-align: center; font-size: 0.9rem; display: none;">
-                <strong>✅ Message envoyé ! Je vous recontacte rapidement.</strong>
-            </div>
+            <div id="formMessage" style="margin-top: 1rem; text-align: center; font-size: 0.9rem;"></div>
         </form>
     </div>
 </section>
-
 
         <footer class="footer">
             <div class="footer-logo">MARIELLE <span>BOUSS</span></div>
@@ -1460,5 +1452,30 @@ javascript
         });
     });
 </script>
+ <script>
+        // Gestion du message de confirmation pour le formulaire
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+        const submitBtn = document.getElementById('submitBtn');
+
+        if (contactForm && formMessage) {
+            // Vérifier si on revient après un envoi réussi
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                formMessage.innerHTML = '✅ Message envoyé avec succès ! Je vous répondrai rapidement.';
+                formMessage.style.color = '#F0DCB8';
+            }
+            
+            contactForm.addEventListener('submit', function() {
+                // Afficher un message pendant l'envoi
+                formMessage.innerHTML = '⏳ Envoi en cours...';
+                formMessage.style.color = '#F0DCB8';
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.style.opacity = '0.7';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
