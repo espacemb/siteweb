@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio — Marielle Bouss</title>
+    <title>Portfolio - Marielle Bouss</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap');
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -199,10 +199,10 @@
         .card-info { padding:1.25rem 1.5rem 1.5rem; }
         .card-meta { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; gap:0.5rem; flex-wrap:wrap; }
         .card-name { font-family:"Poppins",sans-serif; font-size:1.05rem; font-weight:600; color:var(--ink); }
-        .card-formule { font-size:0.68rem; font-weight:600; color:var(--blue); background:var(--blue-pale); padding:0.2rem 0.65rem; border-radius:99px; text-transform:uppercase; letter-spacing:0.06em; white-space:nowrap; }
+        .card-formule { font-size:0.8rem; font-weight:500; color:var(--blue); background:var(--blue-pale); padding:0.2rem 0.65rem; border-radius:99px; text-transform:uppercase; letter-spacing:0.06em; white-space:nowrap; }
         .card-desc { font-size:0.95rem; color:var(--muted); line-height:1.65; font-weight:300; margin-bottom:1rem; }
         .card-tags { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem; }
-        .card-tag { background:var(--cream2); padding:0.2rem 0.65rem; border-radius:99px; font-size:0.68rem; color:var(--muted); }
+        .card-tag { background:var(--cream2); padding:0.2rem 0.65rem; border-radius:99px; font-size:0.8rem; color:var(--muted); }
         .card-btn { display:inline-flex; align-items:center; gap:6px; font-family:"Poppins",sans-serif; font-size:0.78rem; font-weight:500; color:var(--blue); background:none; border:none; cursor:pointer; padding:0; transition:gap 0.2s; }
         .card-btn:hover { gap:10px; }
 
@@ -413,7 +413,7 @@
         <div>
             
             <div class="section-eyebrow">Realisations</div>
-            <h1>Quelques sites que j'ai <em>créés</em></h1>
+            <h1>Aperçus de quelques sites que j'ai <em>créés</em></h1>
             
         </div>
     </section>
@@ -427,32 +427,32 @@
                         <img class="real-scroll" src="fchalutnatal.png" alt="Apercu Florence C.-N.">
                     </div>
                 <div class="card-info">
-                    <div class="card-meta">
-                        <div class="card-name">Florence C.-N.</div>
-                        <div class="card-formule">Formule Essentielle</div>
-                        <div class="card-desc">Site complet de 5 pages avec blog, presentation des soins et espace de conseils bien-etre.</div>
-                    </div>
                     <div class="card-tags"><span class="card-tag">Psychologue</span></div>
-                    <button class="card-btn">Voir le projet →</button>
+                    <div class="card-meta">
+                        <div class="card-desc">Site professionnel pour une psychologue avec prise de RDV sur Doctolib intégrée. Dans les tons orange/beige.</div>
+                    </div>
+                    <div class="card-formule" style="display:inline-block;margin-bottom:1rem;">Formule Essentielle</div>
                 </div>
             </div>
 
-            <!-- CARD 2 -->
-            <div class="portfolio-card" data-category="naturopathie" data-id="1">
+            <!-- CARD 2 : vraie capture -->
+            <div class="portfolio-card" data-category="psychologie" data-id="1">
                 <div class="card-preview">
-                        <div class="browser-screen-inner">
-                            <div class="mini-site s-green">
-                                <div class="mini-nav"><div class="mini-logo"></div><div class="mini-links"><div class="mini-link"></div><div class="mini-link"></div></div></div>
-                                <div class="mini-h1"></div><div class="mini-h2"></div><div class="mini-p"></div><div class="mini-p short"></div><div class="mini-btn"></div>
-                                <div class="mini-cards"><div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div></div>
-                            </div>
-                        </div>
+                        <img class="real-scroll" src="espacemb.png" alt="Apercu ESPACEMB">
                     </div>
                 <div class="card-info">
-                    <div class="card-meta"><div class="card-name">Lucie M.</div><div class="card-formule">Complete</div></div>
-                    <div class="card-desc">Site complet de 5 pages avec blog, presentation des soins et espace de conseils bien-etre.</div>
+                    <div class="card-tags"><span class="card-tag">Coach/Massothérapeute</span></div>
+                    <div class="card-meta">
+                        <div class="card-desc">Site pour coach de pilates et massothérapeute. Dans les tons bleu./.</div>
+                    </div>
+                    <div class="card-formule" style="display:inline-block;margin-bottom:1rem;">Formule Complète</div>
+                </div>
+            </div>
+                    </div>
+                <div class="card-info">
                     <div class="card-tags"><span class="card-tag">Naturopathie</span></div>
-                    <button class="card-btn">Voir le projet →</button>
+                    <div class="card-meta"><div class="card-desc">Site complet de 5 pages avec blog, presentation des soins et espace de conseils bien-etre.</div></div>
+                    <div class="card-formule" style="display:inline-block;margin-bottom:1rem;">Complete</div>
                 </div>
             </div>
 
@@ -468,10 +468,9 @@
                         </div>
                     </div>
                 <div class="card-info">
-                    <div class="card-meta"><div class="card-name">Claire D.</div><div class="card-formule">Essentielle</div></div>
-                    <div class="card-desc">Design epure et rassurant, avec espace confidentiel et formulaire de contact discret.</div>
                     <div class="card-tags"><span class="card-tag">Psychologie</span></div>
-                    <button class="card-btn">Voir le projet →</button>
+                    <div class="card-meta"><div class="card-desc">Design epure et rassurant, avec espace confidentiel et formulaire de contact discret.</div></div>
+                    <div class="card-formule" style="display:inline-block;margin-bottom:1rem;">Essentielle</div>
                 </div>
             </div>
 
@@ -487,10 +486,9 @@
                         </div>
                     </div>
                 <div class="card-info">
-                    <div class="card-meta"><div class="card-name">Amelia T.</div><div class="card-formule">Complete</div></div>
-                    <div class="card-desc">Univers doux en rose poudre, avec temoignages et parcours de soin detaille.</div>
                     <div class="card-tags"><span class="card-tag">Hypnotherapie</span></div>
-                    <button class="card-btn">Voir le projet →</button>
+                    <div class="card-meta"><div class="card-desc">Univers doux en rose poudre, avec temoignages et parcours de soin detaille.</div></div>
+                    <div class="card-formule" style="display:inline-block;margin-bottom:1rem;">Complete</div>
                 </div>
             </div>
 
@@ -506,10 +504,9 @@
                         </div>
                     </div>
                 <div class="card-info">
-                    <div class="card-meta"><div class="card-name">Nadia V.</div><div class="card-formule">Essentielle</div></div>
-                    <div class="card-desc">Tons naturels pour une coach bien-etre axee sur la pleine conscience et le retour a soi.</div>
                     <div class="card-tags"><span class="card-tag">Coaching</span></div>
-                    <button class="card-btn">Voir le projet →</button>
+                    <div class="card-meta"><div class="card-desc">Tons naturels pour une coach bien-etre axee sur la pleine conscience et le retour a soi.</div></div>
+                    <div class="card-formule" style="display:inline-block;margin-bottom:1rem;">Essentielle</div>
                 </div>
             </div>
 
@@ -525,10 +522,9 @@
                         </div>
                     </div>
                 <div class="card-info">
-                    <div class="card-meta"><div class="card-name">Flora B.</div><div class="card-formule">Complete</div></div>
-                    <div class="card-desc">Chaleureux et artisanal pour une herboriste-naturopathe passionnee par les plantes medicinales.</div>
                     <div class="card-tags"><span class="card-tag">Naturopathie</span></div>
-                    <button class="card-btn">Voir le projet →</button>
+                    <div class="card-meta"><div class="card-desc">Chaleureux et artisanal pour une herboriste-naturopathe passionnee par les plantes medicinales.</div></div>
+                    <div class="card-formule" style="display:inline-block;margin-bottom:1rem;">Complete</div>
                 </div>
             </div>
 
@@ -551,7 +547,6 @@
             </div>
             <div class="modal-body">
                 <div class="modal-header">
-                    <div class="modal-title" id="modalTitle"></div>
                     <div class="modal-formule" id="modalFormule"></div>
                 </div>
                 <div class="modal-desc" id="modalDesc"></div>
@@ -562,7 +557,7 @@
 
     <footer class="footer">
         <div class="footer-logo">MARIELLE <span>BOUSS</span></div>
-        <div class="footer-copy">2026 - Creation de sites vitrine bien-etre</div>
+        <div class="footer-copy">2026 - Création de sites vitrine bien-etre</div>
     </footer>
 
 <script>
@@ -571,29 +566,29 @@ var IMG_0 = "fchalutnatal.png";
 var projects = [
     {
         id: 0,
-        name: "Florence C.-N. - Psychologue",
+        name: "Florence C.N. - Psychologue",
         formule: "Formule Essentielle",
-        desc: "Site professionnel pour psychologue, avec prise de RDV Doctolib intégrée.",
+        desc: "Site professionnel pour psychologue, avec prise de RDV Doctolib intégrée. Dans les tons oranges/beige.",
         urlLabel: "confidentiel - adresse protegee",
         isReal: true,
         details: [
             { label: "Specialite", value: "Psychologue" },
-            { label: "Pages", value: "Page unique scrollante + 1 page parcours" },
+            { label: "Pages", value: "Page unique scrollante + 1 page 'parcours'" },
             { label: "Fonctionnalites", value: "Doctolib + Carte Google" },
             { label: "Localisation", value: "Fontainebleau" }
         ],
     },
     {
         id: 1,
-        name: "Lucie M. — Naturopathe",
+        name: "ESPACE MB",
         formule: "Formule Complete",
-        desc: "Site complet de 5 pages pour une naturopathe souhaitant partager son approche holistique, son blog bien-etre et ses differentes consultations.",
+        desc: "Site complet de 5 pages avec formulaire de prise de rdv, liens réseaux sociaux et blog.",
         urlLabel: "confidentiel - adresse protegee",
         isReal: false,
         details: [
-            { label: "Specialite", value: "Naturopathie" },
-            { label: "Pages", value: "5 pages + Blog" },
-            { label: "Fonctionnalites", value: "Blog + Formulaire de contact" },
+            { label: "Specialite", value: "Coach/Massothérapeute" },
+            { label: "Pages", value: "5 pages" },
+            { label: "Fonctionnalites", value: "Formulaire de prise de rdv. Liens réseaux sociaux. Blog" },
             { label: "Delai", value: "12 jours ouvres" }
         ],
         tags: ["Naturopathie", "Tons verts", "Blog", "5 pages", "Hebergement inclus"]
@@ -663,7 +658,6 @@ var projects = [
 function openModal(idx) {
     var p = projects[idx];
     document.getElementById("modalUrl").textContent = p.urlLabel;
-    document.getElementById("modalTitle").textContent = p.name;
     document.getElementById("modalFormule").textContent = p.formule;
     document.getElementById("modalDesc").textContent = p.desc;
 
