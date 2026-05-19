@@ -641,7 +641,7 @@
         .portfolio-item {
             background: var(--white);
             border-radius: 20px;
-            border: 1px solid var(--border-warm);
+            border: 1px solid var(--sand);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
@@ -666,7 +666,7 @@
             height: auto;
             display: block;
             transform: translateY(0);
-            transition: transform 10s cubic-bezier(0.40, 0.46, 0.45, 0.94);
+            transition: transform 10s cubic-bezier(0.45, 0.46, 0.45, 0.94);
         }
 
         .portfolio-item:hover .portfolio-preview img {
@@ -1263,30 +1263,34 @@
                             <h3>Florence C-N. - Psychologue</h3>
                             <p>Un site professionnel pour une psychologue clinicienne. Design en tons orange/crème.</p>
                             <div class="portfolio-tags">
-                                <span class="portfolio-tag">Sophrologie</span>
+                                <span class="portfolio-tag">Psychologue</span>
                                 <span class="portfolio-tag">Formule Essentielle</span>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-item" onclick="window.location.href='portfolio.html'" style="cursor:pointer;">
-                        <div class="portfolio-preview"></div>
+                        <div class="portfolio-preview">
+                        <img src="espace-mb.com.png" alt="Site Marielle B. - Massothérapeute">
+                           </div>
                         <div class="portfolio-info">
-                            <h3>Lucie M. - Naturopathe</h3>
-                            <p>Site complet de 5 pages avec blog, présentation des soins et espace de conseils bien-être.</p>
+                            <h3>Marielle B. - Massothérapeute</h3>
+                            <p>Un site minimaliste pour des services de massage. Design en tons jaune/doré.</p>
                             <div class="portfolio-tags">
-                                <span class="portfolio-tag">Naturopathie</span>
+                                <span class="portfolio-tag">Massothérapeute</span>
                                 <span class="portfolio-tag">Formule Complète</span>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-item" onclick="window.location.href='portfolio.html'" style="cursor:pointer;">
-                        <div class="portfolio-preview"></div>
+                        <div class="portfolio-preview">
+                        <img src="maluzen.fr.png" alt="Site Maluzen — Psychologue">
+                           </div>
                         <div class="portfolio-info">
-                            <h3>Claire D. - Psychologue</h3>
-                            <p>Design épuré et rassurant, avec espace confidentiel et formulaire de contact discret.</p>
+                            <h3>Maluzen</h3>
+                            <p>Un site d'affiliation pour des produits de ménopause.</p>
                             <div class="portfolio-tags">
-                                <span class="portfolio-tag">Psychologie</span>
-                                <span class="portfolio-tag">Formule Essentielle</span>
+                                <span class="portfolio-tag">Ménopause</span>
+                                <span class="portfolio-tag">Formule Complète</span>
                             </div>
                         </div>
                     </div>
@@ -1316,7 +1320,7 @@
                 <input type="email" name="email" placeholder="Votre email" required>
             </div>
             <div class="form-group">
-                <textarea name="message" rows="4" placeholder="Votre demande..." required></textarea>
+                <textarea name="message" rows="4" placeholder="Décrivez votre projet..." required></textarea>
             </div>
             <button type="submit" id="submitBtn" class="btn-cta" style="background: var(--sand); color: var(--ink); cursor: pointer;">Envoyer le message</button>
             <div id="formMessage" style="margin-top: 1rem; text-align: center; font-size: 0.9rem;"></div>
@@ -1328,9 +1332,9 @@
             <div class="footer-logo">MARIELLE <span>BOUSS</span></div>
             <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
                 <div style="display:flex;gap:0.5rem;align-items:center;font-size:0.72rem;">
-                    <a href="mentions-legales.html" style="color:var(--soft);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--blue)'" onmouseout="this.style.color='var(--soft)'">Mentions légales</a>
+                    <a href="mentions-legales.html" style="color:#A8907A;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#A8907A'" onmouseout="this.style.color='#A8907A'">Mentions légales</a>
                     <span style="color:var(--soft);">·</span>
-                    <a href="politique-confidentialite.html" style="color:var(--soft);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--blue)'" onmouseout="this.style.color='var(--soft)'">Politique de confidentialité</a>
+                    <a href="politique-confidentialite.html" style="color:#A8907A;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#A8907A'" onmouseout="this.style.color='#A8907A'">Politique de confidentialité</a>
                 </div>
                 <div class="footer-copy">© 2026 · Création de sites vitrine bien-être</div>
             </div>
@@ -1390,7 +1394,7 @@
     const stepsData = [
         { num: '01', title: 'Vous remplissez le formulaire de votre projet', desc: 'Après m\'avoir contacté, je vous envoie un questionnaire simple à compléter chez vous, à votre rythme. Il me permet de comprendre votre activité, votre clientèle, vos envies.' },
         { num: '02', title: 'On échange par téléphone', desc: 'Un appel d\'environ 30 minutes pour affiner ensemble ce que vous souhaitez, répondre à vos questions et valider la formule choisie.' },
-        { num: '03', title: 'Vous signez le contrat', desc: 'Je vous envoie le contrat par mail. Vous me le retournez signé : C\'est ce qui lance officiellement la création.' },
+        { num: '03', title: 'Vous signez le contrat', desc: 'Je vous envoie le contrat par mail. Vous me le retournez signé et réglez l\'accompte : C\'est ce qui lance officiellement la création.' },
         { num: '04', title: 'Vous m\'envoyez vos contenus', desc: 'Textes, photos, logo : vous m\'envoyez tout ce dont j\'ai besoin. Je vous guide si besoin.' },
         { num: '05', title: 'Je construis votre site', desc: 'Je crée votre site sur mesure en 10 jours ouvrés. Design, intégration, SEO... je m\'occupe de tout.' },
         { num: '06', title: 'Vous relisez et on affine', desc: 'Deux tours de révisions sont inclus pour que le résultat vous ressemble vraiment.' },
