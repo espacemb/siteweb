@@ -5,39 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Marielle Bouss - Création de sites vitrine pour thérapeutes</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap');
-        
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        /* ─── Reset ──────────────────────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* ─── Variables ──────────────────────────────────────────────────── */
         :root {
-            --blue: #2E86C1;
-            --blue-mid: #1F6FA3;
-            --blue-dark: #155A87;
-            --blue-deep: #0D3F61;
-            --blue-pale: #E8F4FB;
-            --cream: #FAF7F2;
-            --cream2: #F2EDE4;
-            --cream3: #E5DDD0;
-            --sand: #C9A97A;
-            --sand-light: #F0E6D3;
-            --white: #FFFFFF;
-            --ink: #1E2A32;
-            --muted: #5A6A72;
-            --soft: #96AEBB;
-            --border: rgba(46,134,193,0.15);
-            --border-warm: rgba(180,155,115,0.2);
+            --blue:        #2E86C1;
+            --blue-mid:    #1F6FA3;
+            --blue-dark:   #155A87;
+            --blue-deep:   #0D3F61;
+            --blue-pale:   #E8F4FB;
+            --cream:       #FAF7F2;
+            --cream2:      #F2EDE4;
+            --cream3:      #E5DDD0;
+            --sand:        #C9A97A;
+            --sand-light:  #F0E6D3;
+            --white:       #FFFFFF;
+            --ink:         #1E2A32;
+            --muted:       #5A6A72;
+            --soft:        #96AEBB;
+            --border:      rgba(46, 134, 193, 0.15);
+            --border-warm: rgba(180, 155, 115, 0.2);
         }
-        
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-}
+
+        /* ─── Base ───────────────────────────────────────────────────────── */
+        html { scroll-behavior: smooth; overflow-x: hidden; }
 
         body {
             overflow-x: hidden;
@@ -46,66 +40,35 @@
             color: var(--ink);
             line-height: 1.6;
         }
-        
-        /* Container pour centrer le contenu */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        /* Navigation */
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* ─── Navigation ─────────────────────────────────────────────────── */
         .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 1.5rem;
             border-bottom: 1px solid var(--border-warm);
-            background: rgba(250,247,242,0.97);
+            background: rgba(250, 247, 242, 0.97);
             backdrop-filter: blur(10px);
             max-width: 1400px;
             margin: 0 auto;
             position: relative;
             z-index: 1000;
         }
-        
-        .nav-logo {
-            font-family: 'Poppins', serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: var(--ink);
-        }
-        
-        .nav-logo span {
-            color: var(--blue);
-        }
-        
-        /* Desktop navigation links */
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            font-size: 0.9rem;
-            color: var(--muted);
-            font-weight: 400;
-            align-items: center;
-        }
-        
-        .nav-links a {
-            cursor: pointer;
-            transition: color 0.2s;
-            text-decoration: none;
-            color: var(--muted);
-        }
-        
-        .nav-links a:hover {
-            color: var(--blue);
-        }
-        
+
+        .nav-logo { font-size: 1.2rem; font-weight: 700; letter-spacing: 1px; color: var(--ink); }
+        .nav-logo span { color: var(--blue); }
+
+        .nav-links { display: flex; gap: 2rem; font-size: 0.9rem; font-weight: 400; align-items: center; }
+
+        .nav-links a { text-decoration: none; color: var(--muted); transition: color 0.2s; }
+        .nav-links a:hover { color: var(--blue); }
+
         .nav-cta {
             background: var(--blue);
             color: #fff;
-            font-family: 'Poppins', sans-serif;
             font-size: 0.85rem;
             font-weight: 500;
             padding: 0.5rem 1.25rem;
@@ -116,12 +79,10 @@
             text-decoration: none;
             display: inline-block;
         }
-        
-        .nav-cta:hover {
-            background: var(--blue-dark);
-        }
-        
-        /* Mobile hamburger button */
+
+        .nav-cta:hover { background: var(--blue-dark); }
+
+        /* ─── Hamburger mobile ───────────────────────────────────────────── */
         .nav-hamburger {
             display: none;
             flex-direction: column;
@@ -131,27 +92,18 @@
             border: none;
             padding: 4px;
             z-index: 1002;
-            position: relative;
         }
-        
-        .nav-hamburger span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--ink);
-            border-radius: 2px;
-            transition: all 0.3s;
-        }
-        
-        /* Mobile menu overlay */
+
+        .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: all 0.3s; }
+
+        /* ─── Menu mobile overlay ────────────────────────────────────────── */
         .mobile-menu-overlay {
             position: fixed;
-            top: 0;
-            right: 0;
+            top: 0; right: 0;
             width: 70%;
             max-width: 300px;
             height: 100%;
-            background: rgba(250,247,242,0.98);
+            background: rgba(250, 247, 242, 0.98);
             backdrop-filter: blur(12px);
             z-index: 2000;
             display: flex;
@@ -164,43 +116,24 @@
             transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
         }
 
-        .mobile-menu-overlay.open {
-            transform: translateX(0);
-            opacity: 1;
-            visibility: visible;
-        }
+        .mobile-menu-overlay.open { transform: translateX(0); opacity: 1; visibility: visible; }
 
         .mobile-menu-close {
             position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
+            top: 1.5rem; right: 1.5rem;
             background: none;
             border: none;
             cursor: pointer;
-            width: 32px;
-            height: 32px;
+            width: 32px; height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 2001;
         }
 
-        .mobile-menu-close span {
-            position: relative;
-            width: 24px;
-            height: 2px;
-            background: var(--ink);
-            display: block;
-        }
-
-        .mobile-menu-close span:first-child {
-            transform: rotate(45deg);
-        }
-
-        .mobile-menu-close span:last-child {
-            transform: rotate(-45deg);
-            position: absolute;
-        }
+        .mobile-menu-close span               { position: relative; width: 24px; height: 2px; background: var(--ink); display: block; }
+        .mobile-menu-close span:first-child   { transform: rotate(45deg); }
+        .mobile-menu-close span:last-child    { transform: rotate(-45deg); position: absolute; }
 
         .mobile-menu-links {
             display: flex;
@@ -212,7 +145,6 @@
         }
 
         .mobile-menu-links a {
-            font-family: 'Poppins', sans-serif;
             font-size: 1.2rem;
             font-weight: 400;
             color: var(--ink);
@@ -221,15 +153,12 @@
             padding: 0.5rem;
             text-align: center;
         }
-        
-        .mobile-menu-links a:hover {
-            color: var(--blue);
-        }
-        
+
+        .mobile-menu-links a:hover { color: var(--blue); }
+
         .mobile-menu-cta {
             background: var(--blue);
             color: #fff !important;
-            font-family: 'Poppins', sans-serif;
             font-size: 1rem;
             font-weight: 500;
             padding: 0.8rem 1rem;
@@ -242,29 +171,11 @@
             text-align: center;
             margin-top: 1rem;
             width: 100%;
-            box-sizing: border-box;
         }
-        
-        .mobile-menu-cta:hover {
-            background: var(--blue-dark);
-            color: #fff !important;
-        }
-        
-        @media (max-width: 768px) {
-            .nav-hamburger {
-                display: flex;
-            }
-            
-            .nav-links {
-                display: none !important;
-            }
-            
-            .nav-cta {
-                display: none;
-            }
-        }
-        
-        /* Hero */
+
+        .mobile-menu-cta:hover { background: var(--blue-dark); color: #fff !important; }
+
+        /* ─── Hero ───────────────────────────────────────────────────────── */
         .hero {
             padding: 4rem 1.5rem;
             background: var(--cream);
@@ -283,19 +194,11 @@
             z-index: 0;
             opacity: 0.6;
         }
-        
-        .hero .container {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
 
-        .hero-text {
-            flex: 1;
-        }
-        
+        .hero .container { position: relative; z-index: 1; display: flex; align-items: center; gap: 4rem; }
+
+        .hero-text { flex: 1; }
+
         .hero-tag {
             display: inline-flex;
             align-items: center;
@@ -307,9 +210,9 @@
             text-transform: uppercase;
             margin-bottom: 1.6rem;
         }
-        
+
         .hero h1 {
-            font-family: 'Arial', serif;
+            font-family: 'Arial', sans-serif;
             font-size: clamp(1.9rem, 4vw, 3rem);
             font-weight: 700;
             line-height: 1.2;
@@ -317,13 +220,9 @@
             margin-bottom: 1.25rem;
             color: var(--ink);
         }
-        
-        .hero h1 em {
-            font-style: normal;
-            color: var(--blue);
-            font-weight: 600;
-        }
-        
+
+        .hero h1 em { font-style: normal; color: var(--blue); font-weight: 600; }
+
         .hero-sub {
             font-size: 1rem;
             color: var(--muted);
@@ -332,20 +231,11 @@
             font-weight: 300;
             margin-bottom: 2.2rem;
         }
-        
-        .hero-actions {
-            display: flex;
-            gap: 0.9rem;
-            flex-wrap: wrap;
-        }
+
+        .hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; }
 
         /* Hero — colonne photo */
-        .hero-photo-col {
-            flex: 0 0 300px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
+        .hero-photo-col { flex: 0 0 300px; position: relative; display: flex; justify-content: center; }
 
         .hero-photo-frame {
             width: 260px;
@@ -360,14 +250,9 @@
             justify-content: center;
         }
 
-        .hero-photo-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-            display: block;
-        }
+        .hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
 
+        /* Placeholder si pas encore de photo */
         .hero-photo-placeholder {
             position: absolute;
             inset: 0;
@@ -393,51 +278,29 @@
             opacity: 0.5;
         }
 
+        /* Badges flottants */
         .hero-badge {
             position: absolute;
             background: var(--white);
             border: 1px solid var(--border-warm);
             border-radius: 12px;
             padding: 10px 14px;
-            box-shadow: 0 4px 20px rgba(46,134,193,0.08);
+            box-shadow: 0 4px 20px rgba(46, 134, 193, 0.08);
             z-index: 2;
             max-width: 155px;
         }
 
-        .hero-badge-left {
-            left: -20px;
-            top: 52px;
-        }
+        .hero-badge-left  { left: -20px; top: 52px; }
+        .hero-badge-right { right: -20px; bottom: 70px; }
 
-        .hero-badge-right {
-            right: -20px;
-            bottom: 70px;
-        }
+        .hero-badge-icon  { font-size: 14px; color: var(--sand); margin-bottom: 4px; }
+        .hero-badge-title { font-size: 0.72rem; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+        .hero-badge-desc  { font-size: 0.68rem; color: var(--soft); font-weight: 300; line-height: 1.45; }
 
-        .hero-badge-icon {
-            font-size: 14px;
-            color: var(--sand);
-            margin-bottom: 4px;
-        }
-
-        .hero-badge-title {
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: 2px;
-        }
-
-        .hero-badge-desc {
-            font-size: 0.68rem;
-            color: var(--soft);
-            font-weight: 300;
-            line-height: 1.45;
-        }
-        
+        /* Boutons */
         .btn-primary {
             background: var(--blue);
             color: #fff;
-            font-family: 'Poppins', sans-serif;
             font-weight: 500;
             font-size: 0.86rem;
             padding: 0.78rem 1.7rem;
@@ -446,15 +309,12 @@
             cursor: pointer;
             transition: background 0.2s;
         }
-        
-        .btn-primary:hover {
-            background: var(--blue-dark);
-        }
-        
+
+        .btn-primary:hover { background: var(--blue-dark); }
+
         .btn-ghost {
             background: transparent;
             color: var(--blue-dark);
-            font-family: 'Poppins', sans-serif;
             font-size: 0.86rem;
             font-weight: 500;
             padding: 0.78rem 1.5rem;
@@ -466,14 +326,11 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
         }
-        
-        .btn-ghost:hover {
-            background: var(--blue-pale);
-        }
-        
-        /* Bande défilante */
+
+        .btn-ghost:hover { background: var(--blue-pale); }
+
+        /* ─── Bande défilante ────────────────────────────────────────────── */
         .marquee-container {
             background: var(--sand-light);
             padding: 0.8rem 0;
@@ -482,12 +339,9 @@
             overflow: hidden;
             white-space: nowrap;
         }
-        
-        .marquee-content {
-            display: inline-block;
-            animation: scrollText 25s linear infinite;
-        }
-        
+
+        .marquee-content { display: inline-block; animation: scrollText 25s linear infinite; }
+
         .marquee-content span {
             display: inline-flex;
             align-items: center;
@@ -501,27 +355,14 @@
             font-weight: 400;
             margin: 0 0.5rem;
         }
-        
-        .marquee-content span::before {
-            content: '✦';
-            font-size: 0.9rem;
-            color: var(--sand);
-        }
-        
-        @keyframes scrollText {
-            from {
-                transform: translateX(0);
-            }
-            to {
-                transform: translateX(-50%);
-            }
-        }
-        
-        /* Sections */
-        .section {
-            padding: 4rem 0;
-        }
-        
+
+        .marquee-content span::before { content: '✦'; font-size: 0.9rem; color: var(--sand); }
+
+        @keyframes scrollText { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* ─── Sections ───────────────────────────────────────────────────── */
+        .section { padding: 4rem 0; }
+
         .section-eyebrow {
             font-size: 1rem;
             font-weight: 600;
@@ -533,90 +374,38 @@
             gap: 8px;
             margin-bottom: 0.7rem;
         }
-        
-        .section-eyebrow::before {
-            display: none;
-        }
-        
+
         .section-title {
-            font-family: 'Arial', serif;
+            font-family: 'Arial', sans-serif;
             font-size: 2.2rem;
             font-weight: 700;
             color: var(--ink);
             margin-bottom: 2.2rem;
             line-height: 1.25;
         }
-        
-        .section-title em {
-            font-style: normal;
-            font-weight: 400;
-            color: var(--blue);
-        }
-        
-        /* Cards */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .card {
-            background: var(--white);
-            border: 1px solid var(--border-warm);
-            border-radius: 20px;
-            padding: 2rem;
-        }
-        
+
+        .section-title em { font-style: normal; font-weight: 400; color: var(--blue); }
+
+        /* ─── Formules ───────────────────────────────────────────────────── */
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+
+        .card { background: var(--white); border: 1px solid var(--border-warm); border-radius: 20px; padding: 2rem; }
+
         .card.warm-blue {
             background: linear-gradient(160deg, var(--sand-light) 0%, var(--white) 50%);
-            border-color: rgba(201,169,122,0.3);
+            border-color: rgba(201, 169, 122, 0.3);
         }
-        
-        .card-price {
-            font-family: 'Poppins', serif;
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: var(--blue);
-            letter-spacing: -0.01em;
-            line-height: 1;
-        }
-        
-        .card-price sup {
-            font-size: 1rem;
-            vertical-align: super;
-        }
-        
-        .card-price small {
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 300;
-            color: var(--soft);
-        }
-        
-        .card-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 0.6rem 0 0.5rem;
-            color: var(--ink);
-        }
-        
-        .card-desc {
-            font-size: 1rem;
-            color: var(--muted);
-            line-height: 1.7;
-            margin-bottom: 1rem;
-            font-weight: 300;
-        }
-        
-        .card-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 7px;
-            margin-bottom: 1.4rem;
-        }
-        
+
+        .card-price { font-size: 2.4rem; font-weight: 700; color: var(--blue); letter-spacing: -0.01em; line-height: 1; }
+        .card-price sup   { font-size: 1rem; vertical-align: super; }
+        .card-price small { font-size: 0.72rem; font-weight: 300; color: var(--soft); }
+
+        .card-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin: 0.6rem 0 0.5rem; color: var(--ink); }
+
+        .card-desc { font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; font-weight: 300; }
+
+        .card-list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-bottom: 1.4rem; }
+
         .card-list li {
             font-size: 0.98rem;
             color: var(--muted);
@@ -625,15 +414,10 @@
             gap: 8px;
             line-height: 1.5;
         }
-        
-        .card-list li::before {
-            content: '✓';
-            color: var(--blue);
-            flex-shrink: 0;
-            font-weight: 600;
-        }
-        
-        /* Portfolio */
+
+        .card-list li::before { content: '✓'; color: var(--blue); flex-shrink: 0; font-weight: 600; }
+
+        /* ─── Portfolio (aperçus sur l'index) ────────────────────────────── */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -645,24 +429,13 @@
             background: var(--white);
             border-radius: 20px;
             border: 1px solid var(--sand);
+            cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+        .portfolio-item:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
 
-        .portfolio-preview {
-            height: 200px;
-            overflow: hidden;
-            border-radius: 20px 20px 0 0;
-            background: none;
-        }
-
-        .portfolio-preview::after {
-            display: none;
-        }
+        .portfolio-preview { height: 200px; overflow: hidden; border-radius: 20px 20px 0 0; }
 
         .portfolio-preview img {
             width: 100%;
@@ -672,66 +445,23 @@
             transition: transform 10s cubic-bezier(0.45, 0.46, 0.45, 0.94);
         }
 
-        .portfolio-item:hover .portfolio-preview img {
-            transform: translateY(calc(-100% + 200px));
-        }
+        .portfolio-item:hover .portfolio-preview img { transform: translateY(calc(-100% + 200px)); }
 
-        .portfolio-info {
-            padding: 1rem 1.5rem;
-        }
+        .portfolio-info { padding: 1rem 1.5rem; }
 
-        .portfolio-info h3 {
-            font-family: 'Arial', serif;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--ink);
-        }
+        .portfolio-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
-        .portfolio-info p {
-            font-size: 1rem;
-            color: var(--muted);
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
+        .portfolio-tag { background: var(--blue-pale); padding: 0.2rem 0.7rem; border-radius: 99px; font-size: 0.9rem; color: var(--blue); }
 
-        .portfolio-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
+        /* ─── Comparaison ────────────────────────────────────────────────── */
+        .compare { background: var(--blue-deep); padding: 4rem 0; }
 
-        .portfolio-tag {
-            background: var(--blue-pale);
-            padding: 0.2rem 0.7rem;
-            border-radius: 99px;
-            font-size: 0.9rem;
-            color: var(--blue);
-        }
-        
-        /* Compare */
-        .compare {
-            background: var(--blue-deep);
-            padding: 4rem 0;
-        }
-        
-        .compare .section-eyebrow {
-            color: rgba(240,220,184,0.6);
-        }
-        
-        .compare .section-title {
-            color: #fff;
-        }
-        
-        .compare .section-title em {
-            color: #F0DCB8;
-        }
-        
-        .compare-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2rem;
-        }
-        
+        .compare .section-eyebrow { color: rgba(240, 220, 184, 0.6); }
+        .compare .section-title   { color: #fff; }
+        .compare .section-title em { color: #F0DCB8; }
+
+        .compare-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+
         .compare-table th {
             color: #F0DCB8;
             font-size: 1.1rem;
@@ -740,77 +470,45 @@
             text-transform: uppercase;
             padding: 0.75rem 1rem;
             text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         }
-        
-        .compare-table th.other-col {
-            color: rgba(255,255,255,0.35);
-        }
-        
+
+        .compare-table th.other-col { color: rgba(255, 255, 255, 0.35); }
+
         .compare-table td {
             font-size: 0.95rem;
             padding: 0.7rem 1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
             vertical-align: top;
             line-height: 1.5;
         }
-        
-        .compare-table td.row-label {
-            color: rgba(255,255,255,0.45);
-            font-size: 0.95rem;
-            font-weight: 500;
-            width: 35%;
-        }
-        
-        .compare-table td.me-val {
-            color: #fff;
-            font-weight: 500;
-        }
-        
-        .compare-table td.me-val .good {
-            color: #F0DCB8;
-        }
-        
-        .compare-table td.other-val {
-            color: rgba(255,255,255,0.35);
-        }
-        
+
+        .compare-table td.row-label { color: rgba(255, 255, 255, 0.45); font-size: 0.95rem; font-weight: 500; width: 35%; }
+        .compare-table td.me-val    { color: #fff; font-weight: 500; }
+        .compare-table td.me-val .good { color: #F0DCB8; }
+        .compare-table td.other-val { color: rgba(255, 255, 255, 0.35); }
+
         .compare-note {
             margin-top: 1.8rem;
-            background: rgba(240,220,184,0.08);
-            border: 1px solid rgba(240,220,184,0.2);
+            background: rgba(240, 220, 184, 0.08);
+            border: 1px solid rgba(240, 220, 184, 0.2);
             border-radius: 12px;
             padding: 1.1rem 1.4rem;
             font-size: 1.1rem;
-            color: rgba(255,255,255,0.65);
+            color: rgba(255, 255, 255, 0.65);
             line-height: 1.65;
         }
-        
-        .compare-note strong {
-            color: #F0DCB8;
-            font-weight: 500;
-        }
-        
-        /* Process */
-        .process {
-            padding: 4rem 0;
-            background: var(--cream2);
-        }
-        
-        .steps {
-            display: flex;
-            flex-direction: column;
-            margin-top: 0.5rem;
-        }
-        
-        .step {
-            border-bottom: 1px solid var(--border-warm);
-        }
-        
-        .step:last-child {
-            border-bottom: none;
-        }
-        
+
+        .compare-note strong { color: #F0DCB8; font-weight: 500; }
+
+        /* ─── Process (accordéon) ────────────────────────────────────────── */
+        .process { padding: 4rem 0; background: var(--cream2); }
+
+        .steps { display: flex; flex-direction: column; margin-top: 0.5rem; }
+
+        .step { border-bottom: 1px solid var(--border-warm); }
+        .step:last-child { border-bottom: none; }
+
         .step-header {
             display: flex;
             align-items: center;
@@ -823,86 +521,29 @@
             text-align: left;
             font-family: 'Poppins', sans-serif;
         }
-        
-        .step-header:hover .step-title {
-            color: var(--blue);
-        }
-        
-        .step-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--sand);
-            line-height: 1;
-            min-width: 2rem;
-            flex-shrink: 0;
-        }
-        
-        .step-title {
-            font-family: 'Arial', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--ink);
-            flex: 1;
-        }
-        
-        .step-icon {
-            font-size: 14px;
-            color: #BBA88A;
-            transition: transform 0.25s;
-            flex-shrink: 0;
-        }
-        
-        .step-icon.open {
-            transform: rotate(180deg);
-        }
-        
-        .step-body {
-            overflow: hidden;
-            max-height: 0;
-            transition: max-height 0.3s ease;
-        }
-        
-        .step-body.open {
-            max-height: 200px;
-        }
-        
-        .step-desc {
-            font-size: 1rem;
-            color: var(--muted);
-            line-height: 1.75;
-            font-weight: 300;
-            padding: 0 0 1.1rem 3rem;
-        }
-        
-        /* CTA / Formulaire */
-        .cta {
-            padding: 4rem 0;
-            text-align: center;
-            background: var(--blue-deep);
-        }
-        
-        .cta h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.75rem;
-        }
-        
-        .cta p {
-            font-size: 0.84rem;
-            color: rgba(255,255,255,0.65);
-            max-width: 360px;
-            margin: 0 auto 2rem;
-            font-weight: 300;
-            line-height: 1.75;
-        }
-        
+
+        .step-header:hover .step-title { color: var(--blue); }
+
+        .step-num   { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--sand); line-height: 1; min-width: 2rem; flex-shrink: 0; }
+        .step-title { font-family: 'Arial', sans-serif; font-size: 1.1rem; font-weight: 500; color: var(--ink); flex: 1; }
+        .step-icon  { font-size: 14px; color: #BBA88A; transition: transform 0.25s; flex-shrink: 0; }
+        .step-icon.open { transform: rotate(180deg); }
+
+        .step-body { overflow: hidden; max-height: 0; transition: max-height 0.3s ease; }
+        .step-body.open { max-height: 200px; }
+
+        .step-desc { font-size: 1rem; color: var(--muted); line-height: 1.75; font-weight: 300; padding: 0 0 1.1rem 3rem; }
+
+        /* ─── Formulaire de contact ──────────────────────────────────────── */
+        .cta { padding: 4rem 0; text-align: center; background: var(--blue-deep); }
+
+        .cta h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+
+        .cta p { font-size: 0.84rem; color: rgba(255, 255, 255, 0.65); max-width: 360px; margin: 0 auto 2rem; font-weight: 300; line-height: 1.75; }
+
         .btn-cta {
             background: var(--sand);
             color: var(--ink);
-            font-family: 'Poppins', sans-serif;
             font-weight: 500;
             font-size: 0.85rem;
             padding: 0.85rem 2rem;
@@ -911,22 +552,13 @@
             cursor: pointer;
             transition: background 0.2s;
         }
-        
-        .btn-cta:hover {
-            background: var(--cream3);
-        }
-        
-        /* Style du formulaire */
-        .contact-form {
-            max-width: 500px;
-            margin: 0 auto;
-            text-align: left;
-        }
-        
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        
+
+        .btn-cta:hover { background: var(--cream3); }
+
+        .contact-form { max-width: 500px; margin: 0 auto; text-align: left; }
+
+        .form-group { margin-bottom: 1rem; }
+
         .form-group input,
         .form-group textarea {
             width: 100%;
@@ -937,20 +569,11 @@
             font-family: inherit;
             font-size: 0.9rem;
         }
-        
+
         .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--blue);
-        }
-        
-        .form-status {
-            margin-top: 1rem;
-            font-size: 0.8rem;
-            text-align: center;
-        }
-        
-        /* Footer */
+        .form-group textarea:focus { outline: none; border-color: var(--blue); }
+
+        /* ─── Footer ─────────────────────────────────────────────────────── */
         .footer {
             padding: 1.5rem;
             border-top: 1px solid var(--border-warm);
@@ -962,532 +585,515 @@
             letter-spacing: 1px;
             gap: 1rem;
         }
-        
-        .footer-logo {
-            font-family: 'Poppins', serif;
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--ink);
-        }
-        
-        .footer-logo span {
-            color: var(--blue);
-        }
-        
-        .footer-copy {
-            font-size: 0.68rem;
-            color: #A8907A;
-        }
-        
-        /* Responsive */
+
+        .footer-logo      { font-size: 1rem; font-weight: 700; color: var(--ink); }
+        .footer-logo span { color: var(--blue); }
+        .footer-copy      { font-size: 0.68rem; color: #A8907A; }
+
+        /* ─── Responsive ─────────────────────────────────────────────────── */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
-            
-            .nav {
-                padding: 0.8rem 1rem;
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-            
-            .hero {
-                padding: 2rem 1rem;
-            }
+            .container     { padding: 0 1rem; }
+            .nav           { padding: 0.8rem 1rem; flex-wrap: wrap; gap: 1rem; }
+            .nav-hamburger { display: flex; }
+            .nav-links     { display: none !important; }
+            .nav-cta       { display: none; }
 
-            .hero .container {
-                flex-direction: column;
-                gap: 2.5rem;
-            }
+            .hero          { padding: 2rem 1rem; }
+            .hero .container { flex-direction: column; gap: 2.5rem; }
+            .hero h1       { font-size: 1.8rem; }
+            .hero-photo-col  { flex: unset; width: 100%; justify-content: center; padding: 0 2rem; }
+            .hero-badge-left  { left: 0; top: 30px; }
+            .hero-badge-right { right: 0; bottom: 40px; }
 
-            .hero-photo-col {
-                flex: unset;
-                width: 100%;
-                justify-content: center;
-                padding: 0 2rem;
-            }
+            .cards           { grid-template-columns: 1fr; gap: 1.5rem; }
+            .portfolio-grid  { grid-template-columns: 1fr; }
+            .section-title   { font-size: 1.6rem; }
 
-            .hero-badge-left {
-                left: 0;
-                top: 30px;
-            }
+            .step-body.open  { max-height: 300px; }
+            .step-desc       { padding-left: 2rem; }
 
-            .hero-badge-right {
-                right: 0;
-                bottom: 40px;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .cards {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-            }
-            
-            .step-body.open {
-                max-height: 300px;
-            }
-            
-            .step-desc {
-                padding-left: 2rem;
-            }
-            
             .compare-table th,
-            .compare-table td {
-                padding: 0.5rem;
-            }
-            
-            .compare-table td.row-label {
-                font-size: 0.88rem;
-                font-weight: 500;
-            }
-            
+            .compare-table td  { padding: 0.5rem; }
+            .compare-table th  { font-size: 0.86rem; }
+            .compare-table td.row-label { font-size: 0.88rem; }
             .compare-table td.other-val,
-            .compare-table td.me-val {
-                font-size: 0.86rem;
-            }
-            
-            .compare-table th {
-                font-size: 0.86rem;
-            }
-            
-            .compare-note {
-                font-size: 1rem;
-                padding: 0.8rem 1rem;
-                line-height: 1.5;
-            }
-            
-            .compare-note strong {
-                font-size: 1rem;
-            }
+            .compare-table td.me-val    { font-size: 0.86rem; }
+            .compare-note  { font-size: 1rem; padding: 0.8rem 1rem; line-height: 1.5; }
         }
 
         @media (max-width: 480px) {
-            .hero-actions {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .btn-primary,
-            .btn-ghost {
-                text-align: center;
-                justify-content: center;
-                width: 100%;
-            }
-            
-            .step-body.open {
-                max-height: 400px;
-            }
+            .hero-actions { flex-direction: column; align-items: stretch; }
+            .btn-primary, .btn-ghost { text-align: center; justify-content: center; width: 100%; }
+            .step-body.open { max-height: 400px; }
         }
     </style>
 </head>
 <body>
-    <div class="site">
-        <nav class="nav">
-            <div class="nav-logo">MARIELLE <span>BOUSS</span></div>
-            <div class="nav-links" id="navLinks">
-                <a href="#services">Formules</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="apropos.html">À propos</a>
-                <a href="#process">Comment ça marche</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <button class="nav-hamburger" id="hamburgerBtn" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <a href="#contact" class="nav-cta">Démarrer un projet</a>
-        </nav>
+<div class="site">
 
-        <!-- Mobile Menu Overlay -->
-        <div class="mobile-menu-overlay" id="mobileMenu">
-            <button class="mobile-menu-close" id="closeMenuBtn" aria-label="Fermer">
-                <span></span>
-                <span></span>
-            </button>
-            <div class="mobile-menu-links">
-                <a href="#services" class="mobile-link">Formules</a>
-                <a href="portfolio.html" class="mobile-link">Portfolio</a>
-                <a href="apropos.html" class="mobile-link">À propos</a>
-                <a href="#process" class="mobile-link">Comment ça marche</a>
-                <a href="#contact" class="mobile-link">Contact</a>
-                <a href="#contact" class="mobile-menu-cta">Démarrer un projet</a>
+    <!-- ── Navigation ───────────────────────────────────────────────── -->
+    <nav class="nav">
+        <div class="nav-logo">MARIELLE <span>BOUSS</span></div>
+        <div class="nav-links" id="navLinks">
+            <a href="#services">Formules</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="apropos.html">À propos</a>
+            <a href="#process">Comment ça marche</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button class="nav-hamburger" id="hamburgerBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <a href="#contact" class="nav-cta">Démarrer un projet</a>
+    </nav>
+
+    <!-- ── Menu mobile ──────────────────────────────────────────────── -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <button class="mobile-menu-close" id="closeMenuBtn" aria-label="Fermer">
+            <span></span><span></span>
+        </button>
+        <div class="mobile-menu-links">
+            <a href="#services"     class="mobile-link">Formules</a>
+            <a href="portfolio.html" class="mobile-link">Portfolio</a>
+            <a href="apropos.html"  class="mobile-link">À propos</a>
+            <a href="#process"      class="mobile-link">Comment ça marche</a>
+            <a href="#contact"      class="mobile-link">Contact</a>
+            <a href="#contact"      class="mobile-menu-cta">Démarrer un projet</a>
+        </div>
+    </div>
+
+    <!-- ── Hero ─────────────────────────────────────────────────────── -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <div class="hero-tag">Créatrice de site web vitrine</div>
+                <h1>Création de site vitrine pour les femmes <em>thérapeutes</em> et <em>praticiennes bien-être</em>.</h1>
+                <p class="hero-sub">Je crée des sites web qui inspirent confiance, reflètent votre approche et soutiennent votre activité. Issue du monde du bien-être, j'ai choisi de rester dans cet univers pour accompagner les femmes thérapeutes et praticiennes bien-être qui veulent une présence en ligne.</p>
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Voir les formules</button>
+                    <a href="apropos.html" class="btn-ghost">Pourquoi travailler avec moi ?</a>
+                </div>
+            </div>
+
+            <div class="hero-photo-col">
+                <div class="hero-badge hero-badge-left">
+                    <div class="hero-badge-icon">✦</div>
+                    <div class="hero-badge-title">Issue du bien-être</div>
+                    <div class="hero-badge-desc">Je connais votre univers de l'intérieur</div>
+                </div>
+
+                <div class="hero-photo-frame">
+                    <!--
+                    Pour ajouter votre photo :
+                    Remplacez la ligne ci-dessous par :
+                    <img src="votre-photo.jpg" alt="Marielle Bouss">
+                    -->
+                    <div class="hero-photo-placeholder">Votre photo ici</div>
+                </div>
+
+                <div class="hero-badge hero-badge-right">
+                    <div class="hero-badge-title">Livré en 10 jours</div>
+                    <div class="hero-badge-desc">Sans abonnement, hébergement inclus</div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <section class="hero">
-            <div class="container">
-                <div class="hero-text">
-                    <div class="hero-tag">Créatrice de site web vitrine</div>
-                    <h1>Création de site vitrine pour les femmes <em>thérapeutes</em> et <em>praticiennes bien-être</em>.</h1>
-                    <p class="hero-sub">Je crée des sites web qui inspirent confiance, reflètent votre approche et soutiennent votre activité. Issue du monde du bien-être, j'ai choisi de rester dans cet univers pour accompagner les femmes thérapeutes et praticiennes bien-être qui veulent une présence en ligne.</p>
-                    <div class="hero-actions">
-                        <button class="btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Voir les formules</button>
-                        <a href="apropos.html" class="btn-ghost">Pourquoi travailler avec moi ?</a>
-                    </div>
+    <!-- ── Bande défilante ──────────────────────────────────────────── -->
+    <!--
+    Pour modifier les spécialités : éditer les <span> ci-dessous.
+    Dupliquer toute la série une fois pour que le défilement soit continu.
+    -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span>Sophrologue</span>
+            <span>Psychologue</span>
+            <span>Massothérapeute</span>
+            <span>Naturopathe</span>
+            <span>Réflexologue</span>
+            <span>Ostéopathe</span>
+            <span>Diététicienne</span>
+            <span>Nutritioniste</span>
+            <span>Hypnothérapeute</span>
+            <span>Coach bien-être</span>
+            <span>Psychothérapeute</span>
+            <span>Énergéticienne</span>
+            <span>Indépendante</span>
+            <!-- Copie pour boucle infinie -->
+            <span>Sophrologue</span>
+            <span>Psychologue</span>
+            <span>Massothérapeute</span>
+            <span>Naturopathe</span>
+            <span>Réflexologue</span>
+            <span>Ostéopathe</span>
+            <span>Diététicienne</span>
+            <span>Nutritioniste</span>
+            <span>Hypnothérapeute</span>
+            <span>Coach bien-être</span>
+            <span>Psychothérapeute</span>
+            <span>Énergéticienne</span>
+            <span>Indépendante</span>
+        </div>
+    </div>
+
+    <!-- ── Formules ──────────────────────────────────────────────────── -->
+    <!--
+    Pour modifier les prix ou les listes :
+    éditer les .card-price, .card-name, .card-desc et les <li> directement.
+    -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-eyebrow">Formules</div>
+            <div class="section-title">Ce que j'inclus dans chaque formule</div>
+            <div class="cards">
+
+                <div class="card warm-blue">
+                    <div class="card-price"><sup>€</sup>380 <small>TTC · paiement unique</small></div>
+                    <div class="card-name">Formule Essentielle</div>
+                    <div class="card-desc">Une page scrollante, claire et bien construite. Idéale pour débuter avec un site professionnel sans se disperser.</div>
+                    <ul class="card-list">
+                        <li>1 page scrollante + 1 page 'À propos'</li>
+                        <li>Intégration de vos textes & photos</li>
+                        <li>Référencement SEO (balises, méta)</li>
+                        <li>Adapté ordinateur/mobile/tablette</li>
+                        <li>Hébergement inclus</li>
+                        <li>Mentions légales & RGPD</li>
+                        <li>2 tours de révisions</li>
+                    </ul>
                 </div>
 
-                <div class="hero-photo-col">
-                    <div class="hero-badge hero-badge-left">
-                        <div class="hero-badge-icon">✦</div>
-                        <div class="hero-badge-title">Issue du bien-être</div>
-                        <div class="hero-badge-desc">Je connais votre univers de l'intérieur</div>
-                    </div>
-
-                    <div class="hero-photo-frame">
-                        <div class="hero-photo-placeholder">Votre photo ici</div>
-                    </div>
-
-                    <div class="hero-badge hero-badge-right">
-                        <div class="hero-badge-title">Livré en 10 jours</div>
-                        <div class="hero-badge-desc">Sans abonnement, hébergement inclus</div>
-                    </div>
+                <div class="card warm-blue">
+                    <div class="card-price"><sup>€</sup>500 <small>TTC · paiement unique</small></div>
+                    <div class="card-name">Formule Complète</div>
+                    <div class="card-desc">Jusqu'à 5 pages pour présenter votre univers en profondeur : vos soins, votre parcours, votre façon d'accompagner.</div>
+                    <ul class="card-list">
+                        <li>Jusqu'à 5 pages</li>
+                        <li>Intégration de vos textes & photos</li>
+                        <li>Référencement SEO (balises, méta)</li>
+                        <li>Formulaire de contact ou réservation</li>
+                        <li>Adapté ordinateur/mobile/tablette</li>
+                        <li>Hébergement inclus</li>
+                        <li>Mentions légales & RGPD</li>
+                        <li>2 tours de révisions</li>
+                    </ul>
                 </div>
-            </div>
-        </section>
 
-        <!-- Bande défilante -->
-        <div class="marquee-container">
-            <div class="marquee-content">
-                <span>Sophrologue</span>
-                <span>Psychologue</span>
-                <span>Massothérapeute</span>
-                <span>Naturopathe</span>
-                <span>Réflexologue</span>
-                <span>Ostéopathe</span>
-                <span>Diététicienne</span>
-                <span>Nutritioniste</span>
-                <span>Hypnothérapeute</span>
-                <span>Coach bien-être</span>
-                <span>Psychothérapeute</span>
-                <span>Énergéticienne</span>
-                <span>Indépendante</span>
-                <span>Sophrologue</span>
-                <span>Psychologue</span>
-                <span>Massothérapeute</span>
-                <span>Naturopathe</span>
-                <span>Réflexologue</span>
-                <span>Ostéopathe</span>
-                <span>Diététicienne</span>
-                <span>Nutritioniste</span>
-                <span>Hypnothérapeute</span>
-                <span>Coach bien-être</span>
-                <span>Psychothérapeute</span>
-                <span>Énergéticienne</span>
-                <span>Indépendante</span>
             </div>
         </div>
+    </section>
 
-        <section id="services" class="section">
-            <div class="container">
-                <div class="section-eyebrow">Formules</div>
-                <div class="section-title">Ce que j'inclus dans chaque formule</div>
-                <div class="cards">
-                    <div class="card warm-blue">
-                        <div class="card-price"><sup>€</sup>380 <small>TTC · paiement unique</small></div>
-                        <div class="card-name">Formule Essentielle</div>
-                        <div class="card-desc">Une page scrollante, claire et bien construite. Idéale pour débuter avec un site professionnel sans se disperser.</div>
-                        <ul class="card-list">
-                            <li>1 page scrollante + 1 page 'À propos'</li>
-                            <li>Intégration de vos textes & photos</li>
-                            <li>Référencement SEO (balises, méta)</li>
-                            <li>Adapté ordinateur/mobile/tablette</li>
-                            <li>Hébergement inclus</li>
-                            <li>Mentions légales & RGPD</li>
-                            <li>2 tours de révisions</li>
-                        </ul>
-                    </div>
-                    <div class="card warm-blue">
-                        <div class="card-price"><sup>€</sup>500 <small>TTC · paiement unique</small></div>
-                        <div class="card-name">Formule Complète</div>
-                        <div class="card-desc">Jusqu'à 5 pages pour présenter votre univers en profondeur : vos soins, votre parcours, votre façon d'accompagner.</div>
-                        <ul class="card-list">
-                            <li>Jusqu'à 5 pages</li>
-                            <li>Intégration de vos textes & photos</li>
-                            <li>Référencement SEO (balises, méta)</li>
-                            <li>Formulaire de contact ou réservation</li>
-                            <li>Adapté ordinateur/mobile/tablette</li>
-                            <li>Hébergement inclus</li>
-                            <li>Mentions légales & RGPD</li>
-                            <li>2 tours de révisions</li>
-                        </ul>
-                    </div>
-                </div>
+    <!-- ── Comparaison ───────────────────────────────────────────────── -->
+    <section class="compare">
+        <div class="container">
+            <div class="section-eyebrow">Comparaison</div>
+            <div class="section-title">Un seul paiement, <em>pas d'abonnement.</em></div>
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th style="color:rgba(255,255,255,0.3);width:35%;"></th>
+                        <th class="other-col">Wix / WordPress</th>
+                        <th class="me-col">Marielle Bouss</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="row-label">Coût</td>
+                        <td class="other-val">150 – 300 € / an à renouveler</td>
+                        <td class="me-val"><span class="good">380 - 500 € une seule fois</span></td>
+                    </tr>
+                    <tr>
+                        <td class="row-label">Après 3 ans</td>
+                        <td class="other-val">+ de 900€ dépensés</td>
+                        <td class="me-val"><span class="good">Rien de plus</span></td>
+                    </tr>
+                    <tr>
+                        <td class="row-label">Hébergement</td>
+                        <td class="other-val">En supplément ou dans l'abonnement</td>
+                        <td class="me-val"><span class="good">Inclus dans le forfait</span></td>
+                    </tr>
+                    <tr>
+                        <td class="row-label">Design</td>
+                        <td class="other-val">Templates génériques</td>
+                        <td class="me-val"><span class="good">Conçu sur mesure pour votre pratique</span></td>
+                    </tr>
+                    <tr>
+                        <td class="row-label">Maintenance</td>
+                        <td class="other-val">À gérer soi-même</td>
+                        <td class="me-val"><span class="good">Je gère tout à votre place</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="compare-note">
+                <strong>En clair :</strong> avec Wix ou WordPress, vous payez chaque année pour un outil générique. Avec moi, vous investissez une seule fois dans un site pensé pour votre activité, hébergement compris, sans abonnement.
             </div>
-        </section>
-        
-        <section class="compare">
-            <div class="container">
-                <div class="section-eyebrow">Comparaison</div>
-                <div class="section-title">Un seul paiement, <em>pas d'abonnement.</em></div>
-                <table class="compare-table">
-                    <thead>
-                        <tr>
-                            <th style="color:rgba(255,255,255,0.3);width:35%;"></th>
-                            <th class="other-col">Wix / WordPress</th>
-                            <th class="me-col">Marielle Bouss</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="row-label">Coût</td><td class="other-val">150 – 300 € / an à renouveler</td><td class="me-val"><span class="good">380 - 500 € une seule fois</span></td></tr>
-                        <tr><td class="row-label">Après 3 ans</td><td class="other-val">+ de 900€ dépensés</td><td class="me-val"><span class="good">Rien de plus</span></td></tr>
-                        <tr><td class="row-label">Hébergement</td><td class="other-val">En supplément ou dans l'abonnement</td><td class="me-val"><span class="good">Inclus dans le forfait</span></td></tr>
-                        <tr><td class="row-label">Design</td><td class="other-val">Templates génériques</td><td class="me-val"><span class="good">Conçu sur mesure pour votre pratique</span></td></tr>
-                        <tr><td class="row-label">Maintenance</td><td class="other-val">À gérer soi-même</td><td class="me-val"><span class="good">Je gère tout à votre place</span></td></tr>
-                    </tbody>
-                </table>
-                <div class="compare-note">
-                    <strong>En clair :</strong> avec Wix ou WordPress, vous payez chaque année pour un outil générique. Avec moi, vous investissez une seule fois dans un site pensé pour votre activité, hébergement compris, sans abonnement.
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section" style="background: var(--cream);">
-            <div class="container">
-                <div class="section-eyebrow">Réalisations</div>
-                <div class="section-title">Quelques sites que j'ai créés</div>
-                <div class="portfolio-grid">
-                    <div class="portfolio-item" onclick="window.location.href='portfolio.html'" style="cursor:pointer;">
-                        <div class="portfolio-preview">
-                        <img src="fchalutnatal.png" alt="Site Florence C.-N. — Psychologue">
-                           </div>
-                        <div class="portfolio-info">
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">Formule Essentielle</span>
-                            </div>
-                        </div>
+    <!-- ── Réalisations (aperçus) ────────────────────────────────────── -->
+    <!--
+    Pour ajouter un projet : copier-coller un bloc .portfolio-item
+    et changer src="..." et le texte du .portfolio-tag.
+    Tous les items redirigent vers portfolio.html au clic.
+    -->
+    <section class="section" style="background: var(--cream);">
+        <div class="container">
+            <div class="section-eyebrow">Réalisations</div>
+            <div class="section-title">Quelques sites que j'ai créés</div>
+            <div class="portfolio-grid">
+
+                <div class="portfolio-item" onclick="window.location.href='portfolio.html'">
+                    <div class="portfolio-preview">
+                        <img src="fchalutnatal.png" alt="Aperçu projet">
                     </div>
-                    <div class="portfolio-item" onclick="window.location.href='portfolio.html'" style="cursor:pointer;">
-                        <div class="portfolio-preview">
-                        <img src="espacemb.png" alt="Site ESPACE MB">
-                           </div>
-                        <div class="portfolio-info">
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">Formule Complète</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item" onclick="window.location.href='portfolio.html'" style="cursor:pointer;">
-                        <div class="portfolio-preview">
-                        <img src="espace-mb.com.png" alt="Site Marielle B">
-                           </div>
-                        <div class="portfolio-info">
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">Formule Complète</span>
-                            </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Formule Essentielle</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="process" class="process">
-            <div class="container">
-                <div class="section-eyebrow">Comment ça marche</div>
-                <div class="section-title">De zéro à votre site en ligne, étape par étape</div>
-                <div class="steps" id="steps"></div>
-            </div>
-        </section>
-
-        <!-- Section Contact avec formulaire Formspree et message de confirmation -->
-<section id="contact" class="cta">
-    <div class="container">
-        <h2>On commence<br>quand vous voulez.</h2>
-        <p>Parlez-moi de votre activité en quelques mots.</p>
-        
-        <form class="contact-form" id="contactForm">
-            <div class="form-group">
-                <input type="text" name="name" placeholder="Votre prénom et nom" required>
-            </div>
-            <div class="form-group">
-                <input type="email" name="email" placeholder="Votre email" required>
-            </div>
-            <div class="form-group">
-                <textarea name="message" rows="4" placeholder="Décrivez votre projet..." required></textarea>
-            </div>
-            <button type="submit" id="submitBtn" class="btn-cta" style="background: var(--sand); color: var(--ink); cursor: pointer;">Envoyer le message</button>
-            <div id="formMessage" style="margin-top: 1rem; text-align: center; font-size: 0.9rem;"></div>
-        </form>
-    </div>
-</section>
-
-        <footer class="footer">
-            <div class="footer-logo">MARIELLE <span>BOUSS</span></div>
-            <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
-                <div style="display:flex;gap:0.5rem;align-items:center;font-size:0.72rem;">
-                    <a href="mentions-legales.html" style="color:#A8907A;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#A8907A'" onmouseout="this.style.color='#A8907A'">Mentions légales</a>
-                    <span style="color:var(--soft);">·</span>
-                    <a href="politique-confidentialite.html" style="color:#A8907A;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#A8907A'" onmouseout="this.style.color='#A8907A'">Politique de confidentialité</a>
+                <div class="portfolio-item" onclick="window.location.href='portfolio.html'">
+                    <div class="portfolio-preview">
+                        <img src="espacemb.png" alt="Aperçu projet">
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Formule Complète</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-copy">© 2026 · Création de sites vitrine bien-être</div>
+
+                <div class="portfolio-item" onclick="window.location.href='portfolio.html'">
+                    <div class="portfolio-preview">
+                        <img src="espace-mb.com.png" alt="Aperçu projet">
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Formule Complète</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </footer>
-    </div>
+        </div>
+    </section>
+
+    <!-- ── Comment ça marche (accordéon) ────────────────────────────── -->
+    <!--
+    Les étapes sont générées dynamiquement depuis `stepsData` dans le script.
+    Pour les modifier, éditer le tableau stepsData ci-dessous.
+    -->
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-eyebrow">Comment ça marche</div>
+            <div class="section-title">De zéro à votre site en ligne, étape par étape</div>
+            <div class="steps" id="steps"></div>
+        </div>
+    </section>
+
+    <!-- ── Contact ──────────────────────────────────────────────────── -->
+    <section id="contact" class="cta">
+        <div class="container">
+            <h2>On commence<br>quand vous voulez.</h2>
+            <p>Parlez-moi de votre activité en quelques mots.</p>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Votre prénom et nom" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Votre email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="4" placeholder="Décrivez votre projet..." required></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="btn-cta" style="cursor:pointer;">Envoyer le message</button>
+                <div id="formMessage" style="margin-top:1rem;text-align:center;font-size:0.9rem;"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ── Footer ───────────────────────────────────────────────────── -->
+    <footer class="footer">
+        <div class="footer-logo">MARIELLE <span>BOUSS</span></div>
+        <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+            <div style="display:flex;gap:0.5rem;align-items:center;font-size:0.72rem;">
+                <a href="mentions-legales.html" style="color:#A8907A;text-decoration:none;">Mentions légales</a>
+                <span style="color:var(--soft);">·</span>
+                <a href="politique-confidentialite.html" style="color:#A8907A;text-decoration:none;">Politique de confidentialité</a>
+            </div>
+            <div class="footer-copy">© 2026 · Création de sites vitrine bien-être</div>
+        </div>
+    </footer>
+
+</div><!-- /.site -->
 
 <script>
-    // Mobile menu logic
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const closeMenuBtn = document.getElementById('closeMenuBtn');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
+    /* ── Menu mobile ─────────────────────────────────────────────────── */
+    var hamburgerBtn = document.getElementById('hamburgerBtn');
+    var mobileMenu   = document.getElementById('mobileMenu');
+    var closeMenuBtn = document.getElementById('closeMenuBtn');
+    var mobileLinks  = document.querySelectorAll('.mobile-link');
 
-    // Vérifier que les éléments existent avant d'ajouter les événements
+    function openMobileMenu()  { mobileMenu.classList.add('open');    document.body.style.overflow = 'hidden'; }
+    function closeMobileMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+
     if (hamburgerBtn && mobileMenu) {
-        function openMobileMenu() {
-            mobileMenu.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeMobileMenu() {
-            mobileMenu.classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
         hamburgerBtn.addEventListener('click', openMobileMenu);
-        
-        if (closeMenuBtn) {
-            closeMenuBtn.addEventListener('click', closeMobileMenu);
-        }
+        if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMobileMenu);
 
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
+        mobileLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
                 closeMobileMenu();
-                const hash = link.getAttribute('href');
+                var hash = link.getAttribute('href');
                 if (hash && hash.startsWith('#')) {
                     e.preventDefault();
-                    const targetId = hash.substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    var target = document.getElementById(hash.substring(1));
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
 
-        mobileMenu.addEventListener('click', (e) => {
-            if (e.target === mobileMenu) {
-                closeMobileMenu();
-            }
+        mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) closeMobileMenu();
         });
-    } else {
-        console.log('Menu elements not found');
     }
 
-    // Steps data
-    const stepsData = [
-        { num: '01', title: 'Vous remplissez le formulaire de votre projet', desc: 'Après m\'avoir contacté, je vous envoie un questionnaire simple à compléter chez vous, à votre rythme. Il me permet de comprendre votre activité, votre clientèle, vos envies.' },
-        { num: '02', title: 'On échange par téléphone', desc: 'Un appel d\'environ 30 minutes pour affiner ensemble ce que vous souhaitez, répondre à vos questions et valider la formule choisie.' },
-        { num: '03', title: 'Vous signez le contrat', desc: 'Je vous envoie le contrat par mail. Vous me le retournez signé et réglez l\'accompte : C\'est ce qui lance officiellement la création.' },
-        { num: '04', title: 'Vous m\'envoyez vos contenus', desc: 'Textes, photos, logo : vous m\'envoyez tout ce dont j\'ai besoin. Je vous guide si besoin.' },
-        { num: '05', title: 'Je construis votre site', desc: 'Je crée votre site sur mesure en 10 jours ouvrés. Design, intégration, SEO... je m\'occupe de tout.' },
-        { num: '06', title: 'Vous relisez et on affine', desc: 'Deux tours de révisions sont inclus pour que le résultat vous ressemble vraiment.' },
-        { num: '07', title: 'Mise en ligne : votre site est prêt !', desc: 'Après règlement du solde, je mets votre site en ligne. Il est visible, opérationnel, et hébergé par mes soins.' }
+    /* ── Accordéon "Comment ça marche" ──────────────────────────────── */
+    /*
+    Pour modifier les étapes : éditer le tableau stepsData ci-dessous.
+    Chaque objet a un num (numéro affiché), un title et un desc.
+    */
+    var stepsData = [
+        {
+            num: '01',
+            title: 'Vous remplissez le formulaire de votre projet',
+            desc: 'Après m\'avoir contacté, je vous envoie un questionnaire simple à compléter chez vous, à votre rythme. Il me permet de comprendre votre activité, votre clientèle, vos envies.'
+        },
+        {
+            num: '02',
+            title: 'On échange par téléphone',
+            desc: 'Un appel d\'environ 30 minutes pour affiner ensemble ce que vous souhaitez, répondre à vos questions et valider la formule choisie.'
+        },
+        {
+            num: '03',
+            title: 'Vous signez le contrat',
+            desc: 'Je vous envoie le contrat par mail. Vous me le retournez signé et réglez l\'accompte : c\'est ce qui lance officiellement la création.'
+        },
+        {
+            num: '04',
+            title: 'Vous m\'envoyez vos contenus',
+            desc: 'Textes, photos, logo : vous m\'envoyez tout ce dont j\'ai besoin. Je vous guide si besoin.'
+        },
+        {
+            num: '05',
+            title: 'Je construis votre site',
+            desc: 'Je crée votre site sur mesure en 10 jours ouvrés. Design, intégration, SEO... je m\'occupe de tout.'
+        },
+        {
+            num: '06',
+            title: 'Vous relisez et on affine',
+            desc: 'Deux tours de révisions sont inclus pour que le résultat vous ressemble vraiment.'
+        },
+        {
+            num: '07',
+            title: 'Mise en ligne : votre site est prêt !',
+            desc: 'Après règlement du solde, je mets votre site en ligne. Il est visible, opérationnel, et hébergé par mes soins.'
+        }
     ];
 
-    const container = document.getElementById('steps');
-    if (container) {
-        stepsData.forEach((s, i) => {
-            const step = document.createElement('div');
+    var stepsContainer = document.getElementById('steps');
+    if (stepsContainer) {
+        stepsData.forEach(function(s, i) {
+            var step = document.createElement('div');
             step.className = 'step';
-            step.innerHTML = `
-                <button class="step-header" onclick="toggleStep(${i})">
-                    <span class="step-num">${s.num}</span>
-                    <span class="step-title">${s.title}</span>
-                    <span class="step-icon" id="icon-${i}">▼</span>
-                </button>
-                <div class="step-body" id="body-${i}">
-                    <p class="step-desc">${s.desc}</p>
-                </div>
-            `;
-            container.appendChild(step);
+            step.innerHTML =
+                '<button class="step-header" onclick="toggleStep(' + i + ')">'
+                +   '<span class="step-num">' + s.num + '</span>'
+                +   '<span class="step-title">' + s.title + '</span>'
+                +   '<span class="step-icon" id="icon-' + i + '">▼</span>'
+                + '</button>'
+                + '<div class="step-body" id="body-' + i + '">'
+                +   '<p class="step-desc">' + s.desc + '</p>'
+                + '</div>';
+            stepsContainer.appendChild(step);
         });
     }
 
     window.toggleStep = function(i) {
-        const body = document.getElementById('body-' + i);
-        const icon = document.getElementById('icon-' + i);
+        var body = document.getElementById('body-' + i);
+        var icon = document.getElementById('icon-' + i);
         if (body && icon) {
-            const isOpen = body.classList.contains('open');
+            var isOpen = body.classList.contains('open');
             body.classList.toggle('open', !isOpen);
             icon.classList.toggle('open', !isOpen);
         }
-    }
+    };
 
-    // Smooth scroll for buttons
-    document.querySelectorAll('.nav-cta, .btn-primary, .mobile-menu-cta').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+    /* ── Smooth scroll pour les boutons CTA ─────────────────────────── */
+    document.querySelectorAll('.nav-cta, .btn-primary, .mobile-menu-cta').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
             if (btn.classList.contains('mobile-menu-cta')) {
                 e.preventDefault();
-                if (typeof closeMobileMenu === 'function') closeMobileMenu();
-                setTimeout(() => {
-                    const contactSection = document.getElementById('contact');
-                    if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+                closeMobileMenu();
+                setTimeout(function() {
+                    var s = document.getElementById('contact');
+                    if (s) s.scrollIntoView({ behavior: 'smooth' });
                 }, 300);
             } else if (btn.classList.contains('btn-primary')) {
-                const servicesSection = document.getElementById('services');
-                if (servicesSection) servicesSection.scrollIntoView({ behavior: 'smooth' });
+                var s = document.getElementById('services');
+                if (s) s.scrollIntoView({ behavior: 'smooth' });
             } else if (btn.classList.contains('nav-cta')) {
                 e.preventDefault();
-                const contactSection = document.getElementById('contact');
-                if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+                var s = document.getElementById('contact');
+                if (s) s.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
-</script>
- <script>
-        // Gestion du formulaire via fetch (sans redirection)
-        const contactForm = document.getElementById('contactForm');
-        const formMessage = document.getElementById('formMessage');
-        const submitBtn = document.getElementById('submitBtn');
 
-        if (contactForm) {
-            contactForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
+    /* ── Formulaire de contact (Formspree) ───────────────────────────── */
+    /*
+    Pour changer le destinataire : remplacer l'URL Formspree ci-dessous
+    par votre propre endpoint (https://formspree.io/f/VOTRE_ID).
+    */
+    var contactForm = document.getElementById('contactForm');
+    var formMessage = document.getElementById('formMessage');
+    var submitBtn   = document.getElementById('submitBtn');
 
-                formMessage.innerHTML = '⏳ Envoi en cours...';
-                formMessage.style.color = '#F0DCB8';
-                submitBtn.disabled = true;
-                submitBtn.style.opacity = '0.7';
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
 
-                const data = new FormData(contactForm);
+            formMessage.innerHTML = '⏳ Envoi en cours...';
+            formMessage.style.color = '#F0DCB8';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
 
-                try {
-                    const response = await fetch('https://formspree.io/f/xnjrqrbd', {
-                        method: 'POST',
-                        body: data,
-                        headers: { 'Accept': 'application/json' }
-                    });
+            try {
+                var response = await fetch('https://formspree.io/f/xnjrqrbd', {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: { 'Accept': 'application/json' }
+                });
 
-                    if (response.ok) {
-                        contactForm.reset();
-                        submitBtn.style.display = 'none';
-                        formMessage.innerHTML = '✅ Message envoyé ! Je vous recontacte rapidement.';
-                        formMessage.style.color = '#F0DCB8';
-                    } else {
-                        formMessage.innerHTML = "❌ Une erreur s'est produite. Veuillez réessayer.";
-                        formMessage.style.color = '#e07070';
-                        submitBtn.disabled = false;
-                        submitBtn.style.opacity = '1';
-                    }
-                } catch (err) {
-                    formMessage.innerHTML = "❌ Impossible d'envoyer le message. Vérifiez votre connexion.";
+                if (response.ok) {
+                    contactForm.reset();
+                    submitBtn.style.display = 'none';
+                    formMessage.innerHTML = '✅ Message envoyé ! Je vous recontacte rapidement.';
+                    formMessage.style.color = '#F0DCB8';
+                } else {
+                    formMessage.innerHTML = "❌ Une erreur s'est produite. Veuillez réessayer.";
                     formMessage.style.color = '#e07070';
                     submitBtn.disabled = false;
                     submitBtn.style.opacity = '1';
                 }
-            });
-        }
-    </script>
+            } catch (err) {
+                formMessage.innerHTML = "❌ Impossible d'envoyer le message. Vérifiez votre connexion.";
+                formMessage.style.color = '#e07070';
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+            }
+        });
+    }
+</script>
 </body>
 </html>
