@@ -31,6 +31,9 @@
             background: var(--cream);
             color: var(--ink);
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* ─── Navigation ─────────────────────────────────────────────────── */
@@ -113,7 +116,7 @@
         .hero h1 em { font-style: normal; color: var(--blue); font-weight: 600; }
 
         /* ─── Portfolio grid ─────────────────────────────────────────────── */
-        .portfolio-section { padding: 2.5rem 1.5rem 5rem; max-width: 1200px; margin: 0 auto; }
+        .portfolio-section { padding: 2.5rem 1.5rem 5rem; max-width: 1200px; margin: 0 auto; flex: 1; }
 
         .portfolio-grid {
             display: grid;
@@ -300,7 +303,7 @@
             gap: 1rem;
         }
 
-        .footer-logo      { font-size: 1rem; font-weight: 700; color: var(--ink); letter-spacing: 1px; }
+        .footer-logo      { font-size: 1rem; font-weight: 600; color: var(--ink); letter-spacing: 1px; }
         .footer-logo span { color: var(--blue); }
         .footer-copy      { font-size: 0.68rem; color: #A8907A; }
 
@@ -470,39 +473,6 @@
                 </div>
                 <div class="card-info">
                     <div class="card-tags"><span class="card-tag">Massothérapeute</span></div>
-                    <div class="card-formule">Formule Complète</div>
-                </div>
-            </div>
-
-            <!-- CARD 3 ──────────────────────────────────────────────── -->
-            <div class="portfolio-card" data-id="3">
-                <div class="card-preview">
-                    <img class="real-scroll" src="img-3.png" alt="Aperçu projet 3">
-                </div>
-                <div class="card-info">
-                    <div class="card-tags"><span class="card-tag">Hypnothérapie</span></div>
-                    <div class="card-formule">Formule Complète</div>
-                </div>
-            </div>
-
-            <!-- CARD 4 ──────────────────────────────────────────────── -->
-            <div class="portfolio-card" data-id="4">
-                <div class="card-preview">
-                    <img class="real-scroll" src="img-4.png" alt="Aperçu projet 4">
-                </div>
-                <div class="card-info">
-                    <div class="card-tags"><span class="card-tag">Coaching</span></div>
-                    <div class="card-formule">Formule Essentielle</div>
-                </div>
-            </div>
-
-            <!-- CARD 5 ──────────────────────────────────────────────── -->
-            <div class="portfolio-card" data-id="5">
-                <div class="card-preview">
-                    <img class="real-scroll" src="img-5.png" alt="Aperçu projet 5">
-                </div>
-                <div class="card-info">
-                    <div class="card-tags"><span class="card-tag">Naturopathie</span></div>
                     <div class="card-formule">Formule Complète</div>
                 </div>
             </div>
