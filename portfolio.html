@@ -26,14 +26,15 @@
         }
 
         /* ─── Base ───────────────────────────────────────────────────────── */
+        /* On fait du body un container flex en colonne pour pousser le footer */
         body {
             font-family: "Poppins", sans-serif;
             background: var(--cream);
             color: var(--ink);
             line-height: 1.6;
+            min-height: 100vh;           /* Prend toute la hauteur de l'écran */
             display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            flex-direction: column;      /* Organisation verticale */
         }
 
         /* ─── Navigation ─────────────────────────────────────────────────── */
@@ -48,6 +49,7 @@
             max-width: 1400px;
             margin: 0 auto;
             position: sticky;
+            width: 100%;
         }
 
         .nav-logo {
@@ -116,7 +118,14 @@
         .hero h1 em { font-style: normal; color: var(--blue); font-weight: 600; }
 
         /* ─── Portfolio grid ─────────────────────────────────────────────── */
-        .portfolio-section { padding: 2.5rem 1.5rem 5rem; max-width: 1200px; margin: 0 auto; flex: 1; }
+        /* On utilise margin-top:auto ? Non, on laisse grandir naturellement */
+        .portfolio-section { 
+            padding: 2.5rem 1.5rem 5rem; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            width: 100%;
+            flex: 1;  /* Pousse le footer vers le bas si le contenu est court */
+        }
 
         .portfolio-grid {
             display: grid;
@@ -301,6 +310,8 @@
             background: var(--cream2);
             flex-wrap: wrap;
             gap: 1rem;
+            width: 100%;
+            /* Plus besoin de margin-top:auto car le body flex s'en charge */
         }
 
         .footer-logo      { font-size: 1rem; font-weight: 600; color: var(--ink); letter-spacing: 1px; }
