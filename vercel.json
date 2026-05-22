@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    { "source": "/portfolio", "destination": "/portfolio.html" },
+    { "source": "/a-propos", "destination": "/apropos.html" },
+    { "source": "/mentions-legales", "destination": "/mentions-legales.html" },
+    { "source": "/politique-confidentialite", "destination": "/politique-confidentialite.html" }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
