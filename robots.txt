@@ -1,0 +1,15 @@
+# robots.txt pour mariellebouss.fr
+# https://developers.google.com/search/docs/crawling-indexing/robots/intro
+
+User-agent: *
+Allow: /
+
+# Délai entre les requêtes (optionnel, respectueux pour les serveurs)
+Crawl-delay: 1
+
+# Sitemap -
+Sitemap: https://mariellebouss.fr/sitemap.xml
+
+# Exclusion des pages légales de l'indexation (optionnel)
+# Disallow: /mentions-legales
+# Disallow: /politique-confidentialite
