@@ -1,16 +1,46 @@
+<!-- a-propos.html - Page À propos -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>À propos - Marielle Bouss</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    
+    <!-- SEO Meta Tags -->
+    <title>À propos | Marielle Bouss - Création de sites web pour thérapeutes</title>
+    <meta name="description" content="Ancienne massothérapeute, je crée aujourd'hui des sites vitrine sur mesure pour les praticiennes bien-être. Découvrez mon parcours et mon accompagnement.">
+    <meta name="keywords" content="Créatrice site web thérapeute">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mariellebouss.fr/a-propos">
+    <meta property="og:title" content="À propos | Marielle Bouss - Création de sites web pour thérapeutes">
+    <meta property="og:description" content="Ancienne massothérapeute, je crée aujourd'hui des sites vitrine sur mesure pour les praticiennes bien-être.">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://mariellebouss.fr/a-propos">
+    
+    <!-- Structured Data - Person -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Marielle Bouss",
+        "jobTitle": "Créatrice de sites web",
+        "description": "Spécialiste de la création de sites vitrine pour thérapeutes et praticiennes bien-être",
+        "url": "https://mariellebouss.fr",
+        "knowsAbout": ["Création de sites web", "SEO", "Design web", "Bien-être", "Thérapie"]
+    }
+    </script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
-        /* ─── Reset ──────────────────────────────────────────────────────── */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* ─── Variables ──────────────────────────────────────────────────── */
         :root {
             --blue:        #2E86C1;
             --blue-mid:    #1F6FA3;
@@ -26,11 +56,9 @@
             --ink:         #1E2A32;
             --muted:       #5A6A72;
             --soft:        #96AEBB;
-            --border:      rgba(46, 134, 193, 0.15);
             --border-warm: rgba(180, 155, 115, 0.2);
         }
 
-        /* ─── Base ───────────────────────────────────────────────────────── */
         body {
             font-family: 'Poppins', sans-serif;
             background: var(--cream);
@@ -40,7 +68,7 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 
-        /* ─── Navigation ─────────────────────────────────────────────────── */
+        /* Navigation */
         .nav {
             display: flex;
             justify-content: space-between;
@@ -58,10 +86,8 @@
         .nav-logo span { color: var(--blue); }
 
         .nav-links { display: flex; gap: 2rem; font-size: 0.9rem; font-weight: 400; }
-
-        .nav-links a        { text-decoration: none; color: var(--muted); transition: color 0.2s; }
-        .nav-links a.active { color: var(--blue); font-weight: 500; }
-        .nav-links a:hover  { color: var(--blue); }
+        .nav-links a { text-decoration: none; color: var(--muted); transition: color 0.2s; }
+        .nav-links a.active, .nav-links a:hover { color: var(--blue); font-weight: 500; }
 
         .nav-cta {
             background: var(--blue);
@@ -75,10 +101,9 @@
             transition: background 0.2s;
             text-decoration: none;
         }
-
         .nav-cta:hover { background: var(--blue-dark); }
 
-        /* ─── Hamburger mobile ───────────────────────────────────────────── */
+        /* Hamburger */
         .nav-hamburger {
             display: none;
             flex-direction: column;
@@ -89,10 +114,8 @@
             padding: 4px;
             z-index: 1002;
         }
+        .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; }
 
-        .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: all 0.3s; }
-
-        /* ─── Menu mobile overlay ────────────────────────────────────────── */
         .mobile-menu-overlay {
             position: fixed;
             top: 0; right: 0;
@@ -126,12 +149,11 @@
             z-index: 2001;
         }
 
-        .mobile-menu-close span             { position: relative; width: 24px; height: 2px; background: var(--ink); display: block; }
+        .mobile-menu-close span { position: relative; width: 24px; height: 2px; background: var(--ink); display: block; }
         .mobile-menu-close span:first-child { transform: rotate(45deg); }
-        .mobile-menu-close span:last-child  { transform: rotate(-45deg); position: absolute; }
+        .mobile-menu-close span:last-child { transform: rotate(-45deg); position: absolute; }
 
         .mobile-menu-links { display: flex; flex-direction: column; gap: 1.2rem; text-align: right; padding: 2rem; }
-
         .mobile-menu-links a {
             font-size: 1.2rem;
             font-weight: 400;
@@ -140,27 +162,9 @@
             transition: color 0.2s;
             padding: 0.5rem;
         }
-
         .mobile-menu-links a:hover { color: var(--blue); }
 
-        .mobile-menu-cta {
-            background: var(--blue);
-            color: #fff;
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 0.8rem 1.8rem;
-            border-radius: 99px;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-
-        .mobile-menu-cta:hover { background: var(--blue-dark); }
-
-        /* ─── Titres de section ──────────────────────────────────────────── */
+        /* Titres */
         .section-eyebrow {
             font-size: 1rem;
             font-weight: 600;
@@ -184,21 +188,12 @@
 
         .section-title em { font-style: normal; font-weight: 600; color: var(--blue); }
 
-        /* ─── Hero photo ─────────────────────────────────────────────────── */
+        /* Hero */
         .hero-apropos {
             background: var(--sand-light);
             padding: 4rem 0;
             position: relative;
             overflow: hidden;
-        }
-
-        .hero-apropos::before {
-            content: '';
-            position: absolute;
-            right: -100px; top: -100px;
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(46, 134, 193, 0.07) 0%, transparent 70%);
-            pointer-events: none;
         }
 
         .hero-apropos-inner { display: flex; justify-content: center; align-items: center; }
@@ -215,48 +210,18 @@
             background: linear-gradient(160deg, var(--blue) 0%, var(--blue-deep) 100%);
         }
 
-        /*
-        Pour ajouter votre photo :
-        1. Supprimer le ::after ci-dessous
-        2. Dans le HTML, ajouter à l'intérieur de .hero-photo :
-           <img src="votre-photo.jpg" style="width:100%;height:100%;object-fit:cover;display:block;">
-        */
-        .hero-photo::after {
-            content: '📸';
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: rgba(255, 255, 255, 0.5);
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        /* ─── Mon histoire ───────────────────────────────────────────────── */
+        /* Histoire */
         .histoire { padding: 5rem 0; background: var(--cream); }
-
-        .histoire-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .histoire-block h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--ink);
-            margin-bottom: 1.2rem;
-        }
-
-        .histoire-block p {
-            font-size: 1rem;
-            color: var(--muted);
-            line-height: 1.9;
-            font-weight: 300;
-            margin-bottom: 1rem;
-        }
+        .histoire-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .histoire-block h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--ink); margin-bottom: 1.2rem; }
+        .histoire-block p { font-size: 1rem; color: var(--muted); line-height: 1.9; font-weight: 300; margin-bottom: 1rem; }
 
         .histoire-highlight {
             background: var(--blue-pale);
@@ -265,51 +230,20 @@
             padding: 1.2rem 1.4rem;
             margin: 1.5rem 0;
         }
+        .histoire-highlight p { font-size: 1rem; color: var(--blue-dark); font-weight: 400; line-height: 1.7; margin: 0; }
 
-        .histoire-highlight p {
-            font-size: 1rem;
-            color: var(--blue-dark);
-            font-weight: 400;
-            line-height: 1.7;
-            margin: 0;
-        }
-
-        /* ─── Pourquoi les thérapeutes ───────────────────────────────────── */
+        /* Pourquoi */
         .pourquoi { background: var(--cream2); padding: 5rem 0; }
-
-        .pourquoi-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .pourquoi-card {
-            background: var(--white);
-            border: 1px solid var(--border-warm);
-            border-radius: 20px;
-            padding: 2rem;
-        }
-
+        .pourquoi-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+        .pourquoi-card { background: var(--white); border: 1px solid var(--border-warm); border-radius: 20px; padding: 2rem; }
         .pourquoi-icon { font-size: 1.8rem; margin-bottom: 1rem; display: block; }
-
-        .pourquoi-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--ink);
-            margin-bottom: 0.6rem;
-        }
-
+        .pourquoi-card h4 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem; }
         .pourquoi-card p { font-size: 1rem; color: var(--muted); line-height: 1.8; font-weight: 300; }
 
-        /* ─── CTA ────────────────────────────────────────────────────────── */
-        .cta { padding: 4rem 0; text-align: center; background: var(--blue-deep); }
-
-        .cta h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
-
-        .cta p { font-size: 0.84rem; color: rgba(255, 255, 255, 0.65); max-width: 360px; margin: 0 auto 2rem; font-weight: 300; line-height: 1.75; }
-
+        /* CTA */
+        .cta-section { padding: 4rem 0; text-align: center; background: var(--blue-deep); }
+        .cta-section h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+        .cta-section p { font-size: 0.84rem; color: rgba(255, 255, 255, 0.65); max-width: 360px; margin: 0 auto 2rem; font-weight: 300; line-height: 1.75; }
         .btn-cta {
             background: var(--sand);
             color: var(--ink);
@@ -323,10 +257,9 @@
             text-decoration: none;
             display: inline-block;
         }
-
         .btn-cta:hover { background: var(--cream3); }
 
-        /* ─── Footer ─────────────────────────────────────────────────────── */
+        /* Footer */
         .footer {
             padding: 1.5rem;
             border-top: 1px solid var(--border-warm);
@@ -338,21 +271,17 @@
             letter-spacing: 1px;
             gap: 1rem;
         }
-
-        .footer-logo      { font-size: 1rem; font-weight: 600; color: var(--ink); text-decoration: none; }
+        .footer-logo { font-size: 1rem; font-weight: 600; color: var(--ink); text-decoration: none; }
         .footer-logo span { color: var(--blue); }
-        .footer-copy      { font-size: 0.68rem; color: #A8907A; }
+        .footer-copy { font-size: 0.68rem; color: #A8907A; }
 
-        /* ─── Responsive ─────────────────────────────────────────────────── */
         @media (max-width: 768px) {
-            .container     { padding: 0 1rem; }
-            .nav           { padding: 0.8rem 1rem; }
+            .container { padding: 0 1rem; }
+            .nav { padding: 0.8rem 1rem; }
             .nav-hamburger { display: flex; }
-            .nav-links     { display: none !important; }
-            .nav-cta       { display: none; }
-
-            .hero-photo    { max-width: 260px; }
-
+            .nav-links { display: none !important; }
+            .nav-cta { display: none; }
+            .hero-photo { max-width: 260px; }
             .histoire-grid { grid-template-columns: 1fr; gap: 2rem; }
             .section-title { font-size: 1.6rem; }
         }
@@ -360,62 +289,49 @@
 </head>
 <body>
 
-    <!-- ── Navigation ───────────────────────────────────────────────── -->
     <nav class="nav">
-        <a href="index.html" class="nav-logo">MARIELLE <span>BOUSS</span></a>
+        <a href="/" class="nav-logo">MARIELLE <span>BOUSS</span></a>
         <div class="nav-links">
-            <a href="index.html#services">Formules</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="apropos.html" class="active">À propos</a>
-            <a href="index.html#process">Comment ça marche</a>
-            <a href="index.html#contact">Contact</a>
+            <a href="/#services">Formules</a>
+            <a href="/portfolio">Portfolio</a>
+            <a href="/a-propos" class="active">À propos</a>
+            <a href="/#process">Comment ça marche</a>
+            <a href="/#contact">Contact</a>
         </div>
         <button class="nav-hamburger" id="hamburgerBtn" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
-        <a href="index.html#contact" class="nav-cta">Démarrer un projet</a>
+        <a href="/#contact" class="nav-cta">Démarrer un projet</a>
     </nav>
 
-    <!-- ── Menu mobile ──────────────────────────────────────────────── -->
     <div class="mobile-menu-overlay" id="mobileMenu">
         <button class="mobile-menu-close" id="closeMenuBtn" aria-label="Fermer">
             <span></span><span></span>
         </button>
         <div class="mobile-menu-links">
-            <a href="index.html#services" class="mobile-link">Formules</a>
-            <a href="portfolio.html"      class="mobile-link">Portfolio</a>
-            <a href="apropos.html"        class="mobile-link">À propos</a>
-            <a href="index.html#process"  class="mobile-link">Comment ça marche</a>
-            <a href="index.html#contact"  class="mobile-link">Contact</a>
+            <a href="/#services" class="mobile-link">Formules</a>
+            <a href="/portfolio" class="mobile-link">Portfolio</a>
+            <a href="/a-propos" class="mobile-link">À propos</a>
+            <a href="/#process" class="mobile-link">Comment ça marche</a>
+            <a href="/#contact" class="mobile-link">Contact</a>
         </div>
     </div>
 
-    <!-- ── Hero : photo centrée ─────────────────────────────────────── -->
-    <!--
-    Pour ajouter votre photo :
-    1. Supprimer la règle .hero-photo::after dans le CSS
-    2. Ajouter à l'intérieur du div.hero-photo :
-       <img src="votre-photo.jpg" style="width:100%;height:100%;object-fit:cover;display:block;">
-    -->
     <section class="hero-apropos">
         <div class="container">
             <div class="hero-apropos-inner">
-                <div class="hero-photo"></div>
+                <div class="hero-photo">
+                    <img src="img/marielle-bouss.jpg" alt="Marielle Bouss - Créatrice de sites web pour thérapeutes">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ── Mon histoire ─────────────────────────────────────────────── -->
-    <!--
-    Pour modifier le texte : éditer directement les <p> et <h3> ci-dessous.
-    Le bloc .histoire-highlight est la citation mise en valeur (fond bleu pâle).
-    -->
     <section class="histoire">
         <div class="container">
             <div class="section-eyebrow">Mon histoire</div>
-            <div class="section-title">D'où je viens, et pourquoi <em>ce choix.</em></div>
+            <h1 class="section-title">D'où je viens, et pourquoi <em>ce choix.</em></h1>
             <div class="histoire-grid">
-
                 <div class="histoire-block">
                     <h3>Issue du monde du bien-être</h3>
                     <p>Avant de me consacrer pleinement à la création de sites web, j'ai moi-même évolué dans l'univers du soin et du bien-être. Depuis 2019, j'exerce à mon compte en tant que massothérapeute et coach de Pilates. J'accorde une place centrale à l'accompagnement humain ; observer, écouter, comprendre et aider fait partie de ma manière de travailler.</p>
@@ -424,80 +340,68 @@
                         <p>Lorsque j'exerçais comme massothérapeute, la majorité de mes clientes me trouvaient via mon site internet après une recherche Google. Cette expérience m'a montré à quel point une présence en ligne bien pensée peut réellement transformer la visibilité et l'activité d'une praticienne.</p>
                     </div>
                 </div>
-
                 <div class="histoire-block">
                     <h3>La création web comme outil d'émancipation</h3>
                     <p>J'ai appris le code et le développement web en autodidacte, par curiosité, nécessité. Aujourd'hui c'est un domaine dans lequel je m'épanouis pleinement. Animée par une conviction simple : les femmes qui soignent les autres méritent elles aussi d'être vues, reconnues et valorisées en ligne.</p>
                     <p>Mon fonctionnement neuroatypique nourrit une approche minutieuse : j'accorde une attention particulière aux détails, j'aime créer des sites clairs et bien structurés, où chaque élément a du sens pour offrir une expérience fluide et cohérente aux personnes qui visitent votre site.</p>
                     <p>J'ai choisi de me spécialiser dans cet univers pour continuer à accompagner sous une autre forme, parce qu'une présence en ligne alignée peut changer la manière dont une personne découvre votre travail.</p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ── Pourquoi les thérapeutes ──────────────────────────────────── -->
-    <!--
-    Pour modifier les cartes : éditer les .pourquoi-card ci-dessous.
-    Pour ajouter une carte : copier-coller un bloc .pourquoi-card.
-    -->
     <section class="pourquoi">
         <div class="container">
             <div class="section-eyebrow">Ma spécialité</div>
-            <div class="section-title">Pourquoi je travaille <em>uniquement</em> avec les thérapeutes/praticiennes</div>
+            <h2 class="section-title">Pourquoi je travaille <em>uniquement</em> avec les thérapeutes/praticiennes</h2>
             <div class="pourquoi-cards">
-
                 <div class="pourquoi-card">
                     <span class="pourquoi-icon">🌿</span>
                     <h4>Un univers que je comprends</h4>
                     <p>Je connais les codes du bien-être, les valeurs qui animent les thérapeutes, et ce que cherchent vos clientes.</p>
                 </div>
-
                 <div class="pourquoi-card">
                     <span class="pourquoi-icon">🤝</span>
                     <h4>Un accompagnement humain</h4>
                     <p>Je ne suis pas une agence. Vous échangez directement avec moi du début à la fin du projet. Je prends en charge l'ensemble de la création du site tout en restant attentif à vos besoins, vos objectifs et votre vision.</p>
                 </div>
-
                 <div class="pourquoi-card">
                     <span class="pourquoi-icon">⚡</span>
                     <h4>Efficacité et clarté</h4>
                     <p>Vous avez mieux à faire que de vous perdre dans des outils compliqués. Je m'occupe de tout : technique, design, SEO, hébergement, pour que vous puissiez rester concentrée sur votre pratique.</p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ── CTA ──────────────────────────────────────────────────────── -->
-    <section class="cta">
+    <section class="cta-section">
         <div class="container">
-            <h2>Envie de travailler ensemble ?</h2>
+            <h2>On travaille ensemble ?</h2>
             <p>Parlez-moi de votre projet en quelques mots.</p>
-            <a href="index.html#contact" class="btn-cta">Me contacter</a>
+            <a href="/#contact" class="btn-cta">Me contacter</a>
         </div>
     </section>
 
-    <!-- ── Footer ───────────────────────────────────────────────────── -->
     <footer class="footer">
-        <a href="index.html" class="footer-logo">MARIELLE <span>BOUSS</span></a>
+        <a href="/" class="footer-logo">MARIELLE <span>BOUSS</span></a>
         <div class="footer-copy">© 2026 · Création de sites vitrine bien-être</div>
     </footer>
 
     <script>
-    /* ── Menu mobile ─────────────────────────────────────────────────── */
-    var hamburgerBtn = document.getElementById('hamburgerBtn');
-    var mobileMenu   = document.getElementById('mobileMenu');
-    var closeMenuBtn = document.getElementById('closeMenuBtn');
-    var mobileLinks  = document.querySelectorAll('.mobile-link');
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    function openMobileMenu()  { mobileMenu.classList.add('open');    document.body.style.overflow = 'hidden'; }
-    function closeMobileMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+        function openMobileMenu() { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeMobileMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
 
-    hamburgerBtn.addEventListener('click', openMobileMenu);
-    closeMenuBtn.addEventListener('click', closeMobileMenu);
-    mobileLinks.forEach(function(link) { link.addEventListener('click', closeMobileMenu); });
-    mobileMenu.addEventListener('click', function(e) { if (e.target === mobileMenu) closeMobileMenu(); });
+        if (hamburgerBtn && mobileMenu) {
+            hamburgerBtn.addEventListener('click', openMobileMenu);
+            if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMobileMenu);
+            mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+            mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMobileMenu(); });
+        }
     </script>
 </body>
 </html>
