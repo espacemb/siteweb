@@ -1,0 +1,409 @@
+<!-- a-propos.html - Page À propos -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    
+    <!-- SEO Meta Tags -->
+    <title>À propos | Marielle Bouss - Création de sites web pour thérapeutes</title>
+    <meta name="description" content="Ancienne massothérapeute, je crée aujourd'hui des sites vitrine sur mesure pour les praticiennes bien-être. Découvrez mon parcours et mon accompagnement.">
+    <meta name="keywords" content="Créatrice site web thérapeute">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mariellebouss.fr/a-propos">
+    <meta property="og:title" content="À propos | Marielle Bouss - Création de sites web pour thérapeutes">
+    <meta property="og:description" content="Ancienne massothérapeute, je crée aujourd'hui des sites vitrine sur mesure pour les praticiennes bien-être.">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://mariellebouss.fr/a-propos">
+    
+    <!-- Structured Data - Person -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Marielle Bouss",
+        "jobTitle": "Créatrice de sites web",
+        "description": "Spécialiste de la création de sites vitrine pour thérapeutes et praticiennes bien-être",
+        "url": "https://mariellebouss.fr",
+        "knowsAbout": ["Création de sites web", "SEO", "Design web", "Bien-être", "Thérapie"]
+    }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --blue:        #2E86C1;
+            --blue-mid:    #1F6FA3;
+            --blue-dark:   #155A87;
+            --blue-deep:   #0D3F61;
+            --blue-pale:   #E8F4FB;
+            --cream:       #FAF7F2;
+            --cream2:      #F2EDE4;
+            --cream3:      #E5DDD0;
+            --sand:        #C9A97A;
+            --sand-light:  #F0E6D3;
+            --white:       #FFFFFF;
+            --ink:         #1E2A32;
+            --muted:       #5A6A72;
+            --soft:        #96AEBB;
+            --border-warm: rgba(180, 155, 115, 0.2);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-warm);
+            background: rgba(250, 247, 242, 0.97);
+            backdrop-filter: blur(10px);
+            max-width: 1400px;
+            margin: 0 auto;
+            position: sticky;
+        }
+
+        .nav-logo      { font-size: 1.2rem; font-weight: 600; letter-spacing: 1px; color: var(--ink); text-decoration: none; }
+        .nav-logo span { color: var(--blue); }
+
+        .nav-links { display: flex; gap: 2rem; font-size: 0.9rem; font-weight: 400; }
+        .nav-links a { text-decoration: none; color: var(--muted); transition: color 0.2s; }
+        .nav-links a.active, .nav-links a:hover { color: var(--blue); font-weight: 500; }
+
+        .nav-cta {
+            background: var(--blue);
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.5rem 1.25rem;
+            border-radius: 99px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+        }
+        .nav-cta:hover { background: var(--blue-dark); }
+
+        /* Hamburger */
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+            z-index: 1002;
+        }
+        .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0; right: 0;
+            width: 60%;
+            height: 100%;
+            background: rgba(250, 247, 242, 0.98);
+            backdrop-filter: blur(12px);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: translateX(100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+        }
+
+        .mobile-menu-overlay.open { transform: translateX(0); opacity: 1; visibility: visible; }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 1.5rem; right: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 32px; height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2001;
+        }
+
+        .mobile-menu-close span { position: relative; width: 24px; height: 2px; background: var(--ink); display: block; }
+        .mobile-menu-close span:first-child { transform: rotate(45deg); }
+        .mobile-menu-close span:last-child { transform: rotate(-45deg); position: absolute; }
+
+        .mobile-menu-links { display: flex; flex-direction: column; gap: 1.2rem; text-align: right; padding: 2rem; }
+        .mobile-menu-links a {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--ink);
+            text-decoration: none;
+            transition: color 0.2s;
+            padding: 0.5rem;
+        }
+        .mobile-menu-links a:hover { color: var(--blue); }
+
+        /* Titres */
+        .section-eyebrow {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--sand);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 0.7rem;
+        }
+
+        .section-title {
+            font-family: 'Arial', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 2.2rem;
+            line-height: 1.25;
+        }
+
+        .section-title em { font-style: normal; font-weight: 600; color: var(--blue); }
+
+        /* Hero */
+        .hero-apropos {
+            background: var(--sand-light);
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-apropos-inner { display: flex; justify-content: center; align-items: center; }
+
+        .hero-photo {
+            width: 280px;
+            max-width: 70%;
+            aspect-ratio: 3/4;
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(13, 63, 97, 0.18);
+            margin: 0 auto;
+            background: linear-gradient(160deg, var(--blue) 0%, var(--blue-deep) 100%);
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Histoire */
+        .histoire { padding: 5rem 0; background: var(--cream); }
+        .histoire-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .histoire-block h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--ink); margin-bottom: 1.2rem; }
+        .histoire-block p { font-size: 1rem; color: var(--muted); line-height: 1.9; font-weight: 300; margin-bottom: 1rem; }
+
+        .histoire-highlight {
+            background: var(--blue-pale);
+            border-left: 3px solid var(--blue);
+            border-radius: 0 12px 12px 0;
+            padding: 1.2rem 1.4rem;
+            margin: 1.5rem 0;
+        }
+        .histoire-highlight p { font-size: 1rem; color: var(--blue-dark); font-weight: 400; line-height: 1.7; margin: 0; }
+
+        /* Pourquoi */
+        .pourquoi { background: var(--cream2); padding: 5rem 0; }
+        .pourquoi-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+        .pourquoi-card { background: var(--white); border: 1px solid var(--border-warm); border-radius: 20px; padding: 2rem; }
+        .pourquoi-icon { font-size: 1.8rem; margin-bottom: 1rem; display: block; }
+        .pourquoi-card h4 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem; }
+        .pourquoi-card p { font-size: 1rem; color: var(--muted); line-height: 1.8; font-weight: 300; }
+
+        /* CTA */
+        .cta-section { padding: 4rem 0; text-align: center; background: var(--blue-deep); }
+        .cta-section h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+        .cta-section p { font-size: 0.84rem; color: rgba(255, 255, 255, 0.65); max-width: 360px; margin: 0 auto 2rem; font-weight: 300; line-height: 1.75; }
+        .btn-cta {
+            background: var(--sand);
+            color: var(--ink);
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 0.85rem 2rem;
+            border-radius: 99px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-cta:hover { background: var(--cream3); }
+
+        /* Footer */
+        .footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-warm);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--cream2);
+            flex-wrap: wrap;
+            letter-spacing: 1px;
+            gap: 1rem;
+        }
+        .footer-logo { font-size: 1rem; font-weight: 600; color: var(--ink); text-decoration: none; }
+        .footer-logo span { color: var(--blue); }
+        .footer-copy { font-size: 0.68rem; color: #A8907A; }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 1rem; }
+            .nav { padding: 0.8rem 1rem; }
+            .nav-hamburger { display: flex; }
+            .nav-links { display: none !important; }
+            .nav-cta { display: none; }
+            .hero-photo { max-width: 260px; }
+            .histoire-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .section-title { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="/" class="nav-logo">MARIELLE <span>BOUSS</span></a>
+        <div class="nav-links">
+            <a href="/#services">Formules</a>
+            <a href="/portfolio">Portfolio</a>
+            <a href="/a-propos" class="active">À propos</a>
+            <a href="/#process">Comment ça marche</a>
+            <a href="/#contact">Contact</a>
+        </div>
+        <button class="nav-hamburger" id="hamburgerBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <a href="/#contact" class="nav-cta">Démarrer un projet</a>
+    </nav>
+
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <button class="mobile-menu-close" id="closeMenuBtn" aria-label="Fermer">
+            <span></span><span></span>
+        </button>
+        <div class="mobile-menu-links">
+            <a href="/#services" class="mobile-link">Formules</a>
+            <a href="/portfolio" class="mobile-link">Portfolio</a>
+            <a href="/a-propos" class="mobile-link">À propos</a>
+            <a href="/#process" class="mobile-link">Comment ça marche</a>
+            <a href="/#contact" class="mobile-link">Contact</a>
+        </div>
+    </div>
+
+    <section class="hero-apropos">
+        <div class="container">
+            <div class="hero-apropos-inner">
+                <div class="hero-photo">
+                    <img src="img/marielle-bouss.jpg" alt="Marielle Bouss - Créatrice de sites web pour thérapeutes">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="histoire">
+        <div class="container">
+            <div class="section-eyebrow">Mon histoire</div>
+            <h1 class="section-title">D'où je viens, et pourquoi <em>ce choix.</em></h1>
+            <div class="histoire-grid">
+                <div class="histoire-block">
+                    <h3>Issue du monde du bien-être</h3>
+                    <p>Avant de me consacrer pleinement à la création de sites web, j'ai moi-même évolué dans l'univers du soin et du bien-être. Depuis 2019, j'exerce à mon compte en tant que massothérapeute et coach de Pilates. J'accorde une place centrale à l'accompagnement humain ; observer, écouter, comprendre et aider fait partie de ma manière de travailler.</p>
+                    <p>J'ai vécu de l'intérieur ce que c'est d'être une femme indépendante dans le bien-être : la passion du soin, et en parallèle, la difficulté d'exister professionnellement en ligne.</p>
+                    <div class="histoire-highlight">
+                        <p>Lorsque j'exerçais comme massothérapeute, la majorité de mes clientes me trouvaient via mon site internet après une recherche Google. Cette expérience m'a montré à quel point une présence en ligne bien pensée peut réellement transformer la visibilité et l'activité d'une praticienne.</p>
+                    </div>
+                </div>
+                <div class="histoire-block">
+                    <h3>La création web comme outil d'émancipation</h3>
+                    <p>J'ai appris le code et le développement web en autodidacte, par curiosité, nécessité. Aujourd'hui c'est un domaine dans lequel je m'épanouis pleinement. Animée par une conviction simple : les femmes qui soignent les autres méritent elles aussi d'être vues, reconnues et valorisées en ligne.</p>
+                    <p>Mon fonctionnement neuroatypique nourrit une approche minutieuse : j'accorde une attention particulière aux détails, j'aime créer des sites clairs et bien structurés, où chaque élément a du sens pour offrir une expérience fluide et cohérente aux personnes qui visitent votre site.</p>
+                    <p>J'ai choisi de me spécialiser dans cet univers pour continuer à accompagner sous une autre forme, parce qu'une présence en ligne alignée peut changer la manière dont une personne découvre votre travail.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pourquoi">
+        <div class="container">
+            <div class="section-eyebrow">Ma spécialité</div>
+            <h2 class="section-title">Pourquoi je travaille <em>uniquement</em> avec les thérapeutes/praticiennes</h2>
+            <div class="pourquoi-cards">
+                <div class="pourquoi-card">
+                    <span class="pourquoi-icon">🌿</span>
+                    <h4>Un univers que je comprends</h4>
+                    <p>Je connais les codes du bien-être, les valeurs qui animent les thérapeutes, et ce que cherchent vos clientes.</p>
+                </div>
+                <div class="pourquoi-card">
+                    <span class="pourquoi-icon">🤝</span>
+                    <h4>Un accompagnement humain</h4>
+                    <p>Je ne suis pas une agence. Vous échangez directement avec moi du début à la fin du projet. Je prends en charge l'ensemble de la création du site tout en restant attentif à vos besoins, vos objectifs et votre vision.</p>
+                </div>
+                <div class="pourquoi-card">
+                    <span class="pourquoi-icon">⚡</span>
+                    <h4>Efficacité et clarté</h4>
+                    <p>Vous avez mieux à faire que de vous perdre dans des outils compliqués. Je m'occupe de tout : technique, design, SEO, hébergement, pour que vous puissiez rester concentrée sur votre pratique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>On travaille ensemble ?</h2>
+            <p>Parlez-moi de votre projet en quelques mots.</p>
+            <a href="/#contact" class="btn-cta">Me contacter</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <a href="/" class="footer-logo">MARIELLE <span>BOUSS</span></a>
+        <div class="footer-copy">© 2026 · Création de sites vitrine bien-être</div>
+    </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function openMobileMenu() { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeMobileMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+
+        if (hamburgerBtn && mobileMenu) {
+            hamburgerBtn.addEventListener('click', openMobileMenu);
+            if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMobileMenu);
+            mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+            mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMobileMenu(); });
+        }
+    </script>
+</body>
+</html>
