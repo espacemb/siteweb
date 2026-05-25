@@ -245,7 +245,7 @@
             opacity: 0.6;
         }
 
-        .hero .container { max-width: 1100px; position: relative; z-index: 1; display: flex; align-items: flex-end; gap: 2rem; }
+        .hero .container { max-width: 1200px; position: relative; z-index: 1; display: flex; align-items: flex-end; gap: 2rem; }
 
         .hero-text { flex: 1; padding-bottom: 3rem; }
 
@@ -286,21 +286,454 @@
 
         /* Hero — colonne photo */
         .hero-photo-col {
-            flex: 0 0 390px;
+            flex: 0 0 420px;
             position: relative;
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            /* Extend down to overlap the marquee border */
             margin-bottom: -1px;
         }
 
-        .hero-photo-col img {
-            display: block;
-            width: 390px;
+        .hero-visual {
+            position: relative;
+            width: 420px;
+            height: 560px;
+        }
+
+        .hv-backdrop {
+            display: none;
+        }
+
+        /* Animation flottante — mouvement doux indépendant par élément */
+        @keyframes hvFloat {
+            0%, 100% { transform: var(--hv-rest); }
+            50%      { transform: var(--hv-peak); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hv-browser, .hv-phone, .hv-palette, .hv-code, .hv-rating, .hv-tag {
+                animation: none !important;
+            }
+        }
+
+        .hv-browser {
+            position: absolute;
+            top: -15px;
+            left: -55px;
+            width: 195px;
+            height: 145px;
+            background: #FFFFFF;
+            border-radius: 12px;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.9),
+                0 18px 36px -10px rgba(30, 50, 80, 0.28),
+                0 8px 16px -4px rgba(30, 50, 80, 0.18);
+            --hv-rest: rotate(-7deg) translateY(0);
+            --hv-peak: rotate(-6deg) translateY(-9px);
+            animation: hvFloat 6.5s ease-in-out infinite;
+            transform: var(--hv-rest);
+            overflow: hidden;
+            z-index: 5;
+        }
+        .hv-browser .bw-bar {
+            height: 18px;
+            background: linear-gradient(180deg, #F7F2E8 0%, #EFE6D2 100%);
+            border-bottom: 1px solid rgba(180, 155, 115, 0.18);
+            display: flex;
+            align-items: center;
+            padding: 0 7px;
+            gap: 4px;
+        }
+        .hv-browser .bw-bar .dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #E5DDD0;
+        }
+        .hv-browser .bw-bar .dot:nth-child(1) { background: #D17F65; }
+        .hv-browser .bw-bar .dot:nth-child(2) { background: #C9A97A; }
+        .hv-browser .bw-bar .dot:nth-child(3) { background: #2E86C1; }
+        .hv-browser .bw-bar .bw-url {
+            flex: 1;
+            height: 8px;
+            background: #FFFFFF;
+            border-radius: 4px;
+            margin-left: 6px;
+            border: 1px solid rgba(180, 155, 115, 0.2);
+        }
+        .hv-browser .bw-body {
+            padding: 8px 9px 9px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            height: calc(100% - 18px);
+        }
+        .hv-browser .bw-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2px;
+        }
+        .hv-browser .bw-logo {
+            width: 38px; height: 6px;
+            background: #1E2A32;
+            border-radius: 2px;
+        }
+        .hv-browser .bw-nav-links {
+            display: flex;
+            gap: 3px;
+        }
+        .hv-browser .bw-nav-links span {
+            width: 14px; height: 4px;
+            background: #C8B999;
+            border-radius: 2px;
+        }
+        .hv-browser .bw-hero {
+            flex: 1;
+            display: flex;
+            gap: 7px;
+            align-items: stretch;
+        }
+        .hv-browser .bw-hero-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            padding-top: 4px;
+        }
+        .hv-browser .bw-headline {
+            height: 6px;
+            background: #1E2A32;
+            border-radius: 2px;
+            width: 90%;
+        }
+        .hv-browser .bw-headline.short { width: 60%; background: #2E86C1; }
+        .hv-browser .bw-sub {
+            height: 3px;
+            background: #D8CFB8;
+            border-radius: 2px;
+            width: 95%;
+            margin-top: 2px;
+        }
+        .hv-browser .bw-sub.shorter { width: 70%; }
+        .hv-browser .bw-btn {
+            margin-top: 6px;
+            width: 44px;
+            height: 12px;
+            background: #2E86C1;
+            border-radius: 6px;
+        }
+        .hv-browser .bw-hero-img {
+            width: 54px;
+            border-radius: 6px;
+            background:
+                radial-gradient(circle at 50% 35%, #F3DDB8 0%, #C9A97A 70%, #A88758 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hv-browser .bw-hero-img::before {
+            content: '';
+            position: absolute;
+            top: 30%; left: 50%;
+            transform: translateX(-50%);
+            width: 16px; height: 16px;
+            border-radius: 50%;
+            background: rgba(30,42,50,0.22);
+        }
+        .hv-browser .bw-hero-img::after {
+            content: '';
+            position: absolute;
+            top: calc(30% + 14px); left: 50%;
+            transform: translateX(-50%);
+            width: 30px; height: 40px;
+            border-radius: 15px 15px 0 0;
+            background: rgba(30,42,50,0.22);
+        }
+
+        .hv-phone {
+            position: absolute;
+            bottom: 40px;
+            right: -28px;
+            width: 78px;
+            height: 150px;
+            background: #1E2A32;
+            border-radius: 12px;
+            padding: 4px;
+            box-shadow:
+                0 12px 24px -8px rgba(30, 50, 80, 0.28),
+                0 6px 12px -4px rgba(30, 50, 80, 0.18);
+            --hv-rest: rotate(8deg) translateY(0);
+            --hv-peak: rotate(9deg) translateY(-7px);
+            animation: hvFloat 7.2s ease-in-out infinite 0.6s;
+            transform: var(--hv-rest);
+            z-index: 7;
+        }
+        .hv-phone .ph-screen {
+            width: 100%;
+            height: 100%;
+            background: #FAF7F2;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 8px 6px;
+            gap: 4px;
+            position: relative;
+        }
+        .hv-phone .ph-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 22px;
+            height: 4px;
+            background: #1E2A32;
+            border-radius: 0 0 4px 4px;
+        }
+        .hv-phone .ph-hero-img {
+            width: 100%;
+            height: 56px;
+            border-radius: 5px;
+            background: radial-gradient(circle at 50% 35%, #F3DDB8 0%, #C9A97A 70%, #A88758 100%);
+            margin-top: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hv-phone .ph-hero-img::before {
+            content: '';
+            position: absolute;
+            top: 25%; left: 50%;
+            transform: translateX(-50%);
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            background: rgba(30,42,50,0.22);
+        }
+        .hv-phone .ph-hero-img::after {
+            content: '';
+            position: absolute;
+            top: calc(25% + 12px); left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 34px;
+            border-radius: 12px 12px 0 0;
+            background: rgba(30,42,50,0.22);
+        }
+        .hv-phone .ph-row {
+            height: 4px;
+            background: #1E2A32;
+            border-radius: 2px;
+            width: 80%;
+        }
+        .hv-phone .ph-row.short { width: 50%; background: #2E86C1; }
+        .hv-phone .ph-line {
+            height: 2px;
+            background: #D8CFB8;
+            border-radius: 1px;
+            width: 95%;
+        }
+        .hv-phone .ph-line.shorter { width: 65%; }
+        .hv-phone .ph-btn {
+            margin-top: auto;
+            height: 10px;
+            background: #2E86C1;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .hv-badge .bd-icon {
+            width: 28px; height: 28px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #2E86C1 0%, #155A87 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .hv-badge .bd-icon svg { width: 16px; height: 16px; }
+        .hv-badge .bd-text {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        .hv-badge .bd-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 9px;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1;
+            letter-spacing: 0.02em;
+        }
+        .hv-badge .bd-sub {
+            font-family: 'Poppins', sans-serif;
+            font-size: 7px;
+            font-weight: 400;
+            color: var(--muted);
+            line-height: 1;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        /* Carte palette de couleurs*/
+        .hv-palette {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 124px;
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 10px 11px;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.9),
+                0 14px 28px -8px rgba(30, 50, 80, 0.24),
+                0 6px 12px -4px rgba(30, 50, 80, 0.16);
+            --hv-rest: rotate(7deg) translateY(0);
+            --hv-peak: rotate(6deg) translateY(-8px);
+            animation: hvFloat 7.8s ease-in-out infinite 1.2s;
+            transform: var(--hv-rest);
+            z-index: 6;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+        .hv-palette .pl-label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 8px;
+            font-weight: 600;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+        .hv-palette .pl-swatches {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+        .hv-palette .pl-swatches span {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 1.5px solid #FFFFFF;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+        }
+        .hv-palette .pl-swatches span:nth-child(1) { background: #2E86C1; }
+        .hv-palette .pl-swatches span:nth-child(2) { background: #C9A97A; }
+        .hv-palette .pl-swatches span:nth-child(3) { background: #F0E6D3; }
+        .hv-palette .pl-swatches span:nth-child(4) { background: #0D3F61; }
+
+        /* Pill ★ note témoignage */
+        .hv-rating {
+            position: absolute;
+            top: 200px;
+            left: -10px;
+            background: #FFFFFF;
+            border-radius: 99px;
+            padding: 7px 13px 7px 11px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.9),
+                0 12px 22px -8px rgba(30, 50, 80, 0.22),
+                0 5px 10px -4px rgba(30, 50, 80, 0.14);
+            --hv-rest: rotate(-6deg) translateY(0);
+            --hv-peak: rotate(-5deg) translateY(-6px);
+            animation: hvFloat 6.8s ease-in-out infinite 1.8s;
+            transform: var(--hv-rest);
+            z-index: 7;
+        }
+        .hv-rating .rt-stars {
+            display: flex;
+            gap: 1px;
+            color: #C9A97A;
+            font-size: 11px;
+            line-height: 1;
+            letter-spacing: -0.5px;
+        }
+        .hv-rating .rt-score {
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1;
+        }
+
+        /* Badge "sur mesure" / hébergement inclus */
+        .hv-tag {
+            position: absolute;
+            bottom: 50px;
+            left: -28px;
+            background: var(--blue-deep);
+            color: #F0DCB8;
+            border-radius: 99px;
+            padding: 7px 14px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow:
+                0 12px 22px -8px rgba(13, 63, 97, 0.4),
+                0 5px 10px -4px rgba(13, 63, 97, 0.2);
+            --hv-rest: rotate(-9deg) translateY(0);
+            --hv-peak: rotate(-8deg) translateY(-8px);
+            animation: hvFloat 8s ease-in-out infinite 0.3s;
+            transform: var(--hv-rest);
+            z-index: 7;
+            white-space: nowrap;
+        }
+        .hv-tag::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #F0DCB8;
+            box-shadow: 0 0 8px #F0DCB8;
+        }
+
+        /* Carte d'écriture/code (top milieu — évoque le code/wordpress) */
+        .hv-code {
+            position: absolute;
+            top: 220px;
+            right: -38px;
+            width: 84px;
+            background: #FFFFFF;
+            border-radius: 10px;
+            padding: 8px 9px;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.9),
+                0 12px 22px -8px rgba(30, 50, 80, 0.22),
+                0 5px 10px -4px rgba(30, 50, 80, 0.14);
+            --hv-rest: rotate(6deg) translateY(0);
+            --hv-peak: rotate(7deg) translateY(-7px);
+            animation: hvFloat 7.4s ease-in-out infinite 2.4s;
+            transform: var(--hv-rest);
+            z-index: 6;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .hv-code .cd-row {
+            height: 4px;
+            border-radius: 2px;
+            background: #E5DDD0;
+        }
+        .hv-code .cd-row.indent { margin-left: 10px; }
+        .hv-code .cd-row.blue { background: #2E86C1; width: 60%; }
+        .hv-code .cd-row.sand { background: #C9A97A; width: 75%; }
+        .hv-code .cd-row.dark { background: #1E2A32; width: 40%; }
+
+        /* Photo principale (sans cadre, PNG transparent) */
+        .hv-photo {
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 340px;
             height: auto;
             object-fit: contain;
             object-position: bottom center;
+            z-index: 6;
         }
 
         /* Boutons */
@@ -602,6 +1035,12 @@
         .footer-copy      { font-size: 0.68rem; color: #A8907A; }
 
         /* ─── Responsive ─────────────────────────────────────────────────── */
+        @media (max-width: 1000px) {
+            .hero-photo-col { flex: 0 0 360px; }
+            .hero-visual { width: 360px; height: 500px; transform: scale(0.88); transform-origin: bottom right; }
+            .hero h1 { font-size: 2rem; }
+        }
+
         @media (max-width: 768px) {
             .container     { padding: 0 1rem; }
             .nav           { padding: 0.8rem 1rem; flex-wrap: wrap; gap: 1rem; }
@@ -613,8 +1052,8 @@
             .hero .container { flex-direction: column; gap: 1.5rem; align-items: center; }
             .hero h1       { font-size: 1.8rem; }
             .hero-text     { padding-bottom: 0; }
-            .hero-photo-col  { flex: unset; width: 100%; max-width: 280px; justify-content: center; margin-bottom: -1px; }
-            .hero-photo-col img { width: 100%; }
+            .hero-photo-col  { flex: unset; width: 100%; max-width: 380px; justify-content: center; margin-bottom: -1px; }
+            .hero-visual { width: 380px; height: 460px; transform: scale(0.82); transform-origin: bottom center; }
 
             .cards           { grid-template-columns: 1fr; gap: 1.5rem; }
             .portfolio-grid  { grid-template-columns: 1fr; }
@@ -686,7 +1125,83 @@
             </div>
 
             <div class="hero-photo-col">
-                <img src="marielle-bouss.png" alt="Marielle Bouss - Créatrice de sites web pour thérapeutes">
+                <div class="hero-visual">
+
+                    <!-- Backdrop organique subtil -->
+                    <div class="hv-backdrop"></div>
+
+                    <!-- Maquette navigateur : site web pour thérapeute -->
+                    <div class="hv-browser" aria-hidden="true">
+                        <div class="bw-bar" style="background-position: center center">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <div class="bw-url"></div>
+                        </div>
+                        <div class="bw-body" style="padding: 8px 9px 9px; gap: 5px; width: 200px; align-items: stretch; flex-direction: column; justify-content: flex-start">
+                            <div class="bw-nav">
+                                <div class="bw-logo"></div>
+                                <div class="bw-nav-links">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="bw-hero">
+                                <div class="bw-hero-text">
+                                    <div class="bw-headline"></div>
+                                    <div class="bw-headline short"></div>
+                                    <div class="bw-sub"></div>
+                                    <div class="bw-sub shorter"></div>
+                                    <div class="bw-btn"></div>
+                                </div>
+                                <div class="bw-hero-img"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maquette mobile : même site, version responsive -->
+                    <div class="hv-phone" aria-hidden="true" style="width: 78px; border-radius: 12px">
+                        <div class="ph-screen">
+                            <div class="ph-notch"></div>
+                            <div class="ph-hero-img"></div>
+                            <div class="ph-row"></div>
+                            <div class="ph-row short"></div>
+                            <div class="ph-line"></div>
+                            <div class="ph-line shorter"></div>
+                            <div class="ph-btn"></div>
+                        </div>
+                    </div>
+
+                    <!-- Carte palette de couleurs (haut droite) -->
+                    <div class="hv-palette" aria-hidden="true">
+                        <div class="pl-label" style="text-align: center">Palette unique</div>
+                        <div class="pl-swatches">
+                            <span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+
+                    <!-- Carte code/maquette (mid droite, sous palette) -->
+                    <div class="hv-code" aria-hidden="true">
+                        <div class="cd-row dark"></div>
+                        <div class="cd-row indent blue"></div>
+                        <div class="cd-row indent sand"></div>
+                        <div class="cd-row indent"></div>
+                        <div class="cd-row dark"></div>
+                    </div>
+
+                    <!-- Pill avis 5★ (gauche, milieu) -->
+                    <div class="hv-rating" aria-hidden="true">
+                        <span class="rt-stars">★★★★★</span>
+                        <span class="rt-score">5,0</span>
+                    </div>
+
+                    <!-- Badge hébergement inclus (gauche, bas) -->
+                    <div class="hv-tag" aria-hidden="true">Hébergement inclus</div>
+
+                    <!-- Photo principale -->
+                    <img class="hv-photo" src="marielle-bouss.png"
+                         alt="Marielle Bouss - Créatrice de sites web pour thérapeutes" style="width: 400px">
+
+                </div>
             </div>
         </div>
     </section>
