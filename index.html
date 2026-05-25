@@ -971,6 +971,43 @@
 
         .portfolio-tag { background: var(--blue-pale); padding: 0.2rem 0.7rem; border-radius: 99px; font-size: 0.9rem; color: var(--blue); }
 
+        /* Bouton Voir plus */
+        .portfolio-more {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .btn-portfolio {
+            background: transparent;
+            color: var(--blue);
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.7rem 1.8rem;
+            border-radius: 99px;
+            border: 1.5px solid var(--blue);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-portfolio:hover {
+            background: var(--blue-pale);
+            transform: translateY(-2px);
+        }
+
+        .btn-portfolio::after {
+            content: '→';
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .btn-portfolio:hover::after {
+            transform: translateX(3px);
+        }
+
         /* ─── Comparaison ────────────────────────────────────────────────── */
         .compare { background: var(--blue-deep); padding: 4rem 0; }
 
@@ -1194,7 +1231,7 @@
         <a href="/" class="nav-logo">MARIELLE <span>BOUSS</span></a>
         <div class="nav-links">
             <a href="#services">Formules</a>
-            <a href="/portfolio">Portfolio</a>
+            <a href="portfolio.html">Portfolio</a>
             <a href="/a-propos">À propos</a>
             <a href="#process">Comment ça marche</a>
             <a href="#contact">Contact</a>
@@ -1212,7 +1249,7 @@
         </button>
         <div class="mobile-menu-links">
             <a href="#services" class="mobile-link">Formules</a>
-            <a href="/portfolio" class="mobile-link">Portfolio</a>
+            <a href="portfolio.html" class="mobile-link">Portfolio</a>
             <a href="/a-propos" class="mobile-link">À propos</a>
             <a href="#process" class="mobile-link">Comment ça marche</a>
             <a href="#contact" class="mobile-link">Contact</a>
@@ -1415,7 +1452,7 @@
                     <tr><td class="row-label">Design</td><td class="other-val">Templates génériques</td><td class="me-val"><span class="good">Conçu sur mesure pour votre pratique</span></td></tr>
                     <tr><td class="row-label">Maintenance</td><td class="other-val">À gérer soi-même</td><td class="me-val"><span class="good">Je gère tout à votre place</span></td></tr>
                 </tbody>
-            </table>
+             </table>
             <div class="compare-note">
                 <strong>En clair :</strong> avec Wix ou WordPress, vous payez chaque année pour un outil générique. Avec moi, vous investissez une seule fois dans un site pensé pour votre activité.
             </div>
@@ -1428,7 +1465,7 @@
             <div class="section-eyebrow">Réalisations</div>
             <h2 class="section-title">Quelques sites que j'ai créés</h2>
             <div class="portfolio-grid">
-                <a href="/portfolio" class="portfolio-item">
+                <a href="portfolio.html" class="portfolio-item">
                     <div class="portfolio-preview">
                         <img src="fchalutnatal.png" alt="Site vitrine pour psychologue - aperçu">
                     </div>
@@ -1438,9 +1475,9 @@
                         </div>
                     </div>
                 </a>
-                <a href="/portfolio" class="portfolio-item">
+                <a href="portfolio.html" class="portfolio-item">
                     <div class="portfolio-preview">
-                        <img src="espacemb.png" alt="Site vitrine pour massothérapeute - aperçu">
+                        <img src="sitemariellebouss.png" alt="Site vitrine pour creatrice de site - aperçu">
                     </div>
                     <div class="portfolio-info">
                         <div class="portfolio-tags">
@@ -1448,7 +1485,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="/portfolio" class="portfolio-item">
+                <a href="portfolio.html" class="portfolio-item">
                     <div class="portfolio-preview">
                         <img src="espace-mb.com.png" alt="Site vitrine pour coach bien-être - aperçu">
                     </div>
@@ -1458,6 +1495,9 @@
                         </div>
                     </div>
                 </a>
+            </div>
+            <div class="portfolio-more">
+                <a href="portfolio.html" class="btn-portfolio">Voir toutes mes réalisations</a>
             </div>
         </div>
     </section>
