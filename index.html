@@ -319,8 +319,8 @@
             position: absolute;
             top: -15px;
             left: -55px;
-            width: 195px;
-            height: 145px;
+            width: 210px;
+            height: 158px;
             background: #FFFFFF;
             border-radius: 12px;
             box-shadow:
@@ -347,79 +347,208 @@
             width: 6px; height: 6px;
             border-radius: 50%;
             background: #E5DDD0;
+            flex-shrink: 0;
         }
         .hv-browser .bw-bar .dot:nth-child(1) { background: #D17F65; }
         .hv-browser .bw-bar .dot:nth-child(2) { background: #C9A97A; }
         .hv-browser .bw-bar .dot:nth-child(3) { background: #2E86C1; }
         .hv-browser .bw-bar .bw-url {
             flex: 1;
-            height: 8px;
+            height: 9px;
             background: #FFFFFF;
             border-radius: 4px;
             margin-left: 6px;
             border: 1px solid rgba(180, 155, 115, 0.2);
+            display: flex;
+            align-items: center;
+            padding: 0 4px;
+        }
+        .hv-browser .bw-bar .bw-url::before {
+            content: '';
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: #C9A97A;
+            margin-right: 3px;
+            opacity: 0.6;
+        }
+        .hv-browser .bw-bar .bw-url::after {
+            content: '';
+            flex: 1;
+            height: 2.5px;
+            background: #E5DDD0;
+            border-radius: 1.5px;
         }
         .hv-browser .bw-body {
-            padding: 8px 9px 9px;
+            height: calc(100% - 18px);
             display: flex;
             flex-direction: column;
-            gap: 5px;
-            height: calc(100% - 18px);
+            background: #FFFFFF;
+            overflow: hidden;
         }
-        .hv-browser .bw-nav {
+        /* Mini-nav du site vitrine — barres abstraites */
+        .hv-browser .bw-mininav {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 2px;
+            padding: 6px 9px 5px;
+            background: rgba(251, 247, 241, 0.9);
+            border-bottom: 0.5px solid rgba(180, 155, 115, 0.18);
         }
-        .hv-browser .bw-logo {
-            width: 38px; height: 6px;
+        .hv-browser .bw-mn-logo {
+            width: 30px;
+            height: 4px;
             background: #1E2A32;
             border-radius: 2px;
         }
-        .hv-browser .bw-nav-links {
+        .hv-browser .bw-mn-links {
             display: flex;
-            gap: 3px;
+            gap: 4px;
+            align-items: center;
         }
-        .hv-browser .bw-nav-links span {
-            width: 14px; height: 4px;
-            background: #C8B999;
-            border-radius: 2px;
+        .hv-browser .bw-mn-links span {
+            width: 12px;
+            height: 3px;
+            background: #C9A97A;
+            border-radius: 1.5px;
         }
+        .hv-browser .bw-mn-cta {
+            width: 22px;
+            height: 7px;
+            background: #2E86C1;
+            border-radius: 99px;
+            margin-left: 2px;
+        }
+        /* Hero du site vitrine — abstrait */
         .hv-browser .bw-hero {
             flex: 1;
             display: flex;
-            gap: 7px;
+            gap: 8px;
             align-items: stretch;
+            padding: 10px 9px 10px;
+            position: relative;
         }
         .hv-browser .bw-hero-text {
-            flex: 1;
+            flex: 1.1;
             display: flex;
             flex-direction: column;
-            gap: 3px;
-            padding-top: 4px;
+            gap: 4px;
+            padding-top: 2px;
+            position: relative;
+            z-index: 1;
+            min-width: 0;
+        }
+        .hv-browser .bw-eyebrow {
+            width: 36px;
+            height: 3px;
+            background: #C9A97A;
+            border-radius: 1.5px;
+            margin-bottom: 3px;
         }
         .hv-browser .bw-headline {
-            height: 6px;
+            height: 5.5px;
             background: #1E2A32;
             border-radius: 2px;
             width: 90%;
         }
-        .hv-browser .bw-headline.short { width: 60%; background: #2E86C1; }
+        .hv-browser .bw-headline.short {
+            width: 60%;
+            background: #2E86C1;
+        }
         .hv-browser .bw-sub {
             height: 3px;
-            background: #D8CFB8;
-            border-radius: 2px;
+            background: #E5DDD0;
+            border-radius: 1.5px;
             width: 95%;
             margin-top: 2px;
         }
-        .hv-browser .bw-sub.shorter { width: 70%; }
+        .hv-browser .bw-sub.shorter {
+            width: 70%;
+        }
+        .hv-browser .bw-cta-row {
+            display: flex;
+            gap: 5px;
+            margin-top: auto;
+            align-items: center;
+        }
         .hv-browser .bw-btn {
-            margin-top: 6px;
-            width: 44px;
-            height: 12px;
+            width: 36px;
+            height: 10px;
+            background: #1E2A32;
+            border-radius: 99px;
+        }
+        .hv-browser .bw-btn-ghost {
+            width: 24px;
+            height: 3px;
+            background: #C9A97A;
+            border-radius: 1.5px;
+        }
+        .hv-browser .bw-hero-img {
+            flex: 0 0 58px;
+            position: relative;
+            z-index: 1;
+            border-radius: 5px;
+            background:
+                radial-gradient(120% 80% at 40% 20%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 60%),
+                linear-gradient(160deg, #E8D4B0 0%, #C9A97A 55%, #A88758 100%);
+            box-shadow:
+                inset 0 0.5px 0 rgba(255,255,255,0.4),
+                0 2px 6px -1px rgba(30, 50, 80, 0.18);
+            overflow: hidden;
+        }
+        .hv-browser .bw-hero-img::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #3a2e22;
+            opacity: 0.5;
+        }
+        .hv-browser .bw-hero-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 34px;
+            height: 38px;
+            border-radius: 17px 17px 0 0;
+            background: #3a2e22;
+            opacity: 0.5;
+        }
+        /* Bandeau bas — abstrait */
+        .hv-browser .bw-trust {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4px 10px 5px;
+            border-top: 0.5px solid rgba(180, 155, 115, 0.18);
+            background: rgba(232, 220, 195, 0.4);
+            gap: 8px;
+        }
+        .hv-browser .bw-trust span {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+        }
+        .hv-browser .bw-trust span::before {
+            content: '';
+            width: 3px; height: 3px;
+            border-radius: 50%;
             background: #2E86C1;
-            border-radius: 6px;
+            flex-shrink: 0;
+        }
+        .hv-browser .bw-trust span::after {
+            content: '';
+            width: 28px;
+            height: 3px;
+            background: #C9A97A;
+            border-radius: 1.5px;
+            opacity: 0.7;
         }
 
         .hv-phone {
@@ -1106,30 +1235,41 @@
                     <!-- Backdrop organique subtil -->
                     <div class="hv-backdrop"></div>
 
-                    <!-- Maquette navigateur : site web pour thérapeute -->
+                    <!-- Maquette navigateur : aperçu abstrait de site vitrine -->
                     <div class="hv-browser" aria-hidden="true">
-                        <div class="bw-bar" style="background-position: center center">
+                        <div class="bw-bar">
                             <span class="dot"></span>
                             <span class="dot"></span>
                             <span class="dot"></span>
                             <div class="bw-url"></div>
                         </div>
-                        <div class="bw-body" style="padding: 8px 9px 9px; gap: 5px; width: 200px; align-items: stretch; flex-direction: column; justify-content: flex-start">
-                            <div class="bw-nav">
-                                <div class="bw-logo"></div>
-                                <div class="bw-nav-links">
-                                    <span></span><span></span><span></span>
+                        <div class="bw-body">
+                            <div class="bw-mininav">
+                                <div class="bw-mn-logo"></div>
+                                <div class="bw-mn-links">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <div class="bw-mn-cta"></div>
                                 </div>
                             </div>
                             <div class="bw-hero">
                                 <div class="bw-hero-text">
+                                    <div class="bw-eyebrow"></div>
                                     <div class="bw-headline"></div>
                                     <div class="bw-headline short"></div>
                                     <div class="bw-sub"></div>
                                     <div class="bw-sub shorter"></div>
-                                    <div class="bw-btn"></div>
+                                    <div class="bw-cta-row">
+                                        <div class="bw-btn"></div>
+                                        <div class="bw-btn-ghost"></div>
+                                    </div>
                                 </div>
                                 <div class="bw-hero-img"></div>
+                            </div>
+                            <div class="bw-trust">
+                                <span></span>
+                                <span></span>
                             </div>
                         </div>
                     </div>
