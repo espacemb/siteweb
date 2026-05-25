@@ -328,7 +328,7 @@
                 0 18px 36px -10px rgba(30, 50, 80, 0.28),
                 0 8px 16px -4px rgba(30, 50, 80, 0.18);
             --hv-rest: rotate(-7deg) translateY(0);
-            --hv-peak: rotate(-6deg) translateY(-9px);
+            --hv-peak: rotate(-6deg) translateY(-18px);
             animation: hvFloat 6.5s ease-in-out infinite;
             transform: var(--hv-rest);
             overflow: hidden;
@@ -564,7 +564,7 @@
                 0 12px 24px -8px rgba(30, 50, 80, 0.28),
                 0 6px 12px -4px rgba(30, 50, 80, 0.18);
             --hv-rest: rotate(8deg) translateY(0);
-            --hv-peak: rotate(9deg) translateY(-7px);
+            --hv-peak: rotate(9deg) translateY(-16px);
             animation: hvFloat 7.2s ease-in-out infinite 0.6s;
             transform: var(--hv-rest);
             z-index: 7;
@@ -687,7 +687,7 @@
                 0 14px 28px -8px rgba(30, 50, 80, 0.24),
                 0 6px 12px -4px rgba(30, 50, 80, 0.16);
             --hv-rest: rotate(7deg) translateY(0);
-            --hv-peak: rotate(6deg) translateY(-8px);
+            --hv-peak: rotate(6deg) translateY(-17px);
             animation: hvFloat 7.8s ease-in-out infinite 1.2s;
             transform: var(--hv-rest);
             z-index: 6;
@@ -737,7 +737,7 @@
                 0 12px 22px -8px rgba(30, 50, 80, 0.22),
                 0 5px 10px -4px rgba(30, 50, 80, 0.14);
             --hv-rest: rotate(-6deg) translateY(0);
-            --hv-peak: rotate(-5deg) translateY(-6px);
+            --hv-peak: rotate(-5deg) translateY(-15px);
             animation: hvFloat 6.8s ease-in-out infinite 1.8s;
             transform: var(--hv-rest);
             z-index: 7;
@@ -781,7 +781,7 @@
                 0 12px 22px -8px rgba(30, 50, 80, 0.22),
                 0 5px 10px -4px rgba(30, 50, 80, 0.14);
             --hv-rest: rotate(6deg) translateY(0);
-            --hv-peak: rotate(7deg) translateY(-7px);
+            --hv-peak: rotate(7deg) translateY(-16px);
             animation: hvFloat 7.4s ease-in-out infinite 2.4s;
             transform: var(--hv-rest);
             z-index: 6;
@@ -1133,26 +1133,30 @@
 
             /* ── Repositionnement éléments flottants sur mobile ── */
 
-            /* Phone : derrière la photo, légèrement sous l'épaule droite */
+            /* Phone : plus sur la droite */
             .hv-phone {
                 bottom: 260px;
-                right: -30px;
+                right: -50px;
                 z-index: 5;
             }
 
             /* Photo : passe devant le phone */
             .hv-photo { z-index: 6; }
 
-            /* Code : plus visible, décalé vers la gauche */
+            /* Code : plus sur la gauche */
             .hv-code {
-                left: -30px;
+                left: -50px;
                 top: 180px;
                 width: 100px;
             }
 
-            /* Palette : plus visible, décalée vers la droite */
-            .hv-palette {display:none ; }
-          
+            /* Palette : cachée sur mobile */
+            .hv-palette { display: none; }
+
+            /* Browser : plus haut */
+            .hv-browser {
+                top: -60px;
+            }
 
             /* Rating : remonté sur la photo, côté gauche */
             .hv-rating {
