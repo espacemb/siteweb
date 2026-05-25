@@ -424,7 +424,7 @@
 
         .hv-phone {
             position: absolute;
-            bottom: 40px;
+            bottom: 270px;
             right: -28px;
             width: 78px;
             height: 150px;
@@ -595,7 +595,7 @@
         /* Pill ★ note témoignage */
         .hv-rating {
             position: absolute;
-            top: 200px;
+            top: 500px;
             left: -10px;
             background: #FFFFFF;
             border-radius: 99px;
@@ -629,33 +629,6 @@
             line-height: 1;
         }
 
-        /* Badge "sur mesure" / hébergement inclus */
-        .hv-tag {
-            position: absolute;
-            bottom: 50px;
-            left: -28px;
-            background: var(--blue-deep);
-            color: #F0DCB8;
-            border-radius: 99px;
-            padding: 7px 14px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 10px;
-            font-weight: 500;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow:
-                0 12px 22px -8px rgba(13, 63, 97, 0.4),
-                0 5px 10px -4px rgba(13, 63, 97, 0.2);
-            --hv-rest: rotate(-9deg) translateY(0);
-            --hv-peak: rotate(-8deg) translateY(-8px);
-            animation: hvFloat 8s ease-in-out infinite 0.3s;
-            transform: var(--hv-rest);
-            z-index: 7;
-            white-space: nowrap;
-        }
         .hv-tag::before {
             content: '';
             width: 6px;
@@ -668,8 +641,8 @@
         /* Carte d'écriture/code (top milieu — évoque le code/wordpress) */
         .hv-code {
             position: absolute;
-            top: 220px;
-            right: -38px;
+            top: 200px;
+            left: -10px;
             width: 84px;
             background: #FFFFFF;
             border-radius: 10px;
@@ -1026,7 +999,7 @@
             .hero .container { flex-direction: column; gap: 1.5rem; align-items: center; }
             .hero h1       { font-size: 1.8rem; }
             .hero-text     { padding-bottom: 0; }
-            .hero-photo-col  { flex: unset; width: 100%; max-width: 380px; justify-content: center;  margin-top: 5rem; margin-bottom: -1px; }
+            .hero-photo-col  { flex: unset; width: 100%; max-width: 380px; justify-content: center;  margin-top: 4.5rem; margin-bottom: -1px; }
             .hero-visual { width: 380px; height: 460px; transform: scale(0.82); transform-origin: bottom center; }
 
             .cards           { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -1167,9 +1140,6 @@
                         <span class="rt-stars">★★★★★</span>
                         <span class="rt-score">5,0</span>
                     </div>
-
-                    <!-- Badge hébergement inclus (gauche, bas) -->
-                    <div class="hv-tag" aria-hidden="true">Hébergement inclus</div>
 
                     <!-- Photo principale -->
                     <img class="hv-photo" src="marielle-bouss1.png"
