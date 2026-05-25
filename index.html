@@ -1002,6 +1002,38 @@
             .hero-photo-col  { flex: unset; width: 100%; max-width: 380px; justify-content: center;  margin-top: 4.5rem; margin-bottom: -1px; }
             .hero-visual { width: 380px; height: 460px; transform: scale(0.82); transform-origin: bottom center; }
 
+            /* ── Repositionnement éléments flottants sur mobile ── */
+
+            /* Phone : derrière la photo, légèrement sous l'épaule droite */
+            .hv-phone {
+                bottom: 180px;
+                right: 10px;
+                z-index: 5;
+            }
+
+            /* Photo : passe devant le phone */
+            .hv-photo { z-index: 6; }
+
+            /* Code : plus visible, décalé vers la gauche */
+            .hv-code {
+                left: -30px;
+                top: 180px;
+                width: 100px;
+            }
+
+            /* Palette : plus visible, décalée vers la droite */
+            .hv-palette {
+                right: -30px;
+                top: 10px;
+                width: 140px;
+            }
+
+            /* Rating : remonté sur la photo, côté gauche */
+            .hv-rating {
+                top: 300px;
+                left: -15px;
+            }
+
             .cards           { grid-template-columns: 1fr; gap: 1.5rem; }
             .portfolio-grid  { grid-template-columns: 1fr; }
             .section-title   { font-size: 1.6rem; }
